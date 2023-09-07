@@ -7,7 +7,11 @@
 #include "iostream"
 #include "vector"
 #include "../../../vendor/glad/include/glad/glad.h"
+<<<<<<< HEAD
 #include "glm/glm.hpp"
+=======
+#include "../../../vendor/glm/glm.hpp"
+>>>>>>> origin/main
 namespace VectorVertex {
     struct GLVertex {
         glm::vec3 position;
