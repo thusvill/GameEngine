@@ -1,0 +1,8 @@
+//
+// Created by bios on 9/6/23.
+//
+
+#ifndef GAMEENGINE_VECTORVERTEX_H
+#define GAMEENGINE_VECTORVERTEX_H
+
+#endif //GAMEENGINE_VECTORVERTEX_H
