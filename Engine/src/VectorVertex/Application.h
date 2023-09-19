@@ -5,6 +5,7 @@
 #ifndef GAMEENGINE_APPLICATION_H
 #define GAMEENGINE_APPLICATION_H
 
+#include "Core.h"
 namespace VectorVertex {
     class Application {
     public:
@@ -14,6 +15,8 @@ namespace VectorVertex {
         void Run();
 
     };
+    // To be defined in CLIENT
+    Application* CreateApplication();
 }
 
 

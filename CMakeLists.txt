@@ -10,4 +10,4 @@ target_include_directories(glad PUBLIC Engine/vendor/glad/include)
 
 find_package(glm REQUIRED)
 
-target_link_libraries(GameEngine PRIVATE glad glfw)
+target_link_libraries(GameEngine PRIVATE glad glfw fmt)

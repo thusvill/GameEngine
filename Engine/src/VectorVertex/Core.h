@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <dlfcn.h>
+#include "../Core/Log.h"
+#include "Application.h"
 
 #define LOAD_LIBRARY_AND_SYMBOLS(libname, libhandle, symbol_type, symbol, symbol_var) \
     do {                                                                             \

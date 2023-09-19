@@ -1,0 +1,1 @@
+/usr/bin/make -f /home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/Makefile -C /home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug

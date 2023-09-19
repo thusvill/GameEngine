@@ -1,4 +1,0 @@
-/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles/GameEngine.dir
-/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles/glad.dir
-/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles/rebuild_cache.dir

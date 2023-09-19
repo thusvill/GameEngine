@@ -1,5 +1,20 @@
 #include "../../Engine/src/VectorVertex/VectorVertex.h"
-#include "iostream"
+
+class SandBox: public VectorVertex::Application{
+public:
+    SandBox(){
+        VV_WARN("Client Started!");
+
+    }
+    ~SandBox(){
+
+    }
+};
+
+VectorVertex::Application* VectorVertex::CreateApplication() {
+    return new SandBox();
+}
+
 int main(){
-    std::cout<<"Welcome to Vector Vertex Engine!"<<std::endl;
+
 }

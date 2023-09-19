@@ -18,10 +18,10 @@ namespace VectorVertex{
         throw(errno);
     }
 
-    GLShader::GLShader(const char *vertexFile, const char *fragmentFile, const char* geometryFile) {
-        std::string vertexCode = get_file_contents(vertexFile);
-        std::string fragmentCode = get_file_contents(fragmentFile);
-        std::string geometryCode = get_file_contents(geometryFile);
+    GLShader::GLShader(const std::string& vertexFile,const std::string& fragmentFile,const std::string& geometryFile) {
+        std::string vertexCode = get_file_contents(vertexFile.c_str());
+        std::string fragmentCode = get_file_contents(fragmentFile.c_str());
+        std::string geometryCode = get_file_contents(geometryFile.c_str());
 
         const char* vertexSource = vertexCode.c_str();
         const char* fragmentSource = fragmentCode.c_str();
@@ -57,11 +57,15 @@ namespace VectorVertex{
 
     }
 
-    void GLShader::Activate() {
+    GLShader::~GLShader(){
+        Delete();
+    }
+
+    void GLShader::Activate() const {
         glUseProgram(ID);
     }
 
-    void GLShader::Delete() {
+    void GLShader::Delete() const{
         glDeleteProgram(ID);
     }
 

@@ -1,0 +1,1 @@
+cd cmake-build-debug && echo "Cleaning... " && rm -rf * && echo "Running CMAKE..." && cmake .. && cd .. && sh ./run.sh

@@ -4,5 +4,6 @@
 
 #ifndef GAMEENGINE_VECTORVERTEX_H
 #define GAMEENGINE_VECTORVERTEX_H
-
+#include "Core.h"
+#include "iostream"
 #endif //GAMEENGINE_VECTORVERTEX_H

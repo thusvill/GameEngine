@@ -6,6 +6,7 @@
 
 namespace VectorVertex{
     Application::Application() {
+        VV_CORE_INFO("Application Started");
 
     }
     Application::~Application() {
