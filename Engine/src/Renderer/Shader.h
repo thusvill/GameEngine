@@ -18,7 +18,6 @@ namespace VectorVertex {
         virtual void Delete() const = 0;
 
         static Ref<Shader> Create(const std::string &vertexFile,const std::string &fragmentFile,const std::string &geometryFile);
-
     };
 }
 

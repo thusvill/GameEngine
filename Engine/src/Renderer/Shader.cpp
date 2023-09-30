@@ -9,10 +9,10 @@ namespace VectorVertex{
     Ref<Shader>
     Shader::Create(const std::string &vertexFile, const std::string &fragmentFile, const std::string &geometryFile) {
         switch (RenderAPI::GetAPI()) {
-            case RenderAPI::API::None: std::cout<<"VectorVertex is currently not support for nonGraphicsAPI!"<<std::endl; return nullptr;
+            case RenderAPI::API::None: VV_CORE_WARN("VectorVertex is currently not support for nonGraphicsAPI!"); return nullptr;
             case RenderAPI::API::OpenGL: return CreateRef<GLShader>(vertexFile,fragmentFile,geometryFile);
         }
-        std::cout<<"Unknown RendererAPI!"<<std::endl;
+        VV_CORE_ERROR("Unknown RendererAPI!");
         return nullptr;
     }
 }

@@ -46,6 +46,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/GameEngine.dir/DependInfo.cmake"
+  "CMakeFiles/VectorVertex.dir/DependInfo.cmake"
   "CMakeFiles/glad.dir/DependInfo.cmake"
   )

@@ -6,14 +6,19 @@
 
 namespace VectorVertex{
     Application::Application() {
-        VV_CORE_INFO("Application Started");
 
     }
     Application::~Application() {
+    }
+
+    void Application::OnStart() {
+        VV_CORE_WARN("Started!");
+        RenderAPI::SetAPI(RenderAPI::API::OpenGL);
 
     }
 
     void Application::Run() {
         while (true);
     }
+
 }
