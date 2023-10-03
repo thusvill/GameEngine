@@ -6,6 +6,10 @@
 #define GAMEENGINE_BASE_H
 #include "iostream"
 #include "memory"
+#include "vector"
+#include "PlattformDetection.h"
+
+#define VV_DEBUG true
 
 namespace VectorVertex{
     template<typename T>

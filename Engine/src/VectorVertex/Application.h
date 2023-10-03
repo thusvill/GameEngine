@@ -7,13 +7,31 @@
 
 #include "Core.h"
 #include "../Core/Log.h"
+#include "../Renderer/RenderAPI.h"
+#include "../Core/Window.h"
+
+struct ApplicationSpecs{
+    std::string Name = "VV App";
+    std::string WorkingDirectory;
+};
+
 namespace VectorVertex {
     class Application {
     public:
-        Application();
+        Application(const ApplicationSpecs& specs);
+
         virtual ~Application();
+
+        void PushLayer(Layer* layer);
+        void PushOverlay(Layer* layer);
         virtual void OnStart();
         void Run();
+
+        const ApplicationSpecs GetApplicationSpecificatons() const {return m_AppSpecs;}
+    private:
+        ApplicationSpecs m_AppSpecs;
+        Scope<Window> m_Window;
+        LayerStack m_LayerStack;
 
     };
     // To be defined in CLIENT
