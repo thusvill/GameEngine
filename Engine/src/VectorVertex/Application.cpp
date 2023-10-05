@@ -11,6 +11,9 @@ namespace VectorVertex{
         if(!s_Instance) {
             s_Instance = this;
         }
+        m_ImGuiLayer = new ImguiLayer();
+        PushOverlay(m_ImGuiLayer);
+
     }
     Application::~Application() {
     }
@@ -22,6 +25,9 @@ namespace VectorVertex{
 
     void Application::PushOverlay(VectorVertex::Layer *layer) {
         m_LayerStack.PushOverlay(layer);
+#if defined(VV_DEBUG)
+        VV_CORE_INFO("PushingOverlay");
+#endif
         layer->OnAttach();
     }
 
@@ -33,11 +39,20 @@ namespace VectorVertex{
     void Application::Run() {
         while (true){
 
-            for(Layer* layer : m_LayerStack){
-                layer->OnUpdate();
-                m_Window->OnUpdate();
-                m_Window->OnRender();
+            {
+                for (Layer *layer: m_LayerStack) {
+                    layer->OnUpdate();
+
+                    m_Window->OnUpdate();
+                    m_Window->OnRender();
+                }
             }
+            m_ImGuiLayer->Begin();
+            {
+                for (Layer* layer : m_LayerStack)
+                    layer->OnImGuiRender();
+            }
+            m_ImGuiLayer->End();
         }
     }
 

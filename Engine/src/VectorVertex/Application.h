@@ -10,6 +10,7 @@
 #include "../Renderer/RenderAPI.h"
 #include "../Core/Window.h"
 #include "../Core/LayerStack.h"
+#include "../ImGuiLayer/ImguiLayer.h"
 
 struct ApplicationSpecs{
     std::string Name = "VV App";
@@ -28,9 +29,11 @@ namespace VectorVertex {
         virtual void OnStart();
         void Run();
 
-        const ApplicationSpecs GetApplicationSpecificatons() const {return m_AppSpecs;}
+        ImguiLayer* GetImGuiLayer()  {return m_ImGuiLayer;}
+        ApplicationSpecs GetApplicationSpecificatons()  {return m_AppSpecs;}
         static Application& Get() { return *s_Instance; }
         Window& GetWindow() { return *m_Window; }
+        ImguiLayer* m_ImGuiLayer;
     private:
         ApplicationSpecs m_AppSpecs;
         Scope<Window> m_Window;

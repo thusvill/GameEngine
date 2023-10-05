@@ -4,7 +4,7 @@
 
 #ifndef GAMEENGINE_CORE_H
 #define GAMEENGINE_CORE_H
-
+#pragma once
 #include <iostream>
 #include <dlfcn.h>
 

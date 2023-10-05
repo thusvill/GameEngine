@@ -8,7 +8,15 @@ public:
     }
     virtual void OnUpdate() override{
     }
+    virtual void OnImGuiRender() override;
 };
+
+void NewLayer::OnImGuiRender() {
+    ImGui::Begin("test");
+    ImGui::End();
+    ImGui::ShowDemoWindow();
+}
+
 
 class SandBox: public VectorVertex::Application{
 public:
@@ -39,5 +47,4 @@ int main(int argc, char** argv) {
     delete app;
     return 0;
 }
-
 
