@@ -32,11 +32,16 @@ namespace VectorVertex {
 
         if (s_GLFWWindowCount == 0)
         {
-            int success = glfwInit();
+
             glfwSetErrorCallback(GLFWErrorCallback);
+            if (!glfwInit())
+            {
+                VV_CORE_ERROR("Failed to initialize GLFW in LinuxWindow.cpp");
+                return;
+            }
         }
 
-        {
+
 
 #if defined(VV_DEBUG)
             if (RenderAPI::GetAPI() == RenderAPI::API::OpenGL)
@@ -44,13 +49,14 @@ namespace VectorVertex {
 #endif
             m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
             ++s_GLFWWindowCount;
-        }
+
+        VV_CORE_INFO("Window Created: {0}", props.Title);
 
         m_Context = GraphicsContext::Create(m_Window);
         m_Context->Init();
 
         glfwSetWindowUserPointer(m_Window, &m_Data);
-        SetVSync(true);
+        SetVSync(false);
 
 
     }
@@ -58,6 +64,7 @@ namespace VectorVertex {
     void LinuxWindow::Shutdown()
     {
         glfwDestroyWindow(m_Window);
+        VV_CORE_INFO("Destroyed {0}", m_Data.Title);
         --s_GLFWWindowCount;
 
         if (s_GLFWWindowCount == 0)
@@ -68,8 +75,24 @@ namespace VectorVertex {
 
     void LinuxWindow::OnUpdate()
     {
-        glfwPollEvents();
-        m_Context->SwapBuffers();
+        if (s_GLFWWindowCount == 0)
+        {
+            VV_CORE_ERROR("GLFW is not initialized. Cannot proceed.");
+            return;
+        }
+
+        if (!glfwWindowShouldClose(m_Window))
+        {
+            // Render here
+
+            glfwPollEvents();
+            m_Context->SwapBuffers();
+        }
+        else
+        {
+            // Window should close, clean up
+            Shutdown();
+        }
     }
 
     void LinuxWindow::SetVSync(bool enabled)

@@ -7,6 +7,7 @@
 #include "../../Renderer/GraphicsContext.h"
 #include "../../Core/Window.h"
 #include "../../Core/Base.h"
+#include "../../../vendor/glad/include/glad/glad.h"
 #include "GLFW/glfw3.h"
 
 namespace VectorVertex {
@@ -24,7 +25,7 @@ namespace VectorVertex {
         bool IsVSync() const override;
 
         virtual void* GetNativeWindow() const { return m_Window; }
-    private:
+
         virtual void Init(const WindowProps& props);
         virtual void Shutdown();
     private:

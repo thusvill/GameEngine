@@ -20,9 +20,7 @@ public:
     }
 };
 
-VectorVertex::Application* VectorVertex::CreateApplication() {
-    ApplicationSpecs specs;
-    specs.Name = "Vector Vertex";
+VectorVertex::Application* VectorVertex::CreateApplication(ApplicationSpecs& specs) {
     return new SandBox(specs);
 }
 
@@ -30,8 +28,11 @@ VectorVertex::Application* VectorVertex::CreateApplication() {
 int main(int argc, char** argv) {
     //StartDebugging
     VectorVertex::Log::Init();
-    auto app = VectorVertex::CreateApplication();
+    ApplicationSpecs m_Specs;
+    m_Specs.Name = "VV";
+    auto app = VectorVertex::CreateApplication(m_Specs);
     VV_INFO("Started!");
+    VectorVertex::RenderAPI::SetAPI(VectorVertex::RenderAPI::API::OpenGL);
     app->OnStart();
     app->Run();
     delete app;

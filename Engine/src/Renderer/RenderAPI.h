@@ -34,7 +34,7 @@ namespace VectorVertex {
             VV_CORE_WARN("Render API changed to : {}", ApiToString(m_RenderAPI));
         }
     public:
-        inline static API GetAPI() {return m_RenderAPI;}
+        inline static API GetAPI() { return m_RenderAPI;}
 
     private:
         static API m_RenderAPI;

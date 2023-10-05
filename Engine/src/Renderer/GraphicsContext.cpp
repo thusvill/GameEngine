@@ -11,7 +11,13 @@ namespace VectorVertex {
         switch (RenderAPI::GetAPI())
         {
             case RenderAPI::API::None:  return nullptr;
-            case RenderAPI::API::OpenGL:  return CreateScope<OpenGLContext>(static_cast<GLFWwindow*>(window));
+            case RenderAPI::API::OpenGL:  if(window!=NULL){
+                return CreateScope<OpenGLContext>(static_cast<GLFWwindow*>(window));
+            }
+                else{
+                    VV_CORE_ERROR("[GraphicsContext.cpp] NULL Window");
+                    return nullptr;
+                }
         }
 
         VV_CORE_ERROR("Unknown RendererAPI!");

@@ -8,8 +8,19 @@
 #include "memory"
 #include "vector"
 #include "PlattformDetection.h"
+#include "ErrorDetection.h"
+
 
 #define VV_DEBUG true
+
+#define CHECK_OPENGL_ERROR() \
+    do { \
+        GLenum error = glGetError(); \
+        if (error != GL_NO_ERROR) { \
+            VV_CORE_ERROR("OpenGL error: {0}", error); \
+        } \
+    } while (false)
+
 
 namespace VectorVertex{
     template<typename T>

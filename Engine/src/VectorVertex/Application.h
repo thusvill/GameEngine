@@ -35,7 +35,7 @@ namespace VectorVertex {
 
     };
     // To be defined in CLIENT
-    Application* CreateApplication();
+    Application* CreateApplication(ApplicationSpecs& specs);
 }
 
 #endif //GAMEENGINE_APPLICATION_H
