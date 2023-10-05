@@ -21,7 +21,7 @@ namespace VectorVertex {
             ImGui_ImplGlfw_InitForOpenGL(window, true);
 
             // Initialize ImGui for OpenGL
-            ImGui_ImplOpenGL3_Init("#version 430");
+            ImGui_ImplOpenGL3_Init("#version 330 core");
 
             // Set the flag to true to indicate initialization
             initializedImGui = true;
@@ -52,7 +52,7 @@ namespace VectorVertex {
 
 
         // Setup Dear ImGui style
-        SetDarkThemeColors();
+        //SetDarkThemeColors();
         //ImGui::StyleColorsClassic();
 
         // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
@@ -80,6 +80,10 @@ namespace VectorVertex {
 
         if (ImGui::GetCurrentContext() == nullptr) {
             VV_CORE_CRITICAL("ImGui Context not found!");
+            return;
+        }
+        if(!initializedImGui){
+            VV_CORE_ERROR("Imgui Plattform not Initilized");
             return;
         }
 
@@ -142,5 +146,7 @@ namespace VectorVertex {
         {
             return GImGui->ActiveId;
         }
+
+
 
 } // VectorVertex

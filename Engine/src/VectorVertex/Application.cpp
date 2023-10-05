@@ -42,9 +42,6 @@ namespace VectorVertex{
             {
                 for (Layer *layer: m_LayerStack) {
                     layer->OnUpdate();
-
-                    m_Window->OnUpdate();
-                    m_Window->OnRender();
                 }
             }
             m_ImGuiLayer->Begin();
@@ -53,6 +50,8 @@ namespace VectorVertex{
                     layer->OnImGuiRender();
             }
             m_ImGuiLayer->End();
+            m_Window->OnRender();
+            m_Window->OnUpdate();
         }
     }
 

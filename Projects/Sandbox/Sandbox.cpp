@@ -13,6 +13,7 @@ public:
 
 void NewLayer::OnImGuiRender() {
     ImGui::Begin("test");
+    ImGui::Text("VectorVertex");
     ImGui::End();
     ImGui::ShowDemoWindow();
 }
