@@ -6,4 +6,6 @@
 #define GAMEENGINE_VECTORVERTEX_H
 #include "Core.h"
 #include "iostream"
+
+#include "../Core/ImGuiLayer/ImguiLayer.h"
 #endif //GAMEENGINE_VECTORVERTEX_H

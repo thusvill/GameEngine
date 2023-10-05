@@ -78,21 +78,28 @@ namespace VectorVertex {
         if (s_GLFWWindowCount == 0)
         {
             VV_CORE_ERROR("GLFW is not initialized. Cannot proceed.");
+            std::exit(0);
             return;
         }
 
+        glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
         if (!glfwWindowShouldClose(m_Window))
         {
-            // Render here
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            Window::OnRender();
 
             glfwPollEvents();
             m_Context->SwapBuffers();
         }
         else
         {
-            // Window should close, clean up
             Shutdown();
         }
+    }
+
+    void LinuxWindow::OnRender() {
+
     }
 
     void LinuxWindow::SetVSync(bool enabled)

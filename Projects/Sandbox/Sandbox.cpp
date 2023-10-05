@@ -1,6 +1,6 @@
 #include "../../Engine/src/VectorVertex/VectorVertex.h"
 
-class NewLayer : public  VectorVertex::Layer{
+class NewLayer : public  VectorVertex::Layer {
 public:
     NewLayer(): Layer("NewLayer"){}
     virtual void OnAttach() override{
@@ -14,6 +14,7 @@ class SandBox: public VectorVertex::Application{
 public:
     SandBox(const ApplicationSpecs& specifications): VectorVertex::Application(specifications) {
         PushLayer(new NewLayer());
+
     }
     ~SandBox(){
 

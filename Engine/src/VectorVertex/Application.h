@@ -9,6 +9,7 @@
 #include "../Core/Log.h"
 #include "../Renderer/RenderAPI.h"
 #include "../Core/Window.h"
+#include "../Core/LayerStack.h"
 
 struct ApplicationSpecs{
     std::string Name = "VV App";
@@ -28,10 +29,13 @@ namespace VectorVertex {
         void Run();
 
         const ApplicationSpecs GetApplicationSpecificatons() const {return m_AppSpecs;}
+        static Application& Get() { return *s_Instance; }
+        Window& GetWindow() { return *m_Window; }
     private:
         ApplicationSpecs m_AppSpecs;
         Scope<Window> m_Window;
         LayerStack m_LayerStack;
+        static Application* s_Instance;
 
     };
     // To be defined in CLIENT

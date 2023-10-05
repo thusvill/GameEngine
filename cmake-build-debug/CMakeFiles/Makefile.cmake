@@ -48,4 +48,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/VectorVertex.dir/DependInfo.cmake"
   "CMakeFiles/glad.dir/DependInfo.cmake"
+  "CMakeFiles/imgui.dir/DependInfo.cmake"
   )

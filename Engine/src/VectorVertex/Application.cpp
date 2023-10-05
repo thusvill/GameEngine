@@ -5,9 +5,12 @@
 #include "Application.h"
 
 namespace VectorVertex{
+    Application* Application::s_Instance = nullptr;
     Application::Application(const ApplicationSpecs &specs): m_AppSpecs(specs) {
         m_Window = Window::Create(WindowProps(m_AppSpecs.Name));
-
+        if(!s_Instance) {
+            s_Instance = this;
+        }
     }
     Application::~Application() {
     }
@@ -33,12 +36,25 @@ namespace VectorVertex{
             for(Layer* layer : m_LayerStack){
                 layer->OnUpdate();
                 m_Window->OnUpdate();
+                m_Window->OnRender();
             }
         }
     }
 
     void Window::OnUpdate() {
         VV_CORE_INFO("GL Window Started!");
+    }
+
+    void Window::OnRender() {
+// Draw a triangle
+        glBegin(GL_TRIANGLES);
+        glColor3f(1.0f, 0.0f, 0.0f);   // Red
+        glVertex2f(0.0f, 0.5f);         // Top
+        glColor3f(0.0f, 1.0f, 0.0f);   // Green
+        glVertex2f(-0.5f, -0.5f);       // Bottom left
+        glColor3f(0.0f, 0.0f, 1.0f);   // Blue
+        glVertex2f(0.5f, -0.5f);        // Bottom right
+        glEnd();
     }
 
 }

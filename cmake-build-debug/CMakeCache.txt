@@ -245,6 +245,9 @@ VectorVertex_SOURCE_DIR:STATIC=/home/bios/CLionProjects/GameEngine/GameEngine
 //The directory containing a CMake configuration file for glm.
 glm_DIR:PATH=/usr/lib/cmake/glm
 
+//The directory containing a CMake configuration file for imgui.
+imgui_DIR:PATH=imgui_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
