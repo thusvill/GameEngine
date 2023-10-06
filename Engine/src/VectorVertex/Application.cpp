@@ -7,10 +7,14 @@
 namespace VectorVertex{
     Application* Application::s_Instance = nullptr;
     Application::Application(const ApplicationSpecs &specs): m_AppSpecs(specs) {
-        m_Window = Window::Create(WindowProps(m_AppSpecs.Name));
+
         if(!s_Instance) {
             s_Instance = this;
+        }else{
+            VV_CORE_ERROR("Application already exists!");
+            return;
         }
+        m_Window = Window::Create(WindowProps(m_AppSpecs.Name));
         m_ImGuiLayer = new ImguiLayer();
         PushOverlay(m_ImGuiLayer);
 
@@ -37,30 +41,48 @@ namespace VectorVertex{
     }
 
     void Application::Run() {
+
         while (true){
 
+
+            if(!m_ImGuiLayer){
+                VV_CORE_ERROR("ImGui Layer not found!");
+                return;
+            }
             {
-                for (Layer *layer: m_LayerStack) {
-                    layer->OnUpdate();
+                glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
+                glClear(GL_COLOR_BUFFER_BIT);
+                m_Window->OnRender();
+                m_ImGuiLayer->Begin();
+                //ShowDockSpace
+                if(DockSpaceEnabled) {
+                    m_ImGuiLayer->ShowDockSpace(nullptr);
                 }
+                {
+                    for (Layer *layer: m_LayerStack)
+                        layer->OnImGuiRender();
+                }
+                {
+                    for (Layer *layer: m_LayerStack) {
+                        layer->OnUpdate();
+                    }
+                }
+                m_ImGuiLayer->End();
+                m_Window->OnUpdate();
+
             }
-            m_ImGuiLayer->Begin();
-            {
-                for (Layer* layer : m_LayerStack)
-                    layer->OnImGuiRender();
-            }
-            m_ImGuiLayer->End();
-            m_Window->OnRender();
-            m_Window->OnUpdate();
+
         }
     }
 
     void Window::OnUpdate() {
-        VV_CORE_INFO("GL Window Started!");
     }
 
     void Window::OnRender() {
+
 // Draw a triangle
+
+
         glBegin(GL_TRIANGLES);
         glColor3f(1.0f, 0.0f, 0.0f);   // Red
         glVertex2f(0.0f, 0.5f);         // Top

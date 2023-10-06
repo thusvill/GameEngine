@@ -82,15 +82,12 @@ namespace VectorVertex {
             return;
         }
 
-        glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
+
         if (!glfwWindowShouldClose(m_Window))
         {
-            glClear(GL_COLOR_BUFFER_BIT);
 
-            Window::OnRender();
-
-            glfwPollEvents();
             m_Context->SwapBuffers();
+            glfwPollEvents();
         }
         else
         {
@@ -99,7 +96,7 @@ namespace VectorVertex {
     }
 
     void LinuxWindow::OnRender() {
-
+        Window::OnRender();
     }
 
     void LinuxWindow::SetVSync(bool enabled)

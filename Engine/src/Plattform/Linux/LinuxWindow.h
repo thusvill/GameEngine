@@ -26,6 +26,7 @@ namespace VectorVertex {
         bool IsVSync() const override;
 
         virtual void* GetNativeWindow() const { return m_Window; }
+        virtual GLFWwindow* GetWindow() {return m_Window;}
 
         virtual void Init(const WindowProps& props);
         virtual void Shutdown();

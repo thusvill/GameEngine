@@ -31,9 +31,12 @@ namespace VectorVertex {
 
         ImguiLayer* GetImGuiLayer()  {return m_ImGuiLayer;}
         ApplicationSpecs GetApplicationSpecificatons()  {return m_AppSpecs;}
-        static Application& Get() { return *s_Instance; }
+        static Application& Get() { if(s_Instance){ return *s_Instance; }else{ VV_CORE_ERROR("No Application Found!");}}
         Window& GetWindow() { return *m_Window; }
+        LayerStack GetLayerStack() {return m_LayerStack;}
         ImguiLayer* m_ImGuiLayer;
+        bool DockSpaceEnabled = true;
+        bool ExternalViewpoertsEnabled = false;
     private:
         ApplicationSpecs m_AppSpecs;
         Scope<Window> m_Window;

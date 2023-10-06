@@ -39,11 +39,10 @@ namespace VectorVertex {
 
 #if defined(VV_DEBUG)
         VV_CORE_INFO("GLFW made context!");
-//TODO: Solve Error Above (VV_CORE_INFO things!)
-        VV_CORE_INFO("OpenGL Info:");
-        VV_CORE_INFO("  Vendor: {0}", glGetString(GL_VENDOR));
-        VV_CORE_INFO("  Renderer: {0}", glGetString(GL_RENDERER));
-        VV_CORE_INFO("  Version: {0}", glGetString(GL_VERSION));
+        VV_CORE_WARN("OpenGL Info:");
+        VV_CORE_WARN("  Vendor: {0}", glGetString(GL_VENDOR));
+        VV_CORE_WARN("  Renderer: {0}", glGetString(GL_RENDERER));
+        VV_CORE_WARN("  Version: {0}", glGetString(GL_VERSION));
 #endif
     }
 

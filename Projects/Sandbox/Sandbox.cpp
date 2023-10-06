@@ -3,19 +3,24 @@
 class NewLayer : public  VectorVertex::Layer {
 public:
     NewLayer(): Layer("NewLayer"){}
-    virtual void OnAttach() override{
-        VV_INFO("Layer Attached!");
-    }
-    virtual void OnUpdate() override{
-    }
     virtual void OnImGuiRender() override;
 };
 
 void NewLayer::OnImGuiRender() {
-    ImGui::Begin("test");
-    ImGui::Text("VectorVertex");
+    //ImGui::ShowDemoWindow();
+
+    ImGui::Begin("Info");
+    ImGui::Text("VectorVertex Engine V1.0");
+    ImGui::SeparatorText("OpenGL Informations");
+    ImGui::Text("  Vendor: %s", glGetString(GL_VENDOR));
+    ImGui::Text("  Renderer: %s", glGetString(GL_RENDERER));
+    ImGui::Text("  Version: %s", glGetString(GL_VERSION));
     ImGui::End();
-    ImGui::ShowDemoWindow();
+
+    ImGui::Begin("Controls");
+    ImGui::Checkbox("External Windows", &VectorVertex::Application::Get().ExternalViewpoertsEnabled);
+    ImGui::Checkbox("Dock Space", &VectorVertex::Application::Get().DockSpaceEnabled);
+    ImGui::End();
 }
 
 
@@ -41,6 +46,8 @@ int main(int argc, char** argv) {
     ApplicationSpecs m_Specs;
     m_Specs.Name = "VV";
     auto app = VectorVertex::CreateApplication(m_Specs);
+    //app->DockSpaceEnabled = false;
+    app->ExternalViewpoertsEnabled = false;
     VV_INFO("Started!");
     VectorVertex::RenderAPI::SetAPI(VectorVertex::RenderAPI::API::OpenGL);
     app->OnStart();
