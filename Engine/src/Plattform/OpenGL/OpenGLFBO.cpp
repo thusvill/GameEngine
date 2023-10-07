@@ -92,7 +92,4 @@ namespace VectorVertex{
         glViewport(0, 0, screenWidth, screenHeight);
     }
 
-    GLuint OpenGLFBO::GetTexture() const {
-        return textureID;
-    }
 }

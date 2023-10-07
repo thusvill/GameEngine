@@ -8,7 +8,7 @@
 #include "vector"
 #include "../../../vendor/glad/include/glad/glad.h"
 
-namespace VectorVertex {
+namespace VectorVertex{
     class OpenGLEBO {
     public:
         GLuint ID;

@@ -5,20 +5,18 @@
 #include "OpenGLCamera.h"
 
 namespace VectorVertex{
-    OpenGLCamera::OpenGLCamera(int width, int height, glm::vec3 position, float newfov, float newnp, float newfp):farPlane(newfp),nearPlane(newnp),fov(newfov){
-        OpenGLCamera::width = width;
-        OpenGLCamera::height = height;
-        Position = position;
+    OpenGLCamera::OpenGLCamera(CameraProperties props){
+        m_CameraProperties = props;
     }
 
     void OpenGLCamera::Resize(int n_width, int n_height) {
-        width  =n_width;
-        height = n_height;
+        m_CameraProperties.width  =n_width;
+        m_CameraProperties.height = n_height;
         updateMatrix();
     }
 
-    void OpenGLCamera::SetCameraMode(OpenGLCamera::CamMode newMode) {
-        mode = newMode;
+    void OpenGLCamera::SetCameraMode(VectorVertex::CamMode newMode) {
+        m_CameraProperties.mode = newMode;
         updateMatrix();
     }
 
@@ -29,54 +27,54 @@ namespace VectorVertex{
         glm::mat4 view = glm::mat4(1.0f);
         glm::mat4 projection = glm::mat4(1.0f);
 
-        view = glm::lookAt(Position, Position + Orientation, Up);
-        if(mode == CamMode::Perspective){
-            projection = glm::perspective(glm::radians(fov), (float)(width/height), nearPlane, farPlane);
-        }else if(mode == CamMode::Orthographic){
-            projection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, nearPlane, farPlane);
+        view = glm::lookAt(m_CameraProperties.Position, m_CameraProperties.Position + m_CameraProperties.Orientation, m_CameraProperties.Up);
+        if(m_CameraProperties.mode == CamMode::Perspective){
+            projection = glm::perspective(glm::radians(m_CameraProperties.fov), (float)(m_CameraProperties.width/m_CameraProperties.height), m_CameraProperties.nearPlane, m_CameraProperties.farPlane);
+        }else if(m_CameraProperties.mode == CamMode::Orthographic){
+            projection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, m_CameraProperties.nearPlane, m_CameraProperties.farPlane);
         }
 
-        cameraMatrix  = projection * view;
+        m_CameraProperties.cameraMatrix  = projection * view;
 
     }
 
 
     void OpenGLCamera::Matrix(GLShader &shader, const char *uniform) {
-        glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform),1 , GL_FALSE, glm::value_ptr(cameraMatrix));
+        glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform),1 , GL_FALSE, glm::value_ptr(m_CameraProperties.cameraMatrix));
     }
 
 
     void OpenGLCamera::Inputs(GLFWwindow* window) {
-        if(enableControl) {
+        if(m_CameraProperties.enableControl) {
             // Handles key inputs
             if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-                Position += current_speed * Orientation;
+                m_CameraProperties.Position += current_speed * m_CameraProperties.Orientation;
 
             }
             if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-                Position += current_speed * -glm::normalize(glm::cross(Orientation, Up));
+                m_CameraProperties.Position += current_speed * -glm::normalize(glm::cross(m_CameraProperties.Orientation, m_CameraProperties.Up));
 
             }
             if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-                Position += current_speed * -Orientation;
+                m_CameraProperties.Position += current_speed * -m_CameraProperties.Orientation;
 
             }
             if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-                Position += current_speed * glm::normalize(glm::cross(Orientation, Up));
+                m_CameraProperties.Position += current_speed * glm::normalize(glm::cross(m_CameraProperties.Orientation, m_CameraProperties.Up));
 
             }
             if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
-                Position += current_speed * Up;
+                m_CameraProperties.Position += current_speed * m_CameraProperties.Up;
 
             }
             if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
-                Position += current_speed * -Up;
+                m_CameraProperties.Position += current_speed * -m_CameraProperties.Up;
 
             }
             if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
-                current_speed = speed * 4;
+                current_speed = m_CameraProperties.speed * 4;
             } else if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE) {
-                current_speed = speed;
+                current_speed = m_CameraProperties.speed;
             }
 
 
@@ -88,7 +86,7 @@ namespace VectorVertex{
 
                 // Prevents camera from jumping on the first click
                 if (firstClick) {
-                    glfwSetCursorPos(window, (width / 2), (height / 2));
+                    glfwSetCursorPos(window, (m_CameraProperties.width / 2), (m_CameraProperties.height / 2));
                     firstClick = false;
                 }
 
@@ -100,24 +98,24 @@ namespace VectorVertex{
 
                 // Normalizes and shifts the coordinates of the cursor such that they begin in the middle of the screen
                 // and then "transforms" them into degrees
-                float rotX = sensitivity * (float) (mouseY - (height / 2)) / height;
-                float rotY = sensitivity * (float) (mouseX - (width / 2)) / width;
+                float rotX = m_CameraProperties.sensitivity * (float) (mouseY - (m_CameraProperties.height / 2)) / m_CameraProperties.height;
+                float rotY = m_CameraProperties.sensitivity * (float) (mouseX - (m_CameraProperties.width / 2)) / m_CameraProperties.width;
 
-                // Calculates upcoming vertical change in the Orientation
-                glm::vec3 newOrientation = glm::rotate(Orientation, glm::radians(-rotX),
-                                                       glm::normalize(glm::cross(Orientation, Up)));
+                // Calculates upcoming vertical change in the m_CameraProperties.Orientation
+                glm::vec3 newOrientation = glm::rotate(m_CameraProperties.Orientation, glm::radians(-rotX),
+                                                       glm::normalize(glm::cross(m_CameraProperties.Orientation, m_CameraProperties.Up)));
 
-                // Decides whether or not the next vertical Orientation is legal or not
-                if (abs(glm::angle(newOrientation, Up) - glm::radians(90.0f)) <= glm::radians(85.0f)) {
-                    Orientation = newOrientation;
+                // Decides whether or not the next vertical m_CameraProperties.Orientation is legal or not
+                if (abs(glm::angle(newOrientation, m_CameraProperties.Up) - glm::radians(90.0f)) <= glm::radians(85.0f)) {
+                    m_CameraProperties.Orientation = newOrientation;
                     //std::cout << "Rotation x: "<< newOrientation.x<< " y: "<< newOrientation.y<< " z: "<< newOrientation.z << std::endl;
                 }
 
-                // Rotates the Orientation left and right
-                Orientation = glm::rotate(Orientation, glm::radians(-rotY), Up);
+                // Rotates the m_CameraProperties.Orientation left and right
+                m_CameraProperties.Orientation = glm::rotate(m_CameraProperties.Orientation, glm::radians(-rotY), m_CameraProperties.Up);
 
                 // Sets mouse cursor to the middle of the screen so that it doesn't end up roaming around
-                glfwSetCursorPos(window, (width / 2), (height / 2));
+                glfwSetCursorPos(window, (m_CameraProperties.width / 2), (m_CameraProperties.height / 2));
             } else if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_RELEASE) {
                 // Unhides cursor since camera is not looking around anymore
                 glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);

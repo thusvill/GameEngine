@@ -4,23 +4,28 @@
 
 #ifndef GAMEENGINE_OPENGLFBO_H
 #define GAMEENGINE_OPENGLFBO_H
+#include "../../Renderer/FrameBuffer.h"
 #include "../../../vendor/glad/include/glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "stdexcept"
+
 namespace VectorVertex {
-    class OpenGLFBO {
+    class OpenGLFBO : public FrameBuffer {
     public:
         OpenGLFBO(int width, int height);
 
         ~OpenGLFBO();
 
-        void Resize(int newWidth, int newHeight);
+        virtual void Resize(int newWidth, int newHeight) override;
 
-        void Bind();
+        virtual void Bind() override;
 
-        void Unbind();
+        virtual void Unbind() override;
 
-        GLuint GetTexture() const;
+        virtual unsigned int GetRenderTexture() override{
+            return static_cast<GLuint>(textureID);
+        }
+
 
     private:
         GLuint framebufferID;

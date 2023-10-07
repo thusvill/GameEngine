@@ -7,6 +7,7 @@
 
 #include "../../VectorVertex/Core.h"
 #include "../../../vendor/glad/include/glad/glad.h"
+#include "../../Renderer/GraphicsContext.h"
 #include "GLFW/glfw3.h"
 namespace VectorVertex {
 

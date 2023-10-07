@@ -5,8 +5,6 @@
 #ifndef GAMEENGINE_RENDERAPI_H
 #define GAMEENGINE_RENDERAPI_H
 #include "../VectorVertex/Core.h"
-#include "Shader.h"
-#include "Camera.h"
 #include "GraphicsContext.h"
 
 namespace VectorVertex {

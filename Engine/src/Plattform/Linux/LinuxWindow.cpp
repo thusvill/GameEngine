@@ -57,6 +57,7 @@ namespace VectorVertex {
 
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(false);
+        glViewport(0,0,(int)props.Width, (int)props.Height);
 
 
     }

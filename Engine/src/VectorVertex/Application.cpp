@@ -18,6 +18,9 @@ namespace VectorVertex{
         m_ImGuiLayer = new ImguiLayer();
         PushOverlay(m_ImGuiLayer);
 
+        m_EditorLayer = new EditorLayer();
+        PushOverlay(m_EditorLayer);
+
     }
     Application::~Application() {
     }
@@ -52,7 +55,13 @@ namespace VectorVertex{
             {
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
+                m_EditorLayer->BindFrameBuffer();
+                glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
+                glClear(GL_COLOR_BUFFER_BIT);
                 m_Window->OnRender();
+                for (Layer *layer: m_LayerStack)
+                    layer->OnRender();
+                m_EditorLayer->UnbindFrameBuffer();
                 m_ImGuiLayer->Begin();
                 //ShowDockSpace
                 if(DockSpaceEnabled) {

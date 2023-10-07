@@ -11,10 +11,12 @@
 #include "../Core/Window.h"
 #include "../Core/LayerStack.h"
 #include "../ImGuiLayer/ImguiLayer.h"
+#include "../Editor/EditorLayer.h"
 
 struct ApplicationSpecs{
     std::string Name = "VV App";
     std::string WorkingDirectory;
+    int width, height;
 };
 
 namespace VectorVertex {
@@ -34,7 +36,9 @@ namespace VectorVertex {
         static Application& Get() { if(s_Instance){ return *s_Instance; }else{ VV_CORE_ERROR("No Application Found!");}}
         Window& GetWindow() { return *m_Window; }
         LayerStack GetLayerStack() {return m_LayerStack;}
+
         ImguiLayer* m_ImGuiLayer;
+        EditorLayer* m_EditorLayer;
         bool DockSpaceEnabled = true;
         bool ExternalViewpoertsEnabled = false;
     private:

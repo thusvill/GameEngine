@@ -19,7 +19,7 @@ namespace VectorVertex {
 
         void Begin();
         void End();
-        void SetDarkThemeColors();
+        void ApplyVVTheme();
         void ShowDockSpace(bool* open);
 
         uint32_t GetActiveWidgetID() const;

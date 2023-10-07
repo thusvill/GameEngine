@@ -50,7 +50,7 @@ namespace VectorVertex{
 
         }
         // Take care of the camera Matrix
-        glUniform3f(glGetUniformLocation(shader.ID, "camPos"), camera.Position.x, camera.Position.y, camera.Position.z);
+        glUniform3f(glGetUniformLocation(shader.ID, "camPos"), camera.m_CameraProperties.Position.x, camera.m_CameraProperties.Position.y, camera.m_CameraProperties.Position.z);
         camera.Matrix(shader, "camMatrix");
 
         glm::mat4 trans = glm::mat4(1.0f);
