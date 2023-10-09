@@ -32,6 +32,7 @@ namespace VectorVertex {
         GLuint textureID;
         int width;
         int height;
+        unsigned int RBO;
     };
 
 

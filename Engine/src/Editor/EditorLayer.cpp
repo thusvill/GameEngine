@@ -12,7 +12,7 @@ namespace VectorVertex {
     void EditorLayer::OnAttach() {
         m_FrameBuffer = FrameBuffer::Create(800, 700);
         m_EditorCamera = Camera::Create(m_CameraProps);
-        m_EditorCamera->GetProperties().Position = glm::vec3(2.0f);
+        m_EditorCamera->GetProperties().Position = glm::vec3(6.0f);
     }
 
     void EditorLayer::BindFrameBuffer() {
@@ -27,7 +27,7 @@ namespace VectorVertex {
 
     }
 
-    void EditorLayer::OnRender() {
+    void EditorLayer::OnUpdate(){
         GLFWwindow* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
         m_EditorCamera->Inputs(window);
         m_EditorCamera->updateMatrix();
@@ -74,6 +74,7 @@ namespace VectorVertex {
             ImGui::Text("  Renderer: %s", glGetString(GL_RENDERER));
             ImGui::Text("  Version: %s", glGetString(GL_VERSION));
             ImGui::SeparatorText("Styles");
+            ImGui::Checkbox("Dockspace", &Application::Get().DockSpaceEnabled);
             ImGui::Checkbox("Editor Layout", &StyleEditorOpened);
             if ( StyleEditorOpened)
             {

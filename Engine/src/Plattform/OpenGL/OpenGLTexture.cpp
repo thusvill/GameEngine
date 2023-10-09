@@ -4,17 +4,15 @@
 
 #include "OpenGLTexture.h"
 namespace VectorVertex{
-    OpenGLTexture::OpenGLTexture(const char *image, const char* texType, GLuint slot) {
-        type = texType;
-        //Texture
+    OpenGLTexture::OpenGLTexture(TextureData data): m_Data(data) {
+                //Texture
         int widthImg, heightImg, numColCh;
         stbi_set_flip_vertically_on_load(true);
-        unsigned char* bytes = stbi_load(image, &widthImg, &heightImg, &numColCh, 0);
+        unsigned char* bytes = stbi_load(m_Data.image, &widthImg, &heightImg, &numColCh, 0);
 
-        glGenTextures(1, &ID);
-        glActiveTexture(GL_TEXTURE0+slot);
-        glBindTexture(GL_TEXTURE_2D, ID);
-        unit = slot;
+        glGenTextures(1, &m_Data.ID);
+        glActiveTexture(GL_TEXTURE0+m_Data.unit);
+        glBindTexture(GL_TEXTURE_2D, m_Data.ID);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
@@ -71,16 +69,20 @@ namespace VectorVertex{
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-    void OpenGLTexture::texUni(GLShader& shader, const char* uniform, GLuint unit) {
+    OpenGLTexture::~OpenGLTexture() noexcept {
+        Delete();
+    }
+    void OpenGLTexture::texUni(Shader* _shader, const char* uniform, unsigned int unit) {
         //get texture uniforms
-        GLuint texUni = glGetUniformLocation(shader.ID, uniform);
-        shader.Activate();
+        GLShader* shader = static_cast<GLShader*>(_shader->GetShader());
+        GLuint texUni = glGetUniformLocation(shader->ID, uniform);
+        shader->Activate();
         glUniform1i(texUni, unit);
     }
 
     void OpenGLTexture::Bind() {
-        glActiveTexture(GL_TEXTURE0+unit);
-        glBindTexture(GL_TEXTURE_2D, ID);
+        glActiveTexture(GL_TEXTURE0+m_Data.unit);
+        glBindTexture(GL_TEXTURE_2D, m_Data.ID);
     }
 
     void OpenGLTexture::Unbind() {
@@ -88,6 +90,6 @@ namespace VectorVertex{
     }
 
     void OpenGLTexture::Delete() {
-        glDeleteTextures(1, &ID);
+        glDeleteTextures(1, &m_Data.ID);
     }
 }

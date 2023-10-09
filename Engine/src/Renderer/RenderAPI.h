@@ -4,9 +4,8 @@
 
 #ifndef GAMEENGINE_RENDERAPI_H
 #define GAMEENGINE_RENDERAPI_H
-#include "../VectorVertex/Core.h"
-#include "GraphicsContext.h"
 
+#include "../VectorVertex/Core.h"
 namespace VectorVertex {
     class RenderAPI {
     public:

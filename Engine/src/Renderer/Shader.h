@@ -6,7 +6,6 @@
 #define GAMEENGINE_SHADER_H
 
 #include "string"
-#include "RenderAPI.h"
 #include "../Core/Base.h"
 namespace VectorVertex {
 
@@ -16,6 +15,7 @@ namespace VectorVertex {
 
         virtual void Activate() const = 0;
         virtual void Delete() const = 0;
+        virtual void* GetShader()=0;
 
         static Ref<Shader> Create(const std::string &vertexFile,const std::string &fragmentFile,const std::string &geometryFile);
     };

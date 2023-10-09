@@ -9,28 +9,29 @@
 
 #include "OpenGLVAO.h"
 #include "OpenGLEBO.h"
-#include "OpenGLCamera.h"
 #include "OpenGLTexture.h"
+#include "GLShader.h"
+#include "../../Renderer/Mesh.h"
 
 namespace VectorVertex {
-    class OpenGLMesh {
+    class OpenGLMesh : public Mesh {
     public:
-        std::vector <GLVertex> vertices;
+        std::vector <Vertex> vertices;
         std::vector <GLuint> indices;
-        std::vector <OpenGLTexture> textures;
+        std::vector <OpenGLTexture*> textures;
 
         OpenGLVAO vao;
 
-        OpenGLMesh(std::vector <GLVertex>& vertices, std::vector <GLuint>& indices, std::vector <OpenGLTexture>& textures);
+        OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Texture>& textures);
 
-        void Draw(
-                GLShader& shader,
-                OpenGLCamera& camera,
+        virtual void Draw(
+                Ref<Shader> shader,
+                Camera& i_camera,
                 glm::mat4 matrix = glm::mat4(1.0f),
                 glm::vec3 translation = glm::vec3(0.0f),
                 glm::quat rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f),
                 glm::vec3 scale = glm::vec3(1.0f)
-        );
+        ) override;
 
 
     };

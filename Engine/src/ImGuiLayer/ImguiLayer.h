@@ -21,6 +21,7 @@ namespace VectorVertex {
         void End();
         void ApplyVVTheme();
         void ShowDockSpace(bool* open);
+        void UpdateViewports();
 
         uint32_t GetActiveWidgetID() const;
 

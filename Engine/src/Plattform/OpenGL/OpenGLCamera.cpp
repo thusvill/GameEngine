@@ -3,7 +3,12 @@
 //
 
 #include "OpenGLCamera.h"
-
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
+#include "glm/gtx/rotate_vector.hpp"
+#include "glm/gtx/vector_angle.hpp"
+#include "GLShader.h"
 namespace VectorVertex{
     OpenGLCamera::OpenGLCamera(CameraProperties props){
         m_CameraProperties = props;
@@ -29,7 +34,7 @@ namespace VectorVertex{
 
         view = glm::lookAt(m_CameraProperties.Position, m_CameraProperties.Position + m_CameraProperties.Orientation, m_CameraProperties.Up);
         if(m_CameraProperties.mode == CamMode::Perspective){
-            projection = glm::perspective(glm::radians(m_CameraProperties.fov), (float)(m_CameraProperties.width/m_CameraProperties.height), m_CameraProperties.nearPlane, m_CameraProperties.farPlane);
+            projection = glm::perspective(glm::radians(m_CameraProperties.fov), static_cast<float>(m_CameraProperties.width)/static_cast<float>(m_CameraProperties.height), m_CameraProperties.nearPlane, m_CameraProperties.farPlane);
         }else if(m_CameraProperties.mode == CamMode::Orthographic){
             projection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, m_CameraProperties.nearPlane, m_CameraProperties.farPlane);
         }
@@ -39,8 +44,9 @@ namespace VectorVertex{
     }
 
 
-    void OpenGLCamera::Matrix(GLShader &shader, const char *uniform) {
-        glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform),1 , GL_FALSE, glm::value_ptr(m_CameraProperties.cameraMatrix));
+    void OpenGLCamera::Matrix(Shader* i_shader, const char *uniform) {
+        GLShader* shader = static_cast<GLShader*>(i_shader->GetShader());
+        glUniformMatrix4fv(glGetUniformLocation(shader->ID, uniform),1 , GL_FALSE, glm::value_ptr(m_CameraProperties.cameraMatrix));
     }
 
 

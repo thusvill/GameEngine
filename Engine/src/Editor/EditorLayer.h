@@ -16,7 +16,7 @@ namespace VectorVertex {
         ~EditorLayer() = default;
         virtual void OnAttach() override;
         virtual void OnDetach() override;
-        virtual void OnRender() override;
+        virtual void OnUpdate() override;
 
         virtual void OnImGuiRender() override;
 

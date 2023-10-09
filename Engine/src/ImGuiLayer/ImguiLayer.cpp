@@ -45,9 +45,12 @@ namespace VectorVertex {
         //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
         //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
         io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
-        io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
+        //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
+        UpdateViewports();
         //io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
         //io.ConfigFlags |= ImGuiWindowFlags_NoCollapse;
+        ImGui::GetStyle().FrameRounding =6.0f;
+        ImGui::GetStyle().GrabRounding =6.0f;
 
 
 
@@ -195,6 +198,13 @@ namespace VectorVertex {
 
     }
 
-
+    void ImguiLayer::UpdateViewports() {
+        ImGuiContext* context = ImGui::GetCurrentContext();
+        if (context && Application::Get().ExternalViewpoertsEnabled) {
+            ImGuiIO &io = ImGui::GetIO();
+            io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+            //ImGui::UpdatePlatformWindows();  // Update ImGui platform windows
+        }
+    }
 
 } // VectorVertex

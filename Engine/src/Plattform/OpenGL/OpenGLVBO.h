@@ -8,20 +8,16 @@
 #include "vector"
 #include "../../../vendor/glad/include/glad/glad.h"
 #include "glm/glm.hpp"
+#include "../../Renderer/Mesh.h"
 
 namespace VectorVertex {
-    struct GLVertex {
-        glm::vec3 position;
-        glm::vec3 normal;
-        glm::vec3 color;
-        glm::vec2 texUV;
-    };
+
 
     class OpenGLVBO {
     public:
         GLuint ID;
 
-        OpenGLVBO(std::vector<GLVertex> &vertices);
+        OpenGLVBO(std::vector<Vertex> &vertices);
 
         void Bind();
 

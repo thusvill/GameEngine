@@ -7,22 +7,29 @@
 
 #include "../../../vendor/glad/include/glad/glad.h"
 #include "../../../vendor/stb/stb_image.h"
-
 #include "GLShader.h"
+#include "../../Renderer/Texture.h"
 
 namespace VectorVertex
 {
-class OpenGLTexture {
+    class OpenGLTexture : public Texture {
 public:
-    GLuint ID;
-    const char*type;
-    GLuint unit;
-    OpenGLTexture(const char* image, const char* texType, GLuint slot);
 
-    void texUni(GLShader& shader, const char* uniform, GLuint unit);
-    void Bind();
-    void Unbind();
-    void Delete();
+    OpenGLTexture(TextureData data);
+    virtual ~OpenGLTexture();
+
+    virtual void texUni(Shader* _shader, const char* uniform, unsigned int unit) override;
+    virtual void Bind() override;
+    virtual void Unbind() override;
+    virtual void Delete() override;
+    virtual void* GetTexture() override{
+        return this;
+    }
+    virtual TextureData GetData() override{
+        return m_Data;
+    }
+private:
+    TextureData m_Data;
 };
 
 }

@@ -5,10 +5,10 @@
 #include "OpenGLVBO.h"
 
 namespace VectorVertex{
-    OpenGLVBO::OpenGLVBO(std::vector <GLVertex>& vertices) {
+    OpenGLVBO::OpenGLVBO(std::vector <Vertex>& vertices) {
         glGenBuffers(1, &ID);
         glBindBuffer(GL_ARRAY_BUFFER, ID);
-        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(GLVertex), vertices.data(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
     }
 
     void OpenGLVBO::Bind() {

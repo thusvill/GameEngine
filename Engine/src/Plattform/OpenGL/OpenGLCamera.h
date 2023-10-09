@@ -7,14 +7,8 @@
 
 #include "../../../vendor/glad/include/glad/glad.h"
 #include "GLFW/glfw3.h"
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include "glm/gtc/type_ptr.hpp"
-#include "glm/gtx/rotate_vector.hpp"
-#include "glm/gtx/vector_angle.hpp"
-
-#include "GLShader.h"
 #include "../../Renderer/Camera.h"
+#include "../../Renderer/Shader.h"
 
 namespace VectorVertex{
     class OpenGLCamera : public Camera {
@@ -31,7 +25,7 @@ namespace VectorVertex{
 
         virtual void updateMatrix() override;
 
-        virtual void Matrix(GLShader &shader, const char* uniform);
+        virtual void Matrix(Shader* i_shader, const char* uniform);
 
         virtual void Inputs(GLFWwindow *window) override;
 
@@ -42,9 +36,13 @@ namespace VectorVertex{
         virtual CameraProperties GetProperties() override{
             return m_CameraProperties;
         }
+
+        virtual void* GetCamera() override{
+            return this;
+        }
         void LogLocation();
 
-    public:
+    private:
         float current_speed = m_CameraProperties.speed;
     };
 

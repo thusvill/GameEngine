@@ -25,6 +25,9 @@ namespace VectorVertex {
 
         virtual void Activate() const override;
         virtual void Delete() const override;
+        virtual void* GetShader() override{
+            return this;
+        }
 
     private:
         static void compileErrors(unsigned int shader, const char* type);
