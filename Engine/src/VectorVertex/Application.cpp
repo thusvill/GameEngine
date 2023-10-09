@@ -94,29 +94,6 @@ namespace VectorVertex{
 
 
     void Window::OnRender() {
-        /*
-        std::vector<GLVertex> vertices = {
-                {glm::vec3(-0.5f, -0.5f, 0.0f), glm::vec3(1.0f, 0.0f, 0.0f)}, // Vertex 0 (position and color)
-                {glm::vec3(0.5f, -0.5f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f)},  // Vertex 1
-                {glm::vec3(0.0f, 0.5f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f)}   // Vertex 2
-        };
-
-        std::vector<GLuint> indices = {
-                0, 1, 2  // Indices to form a triangle
-        };
-        OpenGLTexture texture("","", 1);
-        Scope<OpenGLMesh> triangleMesh = CreateScope<OpenGLMesh>(vertices, indices, {});
-        //VectorVertex::OpenGLMesh triangleMesh(vertices, indices, {});
-        glm::mat4 modelMatrix = glm::mat4(1.0f);
-        glm::vec3 translation = glm::vec3(0.0f);
-        glm::quat rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
-        glm::vec3 scale = glm::vec3(1.0f);
-
-        Ref<Shader> shader = Shader::Create("default.vert","default.frag","default.geom") ;
-        OpenGLCamera* camera = static_cast<OpenGLCamera*>(Application::Get().m_EditorLayer->GetEditorCamera().GetCamera());
-// Call the Draw function
-        triangleMesh.Draw(shader, camera, modelMatrix, translation, rotation, scale);
-         */
 
         glBegin(GL_TRIANGLES);
         glColor3f(1.0f, 0.0f, 0.0f);   // Red

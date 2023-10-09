@@ -39,6 +39,8 @@ namespace VectorVertex{
     {
         return std::make_shared<T>(std::forward<Args>(args)...);
     }
+
+    #define CONVERT_REF(type, ptr) std::shared_ptr<type>(ptr)
 }
 
 #endif //GAMEENGINE_BASE_H

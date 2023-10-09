@@ -28,6 +28,9 @@ namespace VectorVertex {
         virtual void* GetShader() override{
             return this;
         }
+        virtual unsigned int GetID() override{
+            return ID;
+        }
 
     private:
         static void compileErrors(unsigned int shader, const char* type);

@@ -467,6 +467,30 @@ Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VectorVertex.dir/build.make CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.s
 .PHONY : Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.s
 
+Engine/src/Plattform/OpenGL/OpenGLModel.o: Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o
+.PHONY : Engine/src/Plattform/OpenGL/OpenGLModel.o
+
+# target to build an object file
+Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VectorVertex.dir/build.make CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o
+.PHONY : Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o
+
+Engine/src/Plattform/OpenGL/OpenGLModel.i: Engine/src/Plattform/OpenGL/OpenGLModel.cpp.i
+.PHONY : Engine/src/Plattform/OpenGL/OpenGLModel.i
+
+# target to preprocess a source file
+Engine/src/Plattform/OpenGL/OpenGLModel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VectorVertex.dir/build.make CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.i
+.PHONY : Engine/src/Plattform/OpenGL/OpenGLModel.cpp.i
+
+Engine/src/Plattform/OpenGL/OpenGLModel.s: Engine/src/Plattform/OpenGL/OpenGLModel.cpp.s
+.PHONY : Engine/src/Plattform/OpenGL/OpenGLModel.s
+
+# target to generate assembly for a file
+Engine/src/Plattform/OpenGL/OpenGLModel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VectorVertex.dir/build.make CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.s
+.PHONY : Engine/src/Plattform/OpenGL/OpenGLModel.cpp.s
+
 Engine/src/Plattform/OpenGL/OpenGLTexture.o: Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o
 .PHONY : Engine/src/Plattform/OpenGL/OpenGLTexture.o
 
@@ -1066,6 +1090,9 @@ help:
 	@echo "... Engine/src/Plattform/OpenGL/OpenGLMesh.o"
 	@echo "... Engine/src/Plattform/OpenGL/OpenGLMesh.i"
 	@echo "... Engine/src/Plattform/OpenGL/OpenGLMesh.s"
+	@echo "... Engine/src/Plattform/OpenGL/OpenGLModel.o"
+	@echo "... Engine/src/Plattform/OpenGL/OpenGLModel.i"
+	@echo "... Engine/src/Plattform/OpenGL/OpenGLModel.s"
 	@echo "... Engine/src/Plattform/OpenGL/OpenGLTexture.o"
 	@echo "... Engine/src/Plattform/OpenGL/OpenGLTexture.i"
 	@echo "... Engine/src/Plattform/OpenGL/OpenGLTexture.s"

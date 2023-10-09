@@ -6,12 +6,12 @@
 #include "OpenGLCamera.h"
 namespace VectorVertex{
 
-    OpenGLMesh::OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Texture>& textures) {
+    OpenGLMesh::OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Scope<Texture>> &textures) {
         OpenGLMesh::vertices = vertices;
         OpenGLMesh::indices = indices;
         for (int i = 0; i < OpenGLMesh::textures.capacity(); ++i) {
             for (int j = 0; j < textures.capacity(); ++j) {
-                OpenGLMesh::textures[i] = static_cast<OpenGLTexture*>(textures[j].GetTexture());
+                OpenGLMesh::textures[i] = static_cast<OpenGLTexture*>(textures[j]->GetTexture());
             }
         }
 

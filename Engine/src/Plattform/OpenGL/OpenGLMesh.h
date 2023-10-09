@@ -22,7 +22,7 @@ namespace VectorVertex {
 
         OpenGLVAO vao;
 
-        OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Texture>& textures);
+        OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Scope<Texture>> &textures);
 
         virtual void Draw(
                 Ref<Shader> shader,

@@ -16,7 +16,7 @@ namespace VectorVertex {
         virtual void Activate() const = 0;
         virtual void Delete() const = 0;
         virtual void* GetShader()=0;
-
+        virtual unsigned int GetID()=0;
         static Ref<Shader> Create(const std::string &vertexFile,const std::string &fragmentFile,const std::string &geometryFile);
     };
 }

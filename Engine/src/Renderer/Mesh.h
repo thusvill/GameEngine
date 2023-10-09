@@ -32,7 +32,7 @@ namespace VectorVertex {
                 glm::vec3 scale = glm::vec3(1.0f)
                 )=0;
 
-        static Scope<Mesh> Create(std::vector <Vertex>& vertices, std::vector <unsigned int>& indices, std::vector <Texture>& textures);
+        static Scope<Mesh> Create(std::vector <Vertex>& vertices, std::vector <unsigned int>& indices, std::vector <Scope<Texture>> &textures);
     };
 
 } // VectorVertex
