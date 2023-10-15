@@ -15,4 +15,7 @@ namespace VectorVertex{
         VV_CORE_ERROR("Unknown RendererAPI!");
         return nullptr;
     }
+    Shader::~Shader() noexcept {
+        VV_CORE_WARN("Shader Destroyed!");
+    }
 }

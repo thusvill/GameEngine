@@ -19,6 +19,7 @@ namespace VectorVertex {
 
         void OnUpdate() override;
         void OnRender() override;
+        void OnStart() override;
         unsigned int GetWidth() const override { return m_Data.Width; }
         unsigned int GetHeight() const override { return m_Data.Height; }
 
@@ -36,9 +37,9 @@ namespace VectorVertex {
 
         struct WindowData
         {
-            std::string Title;
-            unsigned int Width, Height;
-            bool VSync;
+            std::string Title = "";
+            unsigned int Width = 0, Height = 0 ;
+            bool VSync = false;
         };
 
         WindowData m_Data;

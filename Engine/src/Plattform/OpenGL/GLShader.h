@@ -13,16 +13,16 @@
 #include <cerrno>
 #include <string>
 #include "../../Renderer/Shader.h"
-
+#include "../../Core/Log.h"
 namespace VectorVertex {
     std::string get_file_contents(const char* filename);
 
     class GLShader : public Shader{
     public:
-        GLuint ID;
         GLShader(const std::string& vertexFile,const std::string& fragmentFile,const std::string& geometryFile);
-        virtual ~GLShader();
-
+        virtual ~GLShader() override{
+            VV_CORE_WARN("GLShader Destroyed!");
+        }
         virtual void Activate() const override;
         virtual void Delete() const override;
         virtual void* GetShader() override{
@@ -33,6 +33,7 @@ namespace VectorVertex {
         }
 
     private:
+        GLuint ID = 0;
         static void compileErrors(unsigned int shader, const char* type);
     };
 }

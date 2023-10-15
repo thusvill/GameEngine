@@ -13,7 +13,6 @@ namespace VectorVertex {
     class EditorLayer : public Layer {
     public:
         EditorLayer();
-        ~EditorLayer() = default;
         virtual void OnAttach() override;
         virtual void OnDetach() override;
         virtual void OnUpdate() override;
@@ -23,7 +22,15 @@ namespace VectorVertex {
         void BindFrameBuffer();
         void UnbindFrameBuffer();
         unsigned int GetFBORenderTextuer() {return m_FrameBuffer->GetRenderTexture();}
-        Camera& GetEditorCamera() {return *m_EditorCamera;}
+        Camera& GetEditorCamera() {
+            if(m_EditorCamera != nullptr)
+                return *m_EditorCamera;
+            else
+                VV_CORE_ERROR("Editor Camera is NULL!");
+        }
+        EditorLayer* GetEditorLayer() {
+            return this;
+        }
 
     private:
         Scope<Camera> m_EditorCamera;

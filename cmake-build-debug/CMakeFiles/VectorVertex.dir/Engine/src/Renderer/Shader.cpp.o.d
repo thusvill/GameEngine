@@ -320,4 +320,5 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/sstream \
  /usr/include/c++/11/bits/sstream.tcc \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Renderer/Shader.h
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Renderer/Shader.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Core/Log.h

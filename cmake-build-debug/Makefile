@@ -659,6 +659,30 @@ Engine/src/Renderer/Mesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/VectorVertex.dir/build.make CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.s
 .PHONY : Engine/src/Renderer/Mesh.cpp.s
 
+Engine/src/Renderer/Model.o: Engine/src/Renderer/Model.cpp.o
+.PHONY : Engine/src/Renderer/Model.o
+
+# target to build an object file
+Engine/src/Renderer/Model.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VectorVertex.dir/build.make CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o
+.PHONY : Engine/src/Renderer/Model.cpp.o
+
+Engine/src/Renderer/Model.i: Engine/src/Renderer/Model.cpp.i
+.PHONY : Engine/src/Renderer/Model.i
+
+# target to preprocess a source file
+Engine/src/Renderer/Model.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VectorVertex.dir/build.make CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.i
+.PHONY : Engine/src/Renderer/Model.cpp.i
+
+Engine/src/Renderer/Model.s: Engine/src/Renderer/Model.cpp.s
+.PHONY : Engine/src/Renderer/Model.s
+
+# target to generate assembly for a file
+Engine/src/Renderer/Model.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VectorVertex.dir/build.make CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.s
+.PHONY : Engine/src/Renderer/Model.cpp.s
+
 Engine/src/Renderer/RenderAPI.o: Engine/src/Renderer/RenderAPI.cpp.o
 .PHONY : Engine/src/Renderer/RenderAPI.o
 
@@ -1114,6 +1138,9 @@ help:
 	@echo "... Engine/src/Renderer/Mesh.o"
 	@echo "... Engine/src/Renderer/Mesh.i"
 	@echo "... Engine/src/Renderer/Mesh.s"
+	@echo "... Engine/src/Renderer/Model.o"
+	@echo "... Engine/src/Renderer/Model.i"
+	@echo "... Engine/src/Renderer/Model.s"
 	@echo "... Engine/src/Renderer/RenderAPI.o"
 	@echo "... Engine/src/Renderer/RenderAPI.i"
 	@echo "... Engine/src/Renderer/RenderAPI.s"

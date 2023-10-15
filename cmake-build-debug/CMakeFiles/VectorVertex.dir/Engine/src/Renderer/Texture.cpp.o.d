@@ -316,8 +316,6 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../VectorVertex/../Core/Layer.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/OpenGLTexture.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../../vendor/glad/include/glad/glad.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../../vendor/stb/stb_image.h \
- /usr/include/c++/11/stdlib.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/GLShader.h \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
@@ -325,4 +323,5 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/sstream \
  /usr/include/c++/11/bits/sstream.tcc \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Renderer/Shader.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Core/Log.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Renderer/Texture.h

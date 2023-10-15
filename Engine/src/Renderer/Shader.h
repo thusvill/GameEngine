@@ -11,7 +11,7 @@ namespace VectorVertex {
 
     class Shader {
     public:
-        virtual ~Shader() = default;
+        virtual ~Shader();
 
         virtual void Activate() const = 0;
         virtual void Delete() const = 0;

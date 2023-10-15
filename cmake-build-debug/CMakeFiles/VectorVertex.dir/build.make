@@ -265,10 +265,24 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.s: cmake_
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp -o CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.s
 
+CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
+CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.cpp
+CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.cpp
+
+CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.cpp > CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.i
+
+CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.cpp -o CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.s
+
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.s: cma
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.s: cmake_f
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.s: cmake_f
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Camera.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Camera.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/FrameBuffer.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/FrameBuffer.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/GraphicsContext.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/GraphicsContext.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.i: cmake_force
@@ -352,7 +366,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.s: cmake_for
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.i: cmake_force
@@ -363,10 +377,24 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.cpp -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.s
 
+CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
+CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.cpp
+CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.cpp
+
+CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.cpp > CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.i
+
+CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.cpp -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.s
+
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/RenderAPI.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/RenderAPI.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.i: cmake_force
@@ -380,7 +408,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.i: cmake_force
@@ -394,7 +422,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.i: cmake_force
@@ -408,7 +436,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Application.cpp
 CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Application.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.i: cmake_force
@@ -422,7 +450,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.s: cmake_for
 CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glm/detail/glm.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glm/detail/glm.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.i: cmake_force
@@ -436,7 +464,7 @@ CMakeFiles/VectorVertex.dir/Engine/vendor/glm/detail/glm.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.i: cmake_force
@@ -450,7 +478,7 @@ CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_demo.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_demo.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.i: cmake_force
@@ -464,7 +492,7 @@ CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_demo.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_draw.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_draw.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.i: cmake_force
@@ -478,7 +506,7 @@ CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_draw.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_impl_glfw.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_impl_glfw.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.i: cmake_force
@@ -492,7 +520,7 @@ CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_glfw.cpp.s: cmake_for
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_impl_opengl3.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_impl_opengl3.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.i: cmake_force
@@ -506,7 +534,7 @@ CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_impl_opengl3.cpp.s: cmake_
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_tables.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_tables.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.i: cmake_force
@@ -520,7 +548,7 @@ CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_tables.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_widgets.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_widgets.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.i: cmake_force
@@ -534,7 +562,7 @@ CMakeFiles/VectorVertex.dir/Engine/vendor/imgui/imgui_widgets.cpp.s: cmake_force
 CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.o: CMakeFiles/VectorVertex.dir/flags.make
 CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/stb/stb_image.cpp
 CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.o: CMakeFiles/VectorVertex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.o -MF CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.o.d -o CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.o -c /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/stb/stb_image.cpp
 
 CMakeFiles/VectorVertex.dir/Engine/vendor/stb/stb_image.cpp.i: cmake_force
@@ -561,6 +589,7 @@ VectorVertex_OBJECTS = \
 "CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLEBO.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLFBO.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.o" \
+"CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o" \
@@ -568,6 +597,7 @@ VectorVertex_OBJECTS = \
 "CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o" \
+"CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o" \
 "CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o" \
@@ -599,6 +629,7 @@ VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLCont
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLEBO.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLFBO.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.o
+VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLTexture.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVAO.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLVBO.cpp.o
@@ -606,6 +637,7 @@ VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Renderer/FrameBuffer.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Renderer/GraphicsContext.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Mesh.cpp.o
+VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Renderer/RenderAPI.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o
 VectorVertex: CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o
@@ -623,7 +655,7 @@ VectorVertex: CMakeFiles/VectorVertex.dir/build.make
 VectorVertex: libglad.a
 VectorVertex: libimgui.a
 VectorVertex: CMakeFiles/VectorVertex.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Linking CXX executable VectorVertex"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bios/CLionProjects/GameEngine/GameEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Linking CXX executable VectorVertex"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/VectorVertex.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

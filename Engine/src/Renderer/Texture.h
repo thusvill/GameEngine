@@ -7,10 +7,10 @@
 #include "Shader.h"
 namespace VectorVertex {
     struct TextureData{
-        unsigned int ID;
+        unsigned int ID = 0;
         const char*type;
-        unsigned int unit;
-        const char* image;
+        unsigned int unit =0;
+        std::string image = "";
     };
     class Texture {
     public:

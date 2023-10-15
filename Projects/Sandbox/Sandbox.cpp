@@ -1,4 +1,5 @@
 #include "../../Engine/src/VectorVertex/VectorVertex.h"
+#include "../../Engine/src/VectorVertex/Renderer.h"
 
 class NewLayer : public  VectorVertex::Layer {
 public:
@@ -12,6 +13,7 @@ void NewLayer::OnImGuiRender() {
 }
 
 void NewLayer::OnRender() {
+
     }
 
 
@@ -35,6 +37,8 @@ int main(int argc, char** argv) {
     //StartDebugging
     VectorVertex::Log::Init();
     ApplicationSpecs m_Specs;
+    m_Specs.width = 800;
+    m_Specs.height = 800;
     m_Specs.Name = "VectorVertex";
     auto app = VectorVertex::CreateApplication(m_Specs);
     //app->DockSpaceEnabled = false;

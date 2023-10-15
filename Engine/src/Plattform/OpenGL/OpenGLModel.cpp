@@ -19,25 +19,36 @@ namespace VectorVertex {
         traverseNode(0);
     }
 
-    void OpenGLModel::Draw(Shader* shader, Camera &camera) {
+    void OpenGLModel::Draw(Ref<Shader> shader, Camera &camera) {
         // Go over all meshes and draw each one
+        if(meshes.empty() || !shader || !camera.GetCamera() || matricesMeshes.empty()){
+            VV_CORE_ERROR("Null values in Model Draw func!!");
+        }
+#if defined(VV_DEBUG)
+        VV_CORE_INFO("Meshes: {0}, Shader ID:{1}, Camera Width:{2}, matricesMeshes Size:{3}", meshes.size(),shader->GetID() ,camera.GetProperties().width, matricesMeshes.size());
+#endif
+
         for (unsigned int i = 0; i < meshes.size(); i++)
         {
+        meshes[i]->Draw(std::move(shader), camera, matricesMeshes[i]);
+            VV_CORE_INFO("Mesh Drew!");
+        #if defined(VV_DEBUG)
+            VV_CORE_INFO("{0}, {1}, {2}", shader->GetID() ,camera.GetProperties().width, matricesMeshes[i].length());
+        #endif
 
-            meshes[i]->Draw(CONVERT_REF(Shader, shader), camera, matricesMeshes[i]);
         }
     }
 
 
 
-    void OpenGLModel::Position(Shader* shader, glm::vec3 newPosition) {
+    void OpenGLModel::Position(Ref<Shader> shader, glm::vec3 newPosition) {
 
         GLuint OpenGLModelMatrixLocation = glGetUniformLocation(shader->GetID(), "newPos");
         glm::mat4 newOpenGLModelMatrix = glm::translate(glm::mat4(1.0f), newPosition);
         glUniformMatrix4fv(OpenGLModelMatrixLocation, 1, GL_FALSE, glm::value_ptr(newOpenGLModelMatrix));
     }
 
-    void OpenGLModel::Rotation(Shader* shader, glm::vec3 newRotation) {
+    void OpenGLModel::Rotation(Ref<Shader> shader, glm::vec3 newRotation) {
         GLuint OpenGLModelMatrixLocation = glGetUniformLocation(shader->GetID(), "newRot");
         glm::mat4 newOpenGLModelMatrix = glm::rotate(glm::mat4(1.0f), newRotation.x, {1,0,0})
                                    *glm::rotate(glm::mat4(1.0f), newRotation.y, {0,1,0})
@@ -45,15 +56,15 @@ namespace VectorVertex {
         glUniformMatrix4fv(OpenGLModelMatrixLocation, 1, GL_FALSE, glm::value_ptr(newOpenGLModelMatrix));
     }
 
-    void OpenGLModel::Scale(Shader* shader, glm::vec3 newScale) {
+    void OpenGLModel::Scale(Ref<Shader> shader, glm::vec3 newScale) {
         GLuint OpenGLModelMatrixLocation = glGetUniformLocation(shader->GetID(), "newScale");
         glm::mat4 newOpenGLModelMatrix = glm::scale(glm::mat4(1.0f), newScale);
         glUniformMatrix4fv(OpenGLModelMatrixLocation, 1, GL_FALSE, glm::value_ptr(newOpenGLModelMatrix));
     }
-    void OpenGLModel::SetTransform(Shader* shader, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale) {
-        Position(shader, position);
-        Rotation(shader, rotation);
-        Scale(shader, scale);
+    void OpenGLModel::SetTransform(Ref<Shader> shader, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale) {
+        Position(std::move(shader), position);
+        Rotation(std::move(shader), rotation);
+        Scale(std::move(shader), scale);
     }
 
     void OpenGLModel::loadMesh(unsigned int indMesh) {
@@ -76,8 +87,9 @@ namespace VectorVertex {
 
 
         Scope<Mesh> newMesh = Mesh::Create(vertices, indices, textures);
+        VV_CORE_INFO("Mesh Loaded {0} vertices, {1} indices, {2} textures", vertices.size(), indices.size(), textures.size());
 
-        meshes.push_back(newMesh.get());
+        meshes.push_back(std::move(newMesh));
 
     }
 
@@ -256,21 +268,21 @@ namespace VectorVertex {
             std::string texPath = JSON["images"][i]["uri"];
 
             bool skip = false;
+
             for (unsigned int j = 0; j < loadedTexName.size(); j++){
+
                 if(loadedTexName[j]==texPath){
-                    for(const auto& texture : loadedTex){
-                        Scope<Texture> texturePtr = Texture::Create(texture->GetData());
-                        textures.push_back(std::move(texturePtr));
-                        skip = true;
-                        break;
-                    }
+
+                    textures.push_back(std::move(loadedTex[j]));
+                    skip = true;
+                    break;
                 }
             }
             if(!skip)
             {
                 if (texPath.find("baseColor") != std::string::npos) {
                     TextureData diff_data;
-                    diff_data.image = (fileDirectory + texPath).c_str();
+                    diff_data.image = (fileDirectory + texPath);
                     diff_data.type = "diffuse";
                     diff_data.unit = loadedTex.size();
                     Scope<Texture> diffuse = Texture::Create(diff_data);
@@ -279,7 +291,7 @@ namespace VectorVertex {
                     loadedTexName.push_back(texPath);
                 } else if (texPath.find("metallicRoughness") != std::string::npos) {
                     TextureData specular_data;
-                    specular_data.image = (fileDirectory + texPath).c_str();
+                    specular_data.image = (fileDirectory + texPath);
                     specular_data.type = "specular";
                     specular_data.unit = loadedTex.size();
                     Scope<Texture> specular = Texture::Create(specular_data);
@@ -289,6 +301,7 @@ namespace VectorVertex {
                 }
             }
         }
+        VV_CORE_INFO("Textures loaded : {}", textures.size());
         return textures;
     }
 

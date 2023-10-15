@@ -3,12 +3,36 @@
 //
 
 #include "OpenGLTexture.h"
+#include "../../../vendor/stb/stb_image.h"
+#include "../../Core/Log.h"
 namespace VectorVertex{
     OpenGLTexture::OpenGLTexture(TextureData data): m_Data(data) {
+
+#if defined(VV_DEBUG)
+        VV_CORE_INFO("Texture Creating image: {0} , ID: {1}, Type: {2}, Slot: {3}", data.image, data.ID, data.type, data.unit);
+#endif
+
                 //Texture
         int widthImg, heightImg, numColCh;
         stbi_set_flip_vertically_on_load(true);
-        unsigned char* bytes = stbi_load(m_Data.image, &widthImg, &heightImg, &numColCh, 0);
+        unsigned char* bytes = stbi_load(m_Data.image.c_str(), &widthImg, &heightImg, &numColCh, 0);
+
+        if(!bytes){
+            VV_CORE_ERROR("Creating Texture failed, null values found!");
+            if(m_Data.image == ""){
+                VV_CORE_ERROR(" Image data is null!");
+            }
+            if(heightImg<1){
+                VV_CORE_ERROR(" Height value is {0}!", heightImg);
+            }
+            if(widthImg<1){
+                VV_CORE_ERROR(" Width value is {0}!", widthImg);
+            }
+            if(numColCh>4){
+                VV_CORE_ERROR(" Channel number is out of boundary, {}!", numColCh);
+            }
+            return;
+        }
 
         glGenTextures(1, &m_Data.ID);
         glActiveTexture(GL_TEXTURE0+m_Data.unit);
@@ -60,23 +84,20 @@ namespace VectorVertex{
                             bytes
                     );
         } else{
-            throw std::invalid_argument("Automatic Texture type recognition failed!");
+            VV_CORE_ERROR("Automatic Texture type recognition failed {0}:{1}, defined type index: {2}",data.image, data.type, numColCh);
         }
 
         glGenerateMipmap(GL_TEXTURE_2D);
 
         stbi_image_free(bytes);
         glBindTexture(GL_TEXTURE_2D, 0);
+        VV_CORE_INFO("Texture: {} created! ", data.image);
     }
 
-    OpenGLTexture::~OpenGLTexture() noexcept {
-        Delete();
-    }
     void OpenGLTexture::texUni(Shader* _shader, const char* uniform, unsigned int unit) {
         //get texture uniforms
-        GLShader* shader = static_cast<GLShader*>(_shader->GetShader());
-        GLuint texUni = glGetUniformLocation(shader->ID, uniform);
-        shader->Activate();
+        GLuint texUni = glGetUniformLocation(_shader->GetID(), uniform);
+        _shader->Activate();
         glUniform1i(texUni, unit);
     }
 

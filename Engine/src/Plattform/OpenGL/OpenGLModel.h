@@ -8,19 +8,33 @@
 #include "../../../vendor/json/json.h"
 #include "../../Renderer/Mesh.h"
 #include "../../VectorVertex/Core.h"
+#include "../../Renderer/Model.h"
 
 namespace VectorVertex {
     using json = nlohmann::json;
 
 
-    class OpenGLModel {
+    class OpenGLModel : public Model {
     public:
         OpenGLModel(const char* file);
-        void Draw(Shader* shader, Camera& camera);
-        void Position(Shader* shader, glm::vec3 newPosition);
-        void Rotation(Shader* shader, glm::vec3 rotation);
-        void Scale(Shader* shader, glm::vec3 newScale);
-        void SetTransform(Shader* shader, glm::vec3 position,glm::vec3 rotation,glm::vec3 scale);
+        virtual ~OpenGLModel() {
+            for (int i = 0; i < meshes.size(); ++i) {
+                meshes[i].reset();
+                VV_CORE_WARN("Reset mesh index: {}", i);
+            }
+            for (int i = 0; i < loadedTex.size(); ++i) {
+                loadedTex[i].reset();
+                VV_CORE_WARN("Reset texture: {}", loadedTex[i]->GetData().image);
+            }
+            VV_CORE_WARN("Model {} Destroyed!", file);
+
+        }
+
+        virtual void Draw(Ref<Shader> shader, Camera& camera) override;
+        virtual void Position(Ref<Shader> shader, glm::vec3 newPosition) override;
+        virtual void Rotation(Ref<Shader> shader, glm::vec3 rotation) override;
+        virtual void Scale(Ref<Shader> shader, glm::vec3 newScale) override;
+        virtual void SetTransform(Ref<Shader> shader, glm::vec3 position,glm::vec3 rotation,glm::vec3 scale) override;
 
         explicit operator bool() const {
             // Define the condition under which the Model is considered "true"
@@ -32,7 +46,7 @@ namespace VectorVertex {
         std::vector<unsigned char> data;
         json JSON;
 
-        std::vector<Mesh*> meshes;
+        std::vector<Scope<Mesh>> meshes;
         std::vector<glm::vec3> translationMeshes;
         std::vector<glm::quat> rotationMeshes;
         std::vector<glm::vec3> scalesMeshes;

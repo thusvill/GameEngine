@@ -12,26 +12,27 @@
 #include "OpenGLTexture.h"
 #include "GLShader.h"
 #include "../../Renderer/Mesh.h"
+#include "../../Core/Log.h"
 
 namespace VectorVertex {
     class OpenGLMesh : public Mesh {
     public:
         std::vector <Vertex> vertices;
         std::vector <GLuint> indices;
-        std::vector <OpenGLTexture*> textures;
+        std::vector <Scope<Texture>> textures;
 
         OpenGLVAO vao;
 
-        OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Scope<Texture>> &textures);
+        OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Scope<Texture>> &i_textures);
+        virtual ~OpenGLMesh(){
+            /*for(auto& tex : textures){
+                tex.reset();
+            }*/
+            VV_CORE_WARN("Deleting Mesh");
+        }
 
-        virtual void Draw(
-                Ref<Shader> shader,
-                Camera& i_camera,
-                glm::mat4 matrix = glm::mat4(1.0f),
-                glm::vec3 translation = glm::vec3(0.0f),
-                glm::quat rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f),
-                glm::vec3 scale = glm::vec3(1.0f)
-        ) override;
+        virtual void Draw(Ref<Shader> shader, Camera &i_camera, glm::mat4 matrix, glm::vec3 translation= glm::vec3 (0.0f), glm::quat rotation = glm::quat (1.0f, 0.0f, 0.0f, 0.0f),
+                          glm::vec3 scale = glm::vec3(1.0f)) override;
 
 
     };

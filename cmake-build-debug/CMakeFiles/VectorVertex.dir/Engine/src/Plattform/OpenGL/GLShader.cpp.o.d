@@ -216,4 +216,95 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/GLShader.cpp.o: \
  /usr/include/c++/11/bits/vector.tcc \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/PlattformDetection.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/ErrorDetection.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/../../vendor/glad/include/glad/glad.h
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/../../vendor/glad/include/glad/glad.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Core/Log.h \
+ /usr/include/spdlog/spdlog.h /usr/include/spdlog/common.h \
+ /usr/include/spdlog/tweakme.h /usr/include/spdlog/details/null_mutex.h \
+ /usr/include/c++/11/atomic /usr/include/c++/11/chrono \
+ /usr/include/c++/11/ratio /usr/include/c++/11/limits \
+ /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
+ /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
+ /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable_policy.h \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/bits/node_handle.h \
+ /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/bits/erase_if.h /usr/include/spdlog/fmt/fmt.h \
+ /usr/include/fmt/core.h /usr/include/c++/11/cstddef \
+ /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/include/fmt/format.h /usr/include/c++/11/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/tr1/gamma.tcc \
+ /usr/include/c++/11/tr1/special_function_util.h \
+ /usr/include/c++/11/tr1/bessel_function.tcc \
+ /usr/include/c++/11/tr1/beta_function.tcc \
+ /usr/include/c++/11/tr1/ell_integral.tcc \
+ /usr/include/c++/11/tr1/exp_integral.tcc \
+ /usr/include/c++/11/tr1/hypergeometric.tcc \
+ /usr/include/c++/11/tr1/legendre_function.tcc \
+ /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/11/tr1/poly_hermite.tcc \
+ /usr/include/c++/11/tr1/poly_laguerre.tcc \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/fmt/core.h \
+ /usr/include/spdlog/common-inl.h /usr/include/c++/11/algorithm \
+ /usr/include/c++/11/bits/ranges_algo.h \
+ /usr/include/c++/11/bits/ranges_util.h \
+ /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+ /usr/include/spdlog/details/registry.h /usr/include/c++/11/mutex \
+ /usr/include/c++/11/bits/unique_lock.h \
+ /usr/include/spdlog/details/registry-inl.h \
+ /usr/include/spdlog/details/periodic_worker.h \
+ /usr/include/c++/11/condition_variable /usr/include/c++/11/stop_token \
+ /usr/include/c++/11/bits/std_thread.h /usr/include/c++/11/semaphore \
+ /usr/include/c++/11/bits/semaphore_base.h \
+ /usr/include/c++/11/bits/atomic_timed_wait.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/semaphore.h \
+ /usr/include/x86_64-linux-gnu/bits/semaphore.h \
+ /usr/include/c++/11/thread \
+ /usr/include/spdlog/details/periodic_worker-inl.h \
+ /usr/include/spdlog/logger.h /usr/include/spdlog/details/log_msg.h \
+ /usr/include/spdlog/details/log_msg-inl.h \
+ /usr/include/spdlog/details/os.h /usr/include/spdlog/details/os-inl.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+ /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
+ /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
+ /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+ /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/linux/falloc.h /usr/include/spdlog/details/backtracer.h \
+ /usr/include/spdlog/details/log_msg_buffer.h \
+ /usr/include/spdlog/details/log_msg_buffer-inl.h \
+ /usr/include/spdlog/details/circular_q.h /usr/include/c++/11/cassert \
+ /usr/include/assert.h /usr/include/spdlog/details/backtracer-inl.h \
+ /usr/include/spdlog/logger-inl.h /usr/include/spdlog/sinks/sink.h \
+ /usr/include/spdlog/formatter.h /usr/include/spdlog/sinks/sink-inl.h \
+ /usr/include/spdlog/pattern_formatter.h \
+ /usr/include/spdlog/pattern_formatter-inl.h \
+ /usr/include/spdlog/details/fmt_helper.h \
+ /usr/include/spdlog/sinks/ansicolor_sink.h \
+ /usr/include/spdlog/details/console_globals.h \
+ /usr/include/spdlog/sinks/ansicolor_sink-inl.h \
+ /usr/include/spdlog/version.h \
+ /usr/include/spdlog/details/synchronous_factory.h \
+ /usr/include/spdlog/spdlog-inl.h

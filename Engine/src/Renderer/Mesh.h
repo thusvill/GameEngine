@@ -13,24 +13,18 @@
 #include "glm/gtx/vector_angle.hpp"
 namespace VectorVertex {
     struct Vertex {
-        glm::vec3 position;
-        glm::vec3 normal;
-        glm::vec3 color;
-        glm::vec2 texUV;
+        glm::vec3 position = glm::vec3(0.0f);
+        glm::vec3 normal = glm::vec3(0.0f);
+        glm::vec3 color = glm::vec3(0.0f);
+        glm::vec2 texUV = glm::vec2(0.0f);
     };
 
     class Mesh {
     public:
         virtual ~Mesh()=default;
 
-        virtual void Draw(
-                Ref<Shader> shader,
-                Camera& i_camera,
-                glm::mat4 matrix = glm::mat4(1.0f),
-                glm::vec3 translation = glm::vec3(0.0f),
-                glm::quat rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f),
-                glm::vec3 scale = glm::vec3(1.0f)
-                )=0;
+        virtual void Draw(Ref<Shader> shader, Camera &i_camera, glm::mat4 matrix, glm::vec3 translation= glm::vec3 (0.0f), glm::quat rotation = glm::quat (1.0f, 0.0f, 0.0f, 0.0f),
+                          glm::vec3 scale = glm::vec3(1.0f))=0;
 
         static Scope<Mesh> Create(std::vector <Vertex>& vertices, std::vector <unsigned int>& indices, std::vector <Scope<Texture>> &textures);
     };

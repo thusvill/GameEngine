@@ -58,6 +58,7 @@ namespace VectorVertex {
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(false);
         glViewport(0,0,(int)props.Width, (int)props.Height);
+        Window::OnStart();
 
 
     }
@@ -98,6 +99,10 @@ namespace VectorVertex {
 
     void LinuxWindow::OnRender() {
         Window::OnRender();
+    }
+
+    void LinuxWindow::OnStart() {
+
     }
 
     void LinuxWindow::SetVSync(bool enabled)

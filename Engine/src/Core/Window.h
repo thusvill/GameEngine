@@ -25,6 +25,7 @@ namespace VectorVertex {
     class Window {
     public:
         virtual ~Window() = default;
+        virtual void OnStart()=0;
         virtual void OnUpdate() = 0;
         virtual void OnRender() = 0;
 

@@ -494,18 +494,6 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: \
  /usr/include/glm/gtx/component_wise.inl /usr/include/glm/gtx/norm.inl \
  /usr/include/glm/gtx/quaternion.inl \
  /usr/include/glm/gtx/vector_angle.inl \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/OpenGLMesh.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/OpenGLVAO.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/OpenGLVBO.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/OpenGLEBO.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/OpenGLTexture.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/../../../vendor/stb/stb_image.h \
- /usr/include/c++/11/stdlib.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/GLShader.h \
- /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/../../Renderer/Shader.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Plattform/OpenGL/../../Renderer/Texture.h
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Renderer/Model.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Renderer/Shader.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Renderer/Camera.h

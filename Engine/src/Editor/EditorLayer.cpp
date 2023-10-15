@@ -10,9 +10,9 @@ namespace VectorVertex {
     EditorLayer::EditorLayer(): Layer("EditorLayer") {}
 
     void EditorLayer::OnAttach() {
-        m_FrameBuffer = FrameBuffer::Create(800, 700);
         m_EditorCamera = Camera::Create(m_CameraProps);
         m_EditorCamera->GetProperties().Position = glm::vec3(6.0f);
+        m_FrameBuffer = FrameBuffer::Create(800, 700);
     }
 
     void EditorLayer::BindFrameBuffer() {

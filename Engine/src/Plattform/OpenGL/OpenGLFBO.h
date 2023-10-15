@@ -14,7 +14,7 @@ namespace VectorVertex {
     public:
         OpenGLFBO(int width, int height);
 
-        ~OpenGLFBO();
+        virtual ~OpenGLFBO();
 
         virtual void Resize(int newWidth, int newHeight) override;
 

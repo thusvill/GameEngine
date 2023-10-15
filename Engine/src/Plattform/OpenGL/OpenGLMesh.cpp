@@ -6,14 +6,30 @@
 #include "OpenGLCamera.h"
 namespace VectorVertex{
 
-    OpenGLMesh::OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Scope<Texture>> &textures) {
+    OpenGLMesh::OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Scope<Texture>> &i_textures) {
         OpenGLMesh::vertices = vertices;
         OpenGLMesh::indices = indices;
-        for (int i = 0; i < OpenGLMesh::textures.capacity(); ++i) {
-            for (int j = 0; j < textures.capacity(); ++j) {
-                OpenGLMesh::textures[i] = static_cast<OpenGLTexture*>(textures[j]->GetTexture());
+        //for (int i = 0; i < OpenGLMesh::textures.capacity(); ++i) {
+        //    for (int j = 0; j < textures.capacity(); ++j) {
+        //        OpenGLMesh::textures[i] = static_cast<OpenGLTexture*>(textures[j]->GetTexture());
+        //    }
+        //}
+
+        for (auto& i_texture : i_textures) {
+            textures.emplace_back(i_texture.release());  // Move ownership of Texture
+
             }
+
+        for (int i = 0; i < textures.size(); ++i) {
+//            Scope<Texture> tex = Texture::Create(i_textures[i]->GetData());
+ //           OpenGLMesh::textures.push_back(std::move(tex));
+#if defined(VV_DEBUG)
+            VV_CORE_INFO("Texture added: {}", textures[i]->GetData().image);
+#endif
         }
+#if defined(VV_DEBUG)
+        VV_CORE_INFO("Textures count: {}", textures.size());
+#endif
 
         vao.Bind();
         // Generates Vertex Buffer Object and links it to vertices
@@ -32,43 +48,58 @@ namespace VectorVertex{
 
     }
 
-    void OpenGLMesh::Draw(Ref<Shader> _shader, Camera &i_camera, glm::mat4 matrix, glm::vec3 translation, glm::quat rotation,
+    void OpenGLMesh::Draw(Ref<Shader> shader, Camera &i_camera, glm::mat4 matrix, glm::vec3 translation, glm::quat rotation,
                     glm::vec3 scale) {
+
         OpenGLCamera* camera = static_cast<OpenGLCamera*>(i_camera.GetCamera());
-        GLShader* shader = static_cast<GLShader*>(_shader->GetShader());
+        //GLShader* shader = static_cast<GLShader*>(_shader->GetShader());
+#if defined(VV_DEBUG)
+      if(!camera){
+          VV_CORE_ERROR("Draw Mesh camera NULL!");
+      }
+        else if(!shader){
+            VV_CORE_ERROR("Draw Mesh shader NULL!");
+        } else{
+          VV_CORE_INFO("Drawing Mesh");
+        }
+#endif
         shader->Activate();
         vao.Bind();
 
         unsigned int numDiffuse = 0;
         unsigned int numSpecular = 0;
+        if(textures.size() <=0 ){
+            VV_CORE_WARN("No Textures found in Draw FUNC!");
+        } else
+        {
+            for (unsigned int i = 0; i < textures.size(); ++i) {
+                std::string num;
+                std::string type = textures[i]->GetData().type;
+                if (type == "diffuse") {
+                    num = std::to_string(numDiffuse++);
+                } else if (type == "specular") {
+                    num = std::to_string(numSpecular++);
+                }
+                textures[i]->texUni(shader.get(), (type + num).c_str(), i);
+                textures[i]->Bind();
 
-        for (unsigned int i = 0; i < textures.size(); ++i) {
-            std::string num;
-            std::string type = textures[i]->GetData().type;
-            if(type == "diffuse"){
-                num = std::to_string(numDiffuse++);
-            } else if (type == "specular"){
-                num = std::to_string(numSpecular++);
             }
-            textures[i]->texUni(shader, (type +num).c_str(), i);
-            textures[i]->Bind();
-
         }
         // Take care of the camera Matrix
-        glUniform3f(glGetUniformLocation(shader->ID, "camPos"), camera->m_CameraProperties.Position.x, camera->m_CameraProperties.Position.y, camera->m_CameraProperties.Position.z);
-        camera->Matrix(shader, "camMatrix");
+        glUniform3f(glGetUniformLocation(shader->GetID(), "camPos"), camera->m_CameraProperties.Position.x, camera->m_CameraProperties.Position.y, camera->m_CameraProperties.Position.z);
+        camera->Matrix(shader.get(), "camMatrix");
 
         glm::mat4 trans = glm::mat4(1.0f);
         glm::mat4 rot = glm::mat4(1.0f);
         glm::mat4 sca = glm::mat4(1.0f);
 
-        glUniformMatrix4fv(glGetUniformLocation(shader->ID, "translation"), 1, GL_FALSE, glm::value_ptr(trans));
-        glUniformMatrix4fv(glGetUniformLocation(shader->ID, "rotation"), 1, GL_FALSE, glm::value_ptr(rot));
-        glUniformMatrix4fv(glGetUniformLocation(shader->ID, "scale"), 1, GL_FALSE, glm::value_ptr(sca));
-        glUniformMatrix4fv(glGetUniformLocation(shader->ID, "model"), 1, GL_FALSE, glm::value_ptr(matrix));
+        glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "translation"), 1, GL_FALSE, glm::value_ptr(trans));
+        glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "rotation"), 1, GL_FALSE, glm::value_ptr(rot));
+        glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "scale"), 1, GL_FALSE, glm::value_ptr(sca));
+        glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "model"), 1, GL_FALSE, glm::value_ptr(matrix));
 
         // Draw the actual mesh
         glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
-
+        shader->Delete();
     }
 }

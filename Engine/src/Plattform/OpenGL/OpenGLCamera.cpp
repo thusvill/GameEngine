@@ -45,8 +45,8 @@ namespace VectorVertex{
 
 
     void OpenGLCamera::Matrix(Shader* i_shader, const char *uniform) {
-        GLShader* shader = static_cast<GLShader*>(i_shader->GetShader());
-        glUniformMatrix4fv(glGetUniformLocation(shader->ID, uniform),1 , GL_FALSE, glm::value_ptr(m_CameraProperties.cameraMatrix));
+                glUniformMatrix4fv(glGetUniformLocation(i_shader->GetID(), uniform),1 , GL_FALSE, glm::value_ptr(m_CameraProperties.cameraMatrix));
+
     }
 
 

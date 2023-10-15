@@ -15,8 +15,8 @@
 
 struct ApplicationSpecs{
     std::string Name = "VV App";
-    std::string WorkingDirectory;
-    int width, height;
+    std::string WorkingDirectory = "";
+    int width=0, height =0;
 };
 
 namespace VectorVertex {
@@ -24,12 +24,13 @@ namespace VectorVertex {
     public:
         Application(const ApplicationSpecs& specs);
 
-        virtual ~Application();
+        virtual ~Application()=default;
 
         void PushLayer(Layer* layer);
         void PushOverlay(Layer* layer);
         virtual void OnStart();
         void Run();
+        void Stop();
 
         ImguiLayer* GetImGuiLayer()  {return m_ImGuiLayer;}
         ApplicationSpecs GetApplicationSpecificatons()  {return m_AppSpecs;}

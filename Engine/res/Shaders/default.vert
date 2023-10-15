@@ -1,4 +1,4 @@
-#version 330 core
+#version 460
 
 // Positions/Coordinates
 layout (location = 0) in vec3 aPos;
@@ -27,20 +27,16 @@ uniform mat4 model;
 uniform mat4 translation;
 uniform mat4 rotation;
 uniform mat4 scale;
-uniform mat4 translationMatrix;
-uniform mat4 rotationMatrix;
-uniform float newScale;
+
+uniform mat4 newPos = mat4(0.0001f);
+uniform mat4 newRot = mat4(0.0001f);
+uniform mat4 newScale = mat4(1.0f);
 
 void main()
 {
-	// Combine all transformation matrices including the new translationMatrix
-        mat4 modelMatrix = model * translation * rotation* rotationMatrix * scale * translationMatrix ;
-
-        // Calculate the final position by applying the transformation matrices
-        gl_Position = modelMatrix * vec4(aPos * newScale, 1.0f);
-
-        data_out.Normal = aNormal;
-        data_out.color = aColor;
-        data_out.texCoord = mat2(0.0, -1.0, 1.0, 0.0) * aTex;
-        data_out.projection = camMatrix;
+	gl_Position = model * translation * rotation * scale*newRot*newScale * newPos*vec4(aPos, 1.0f);
+	data_out.Normal = aNormal;
+	data_out.color = aColor;
+	data_out.texCoord = mat2(0.0, -1.0, 1.0, 0.0) * aTex;
+	data_out.projection = camMatrix;
 }

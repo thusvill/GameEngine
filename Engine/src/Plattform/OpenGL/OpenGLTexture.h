@@ -6,7 +6,6 @@
 #define GAMEENGINE_OPENGLTEXTURE_H
 
 #include "../../../vendor/glad/include/glad/glad.h"
-#include "../../../vendor/stb/stb_image.h"
 #include "GLShader.h"
 #include "../../Renderer/Texture.h"
 
@@ -16,7 +15,8 @@ namespace VectorVertex
 public:
 
     OpenGLTexture(TextureData data);
-    virtual ~OpenGLTexture();
+    virtual ~OpenGLTexture(){
+    }
 
     virtual void texUni(Shader* _shader, const char* uniform, unsigned int unit) override;
     virtual void Bind() override;

@@ -17,6 +17,7 @@ namespace VectorVertex{
         CameraProperties m_CameraProperties;
         //OpenGLCamera(int width, int height, glm::vec3 position, float newfov, float newnp, float newfp);
         OpenGLCamera(CameraProperties props);
+        virtual ~OpenGLCamera(){}
         bool firstClick = false;
 
         virtual void Resize(int n_width, int n_height) override;

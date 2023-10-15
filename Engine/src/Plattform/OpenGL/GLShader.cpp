@@ -19,6 +19,10 @@ namespace VectorVertex{
     }
 
     GLShader::GLShader(const std::string& vertexFile,const std::string& fragmentFile,const std::string& geometryFile) {
+#if defined(VV_DEBUG)
+        VV_CORE_INFO("GL Shader createing {0}, {1}, {2}", vertexFile, fragmentFile, geometryFile);
+#endif
+
         std::string vertexCode = get_file_contents(vertexFile.c_str());
         std::string fragmentCode = get_file_contents(fragmentFile.c_str());
         std::string geometryCode = get_file_contents(geometryFile.c_str());
@@ -45,8 +49,8 @@ namespace VectorVertex{
         ID = glCreateProgram();
 
         glAttachShader(ID, vertexShader);
-        glAttachShader(ID, fragmentShader);
         glAttachShader(ID, geometryShader);
+        glAttachShader(ID, fragmentShader);
         glLinkProgram(ID);
         compileErrors(ID, "PROGRAM");
 
@@ -54,12 +58,11 @@ namespace VectorVertex{
         glDeleteShader(fragmentShader);
         glDeleteShader(geometryShader);
 
-
+#if defined(VV_DEBUG)
+        VV_CORE_INFO("GL Shader Created ID:{0} : {1}, {2}, {3}",ID, vertexFile, fragmentFile, geometryFile);
+#endif
     }
 
-    GLShader::~GLShader(){
-        Delete();
-    }
 
     void GLShader::Activate() const {
         glUseProgram(ID);
@@ -72,17 +75,17 @@ namespace VectorVertex{
     void GLShader::compileErrors(unsigned int shader, const char *type) {
         GLint hasCompiled;
         char infoLog[1024];
-        if(type != "PROGRAM"){
+        if(strcmp(type, "PROGRAM") != 0){
             glGetShaderiv(shader, GL_COMPILE_STATUS, &hasCompiled);
             if(hasCompiled == GL_FALSE){
                 glGetShaderInfoLog(shader, 1024, NULL, infoLog);
-                std::cout<<"Shader Compilation Error for:"<<type<<"\n"<<std::endl;
+                VV_CORE_ERROR("Shader Compilation Error for: {0}, ID:{1}",type, shader);
             }
         } else{
-            glGetProgramiv(shader, GL_COMPILE_STATUS, &hasCompiled);
+            glGetProgramiv(shader, GL_LINK_STATUS, &hasCompiled);
             if(hasCompiled == GL_FALSE){
                 glGetProgramInfoLog(shader, 1024, NULL, infoLog);
-                std::cout<<"Shader Linking Error for:"<<type<<"\n"<<std::endl;
+                VV_CORE_ERROR("Shader Linking Error for: {0}, ID:{1}",type, shader);
             }
         }
     }

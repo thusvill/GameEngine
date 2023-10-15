@@ -1,4 +1,4 @@
-#version 330 core
+#version 460
 
 // Outputs colors in RGBA
 out vec4 FragColor;
@@ -24,13 +24,10 @@ uniform vec3 lightPos;
 // Gets the position of the camera from the main function
 uniform vec3 camPos;
 
-uniform int lightType= 0;
+uniform int type = 0;
+
 uniform float intensity = 1.0f;
-uniform float inradius = 0.01f;
-uniform float outradius = 0.09f;
-uniform float corn_in = 0.90f;
-uniform float corn_out= 0.95f;
-float ambient_in = intensity;
+
 
 vec4 pointLight()
 {
@@ -39,12 +36,12 @@ vec4 pointLight()
 
 	// intensity of light with respect to distance
 	float dist = length(lightVec);
-	float a = inradius;
-	float b = outradius;
+	float a = 0.01;
+	float b = 0.09;
 	float inten = 1.0f / (a * dist * dist + b * dist + 1.0f);
 
 	// ambient lighting
-	float ambient = ambient_in;
+	float ambient = 0.20f;
 
 	// diffuse lighting
 	vec3 normal = normalize(Normal);
@@ -58,13 +55,13 @@ vec4 pointLight()
 	float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 16);
 	float specular = specAmount * specularLight;
 
-	return (texture(diffuse0, texCoord) * (diffuse * inten + ambient) + texture(specular0, texCoord).r * specular * inten) * lightColor ;
+	return (texture(diffuse0, texCoord) * (diffuse * inten + ambient) + texture(specular0, texCoord).r * specular * inten) * lightColor*intensity;
 }
 
 vec4 directLight()
 {
 	// ambient lighting
-	float ambient = ambient_in;
+	float ambient = 0.50f;
 
 	// diffuse lighting
 	vec3 normal = normalize(Normal);
@@ -78,17 +75,17 @@ vec4 directLight()
 	float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 16);
 	float specular = specAmount * specularLight;
 
-	return (texture(diffuse0, texCoord) * (diffuse + ambient) + texture(specular0, texCoord).r * specular) * lightColor;
+	return (texture(diffuse0, texCoord) * (diffuse + ambient) + texture(specular0, texCoord).r * specular) * lightColor*intensity;
 }
 
 vec4 spotLight()
 {
 	// controls how big the area that is lit up is
-	float outerCone = corn_out;
-	float innerCone = corn_in;
+	float outerCone = 0.90f;
+	float innerCone = 0.95f;
 
 	// ambient lighting
-	float ambient = ambient_in;
+	float ambient = 0.20f;
 
 	// diffuse lighting
 	vec3 normal = normalize(Normal);
@@ -99,24 +96,24 @@ vec4 spotLight()
 	float specularLight = 0.50f;
 	vec3 viewDirection = normalize(camPos - crntPos);
 	vec3 reflectionDirection = reflect(-lightDirection, normal);
-	float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 8);
+	float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 16);
 	float specular = specAmount * specularLight;
 
 	// calculates the intensity of the crntPos based on its angle to the center of the light cone
 	float angle = dot(vec3(0.0f, -1.0f, 0.0f), -lightDirection);
 	float inten = clamp((angle - outerCone) / (innerCone - outerCone), 0.0f, 1.0f);
 
-	return (texture(diffuse0, texCoord) * (diffuse * inten + ambient) + texture(specular0, texCoord).r * specular * inten) * lightColor;
+	return (texture(diffuse0, texCoord) * (diffuse * inten + ambient) + texture(specular0, texCoord).r * specular * inten) * lightColor*intensity;
 }
 
 
 void main()
 {
-	// outputs final color
-	if(lightType == 0)
-			FragColor = directLight();
-	else if(lightType == 1)
-			FragColor = pointLight();
-	else if(lightType == 2)
-			FragColor = spotLight();
+	if(type == 0){
+		FragColor = directLight();
+	}else if(type == 1){
+		FragColor =pointLight();
+	}else if(type ==2 ){
+		FragColor =spotLight();
+	}
 }
