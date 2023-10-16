@@ -22,6 +22,7 @@ namespace VectorVertex {
         GLShader(const std::string filepath);
         virtual ~GLShader() override{
             VV_CORE_WARN("GLShader Destroyed!");
+            Delete();
         }
         virtual void Activate() const override;
         virtual void Delete() const override;
@@ -39,6 +40,7 @@ namespace VectorVertex {
         std::string m_Name;
         std::string m_FilePath;
         static void compileErrors(unsigned int shader, const char* type);
+        std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
 
         std::unordered_map<GLenum , std::string> m_GLSources;
 

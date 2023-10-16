@@ -438,6 +438,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLCamera.cpp.o: \
  /usr/include/glm/ext/matrix_transform.inl \
  /usr/include/glm/gtc/matrix_transform.inl \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/Shader.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Core/Log.h \
  /usr/include/glm/glm.hpp /usr/include/c++/11/cfloat \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
  /usr/include/glm/fwd.hpp /usr/include/glm/packing.hpp \

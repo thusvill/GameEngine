@@ -9,6 +9,7 @@
 #include "GLFW/glfw3.h"
 #include "../../Renderer/Camera.h"
 #include "../../Renderer/Shader.h"
+#include "../../Core/Log.h"
 
 namespace VectorVertex{
     class OpenGLCamera : public Camera {

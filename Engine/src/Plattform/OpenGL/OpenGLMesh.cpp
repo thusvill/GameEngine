@@ -59,8 +59,6 @@ namespace VectorVertex{
       }
         else if(!shader){
             VV_CORE_ERROR("Draw Mesh shader NULL!");
-        } else{
-          VV_CORE_INFO("Drawing Mesh");
         }
 #endif
         shader->Activate();

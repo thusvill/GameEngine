@@ -18,6 +18,7 @@ namespace VectorVertex {
         virtual void OnUpdate() override;
 
         virtual void OnImGuiRender() override;
+        virtual void OnRender() override;
 
         void BindFrameBuffer();
         void UnbindFrameBuffer();
@@ -32,6 +33,7 @@ namespace VectorVertex {
             return this;
         }
 
+        ShaderLibrary m_ShaderLibrary;
     private:
         Scope<Camera> m_EditorCamera;
         CameraProperties m_CameraProps;

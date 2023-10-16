@@ -3,8 +3,6 @@
 //
 
 #include "Application.h"
-#include "../Plattform/OpenGL/OpenGLVBO.h"
-#include "../Renderer/Model.h"
 namespace VectorVertex{
     Application* Application::s_Instance = nullptr;
     Application::Application(const ApplicationSpecs &specs): m_AppSpecs(specs) {
@@ -21,20 +19,19 @@ namespace VectorVertex{
 
         m_EditorLayer = new EditorLayer();
         PushOverlay(m_EditorLayer);
+        //m_EditorLayer->m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default_shader.glsl");
 
     }
 
     void Application::PushLayer(VectorVertex::Layer *layer) {
         m_LayerStack.PushLayer(layer);
-        layer->OnAttach();
+        //layer->OnAttach();
     }
 
     void Application::PushOverlay(VectorVertex::Layer *layer) {
         m_LayerStack.PushOverlay(layer);
-#if defined(VV_DEBUG)
         VV_CORE_INFO("PushingOverlay");
-#endif
-        layer->OnAttach();
+       // layer->OnAttach();
     }
 
     void Application::OnStart() {
@@ -88,8 +85,6 @@ namespace VectorVertex{
 
     void Window::OnUpdate() {
     }
-    Ref<Shader> shader;
-    Scope<Model> model;
 
     void Application::Stop() {
 
@@ -97,16 +92,9 @@ namespace VectorVertex{
         delete m_EditorLayer;
     }
     void Window::OnStart() {
-        shader = Shader::Create("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.vert", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.frag","/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.geom");
-        model = Model::Create("/home/bios/CLionProjects/Game/Models/bunny/scene.gltf");
 
     }
     void Window::OnRender() {
-        /*model->Scale(std::move(shader), glm::vec3(1.0f));
-        model->Position(std::move(shader), glm::vec3(1.0f));
-        model->Rotation(std::move(shader), glm::vec3(0.0f));
-        model->Draw(std::move(shader), Application::Get().m_EditorLayer->GetEditorCamera());
-         */
         /*glBegin(GL_TRIANGLES);
         glColor3f(1.0f, 0.0f, 0.0f);   // Red
         glVertex2f(0.0f, 0.5f);         // Top

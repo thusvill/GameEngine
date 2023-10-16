@@ -1651,8 +1651,16 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/EditorLayer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/ImGuiLayer/ImguiLayer.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Camera.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/FrameBuffer.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/GraphicsContext.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/RenderAPI.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Application.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Renderer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/EditorLayer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/KHR/khrplatform.h \
   /usr/include/GLFW/glfw3.h \
@@ -1777,6 +1785,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /usr/include/c++/11/cassert \
   /usr/include/c++/11/cctype \
   /usr/include/c++/11/cerrno \
+  /usr/include/c++/11/cfloat \
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/climits \
   /usr/include/c++/11/clocale \
@@ -1871,11 +1880,16 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /usr/include/glm/detail/func_common.inl \
   /usr/include/glm/detail/func_exponential.inl \
   /usr/include/glm/detail/func_geometric.inl \
+  /usr/include/glm/detail/func_integer.inl \
   /usr/include/glm/detail/func_matrix.inl \
+  /usr/include/glm/detail/func_packing.inl \
   /usr/include/glm/detail/func_trigonometric.inl \
   /usr/include/glm/detail/func_vector_relational.inl \
   /usr/include/glm/detail/qualifier.hpp \
   /usr/include/glm/detail/setup.hpp \
+  /usr/include/glm/detail/type_float.hpp \
+  /usr/include/glm/detail/type_half.hpp \
+  /usr/include/glm/detail/type_half.inl \
   /usr/include/glm/detail/type_mat2x2.hpp \
   /usr/include/glm/detail/type_mat2x2.inl \
   /usr/include/glm/detail/type_mat2x3.hpp \
@@ -1894,6 +1908,8 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /usr/include/glm/detail/type_mat4x3.inl \
   /usr/include/glm/detail/type_mat4x4.hpp \
   /usr/include/glm/detail/type_mat4x4.inl \
+  /usr/include/glm/detail/type_quat.hpp \
+  /usr/include/glm/detail/type_quat.inl \
   /usr/include/glm/detail/type_vec1.hpp \
   /usr/include/glm/detail/type_vec1.inl \
   /usr/include/glm/detail/type_vec2.hpp \
@@ -1945,45 +1961,95 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /usr/include/glm/ext/matrix_projection.inl \
   /usr/include/glm/ext/matrix_transform.hpp \
   /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/ext/quaternion_common.hpp \
+  /usr/include/glm/ext/quaternion_common.inl \
+  /usr/include/glm/ext/quaternion_double.hpp \
+  /usr/include/glm/ext/quaternion_double_precision.hpp \
+  /usr/include/glm/ext/quaternion_exponential.hpp \
+  /usr/include/glm/ext/quaternion_exponential.inl \
+  /usr/include/glm/ext/quaternion_float.hpp \
+  /usr/include/glm/ext/quaternion_float_precision.hpp \
+  /usr/include/glm/ext/quaternion_geometric.hpp \
+  /usr/include/glm/ext/quaternion_geometric.inl \
+  /usr/include/glm/ext/quaternion_relational.hpp \
+  /usr/include/glm/ext/quaternion_relational.inl \
+  /usr/include/glm/ext/quaternion_transform.hpp \
+  /usr/include/glm/ext/quaternion_transform.inl \
+  /usr/include/glm/ext/quaternion_trigonometric.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.inl \
   /usr/include/glm/ext/scalar_constants.hpp \
   /usr/include/glm/ext/scalar_constants.inl \
   /usr/include/glm/ext/scalar_int_sized.hpp \
   /usr/include/glm/ext/scalar_uint_sized.hpp \
+  /usr/include/glm/ext/vector_bool1.hpp \
+  /usr/include/glm/ext/vector_bool1_precision.hpp \
   /usr/include/glm/ext/vector_bool2.hpp \
   /usr/include/glm/ext/vector_bool2_precision.hpp \
   /usr/include/glm/ext/vector_bool3.hpp \
   /usr/include/glm/ext/vector_bool3_precision.hpp \
   /usr/include/glm/ext/vector_bool4.hpp \
   /usr/include/glm/ext/vector_bool4_precision.hpp \
+  /usr/include/glm/ext/vector_double1.hpp \
+  /usr/include/glm/ext/vector_double1_precision.hpp \
   /usr/include/glm/ext/vector_double2.hpp \
   /usr/include/glm/ext/vector_double2_precision.hpp \
   /usr/include/glm/ext/vector_double3.hpp \
   /usr/include/glm/ext/vector_double3_precision.hpp \
   /usr/include/glm/ext/vector_double4.hpp \
   /usr/include/glm/ext/vector_double4_precision.hpp \
+  /usr/include/glm/ext/vector_float1.hpp \
+  /usr/include/glm/ext/vector_float1_precision.hpp \
   /usr/include/glm/ext/vector_float2.hpp \
   /usr/include/glm/ext/vector_float2_precision.hpp \
   /usr/include/glm/ext/vector_float3.hpp \
   /usr/include/glm/ext/vector_float3_precision.hpp \
   /usr/include/glm/ext/vector_float4.hpp \
   /usr/include/glm/ext/vector_float4_precision.hpp \
+  /usr/include/glm/ext/vector_int1.hpp \
+  /usr/include/glm/ext/vector_int1_sized.hpp \
   /usr/include/glm/ext/vector_int2.hpp \
   /usr/include/glm/ext/vector_int2_sized.hpp \
   /usr/include/glm/ext/vector_int3.hpp \
   /usr/include/glm/ext/vector_int3_sized.hpp \
   /usr/include/glm/ext/vector_int4.hpp \
   /usr/include/glm/ext/vector_int4_sized.hpp \
+  /usr/include/glm/ext/vector_relational.hpp \
+  /usr/include/glm/ext/vector_relational.inl \
+  /usr/include/glm/ext/vector_uint1.hpp \
+  /usr/include/glm/ext/vector_uint1_sized.hpp \
   /usr/include/glm/ext/vector_uint2.hpp \
   /usr/include/glm/ext/vector_uint2_sized.hpp \
   /usr/include/glm/ext/vector_uint3.hpp \
   /usr/include/glm/ext/vector_uint3_sized.hpp \
   /usr/include/glm/ext/vector_uint4.hpp \
   /usr/include/glm/ext/vector_uint4_sized.hpp \
+  /usr/include/glm/fwd.hpp \
   /usr/include/glm/geometric.hpp \
+  /usr/include/glm/glm.hpp \
   /usr/include/glm/gtc/constants.hpp \
   /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/gtc/epsilon.hpp \
+  /usr/include/glm/gtc/epsilon.inl \
   /usr/include/glm/gtc/matrix_transform.hpp \
   /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtc/quaternion.hpp \
+  /usr/include/glm/gtc/quaternion.inl \
+  /usr/include/glm/gtc/type_ptr.hpp \
+  /usr/include/glm/gtc/type_ptr.inl \
+  /usr/include/glm/gtc/vec1.hpp \
+  /usr/include/glm/gtx/component_wise.hpp \
+  /usr/include/glm/gtx/component_wise.inl \
+  /usr/include/glm/gtx/norm.hpp \
+  /usr/include/glm/gtx/norm.inl \
+  /usr/include/glm/gtx/quaternion.hpp \
+  /usr/include/glm/gtx/quaternion.inl \
+  /usr/include/glm/gtx/rotate_vector.hpp \
+  /usr/include/glm/gtx/rotate_vector.inl \
+  /usr/include/glm/gtx/transform.hpp \
+  /usr/include/glm/gtx/transform.inl \
+  /usr/include/glm/gtx/vector_angle.hpp \
+  /usr/include/glm/gtx/vector_angle.inl \
+  /usr/include/glm/integer.hpp \
   /usr/include/glm/mat2x2.hpp \
   /usr/include/glm/mat2x3.hpp \
   /usr/include/glm/mat2x4.hpp \
@@ -1994,6 +2060,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /usr/include/glm/mat4x3.hpp \
   /usr/include/glm/mat4x4.hpp \
   /usr/include/glm/matrix.hpp \
+  /usr/include/glm/packing.hpp \
   /usr/include/glm/simd/platform.h \
   /usr/include/glm/trigonometric.hpp \
   /usr/include/glm/vec2.hpp \
@@ -3738,6 +3805,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/GLShader.cpp.o: /home/bi
 
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLCamera.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLCamera.cpp \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Assert.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
@@ -8226,6 +8294,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o: /home/bios/CLionPr
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/PlattformDetection.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Camera.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLCamera.h \
@@ -11664,15 +11733,17 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Shader.cpp.o: /home/bios/CLionPr
 
 CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.cpp \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Assert.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/ErrorDetection.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/PlattformDetection.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/LayerStack.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
@@ -11721,6 +11792,10 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionP
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_defines.h \
   /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/fs_dir.h \
+  /usr/include/c++/11/bits/fs_fwd.h \
+  /usr/include/c++/11/bits/fs_ops.h \
+  /usr/include/c++/11/bits/fs_path.h \
   /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/functional_hash.h \
@@ -11733,8 +11808,11 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionP
   /usr/include/c++/11/bits/iterator_concepts.h \
   /usr/include/c++/11/bits/locale_classes.h \
   /usr/include/c++/11/bits/locale_classes.tcc \
+  /usr/include/c++/11/bits/locale_conv.h \
   /usr/include/c++/11/bits/locale_facets.h \
   /usr/include/c++/11/bits/locale_facets.tcc \
+  /usr/include/c++/11/bits/locale_facets_nonio.h \
+  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
   /usr/include/c++/11/bits/localefwd.h \
   /usr/include/c++/11/bits/max_size_type.h \
   /usr/include/c++/11/bits/memoryfwd.h \
@@ -11747,6 +11825,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionP
   /usr/include/c++/11/bits/postypes.h \
   /usr/include/c++/11/bits/predefined_ops.h \
   /usr/include/c++/11/bits/ptr_traits.h \
+  /usr/include/c++/11/bits/quoted_string.h \
   /usr/include/c++/11/bits/range_access.h \
   /usr/include/c++/11/bits/ranges_algo.h \
   /usr/include/c++/11/bits/ranges_algobase.h \
@@ -11800,6 +11879,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionP
   /usr/include/c++/11/climits \
   /usr/include/c++/11/clocale \
   /usr/include/c++/11/cmath \
+  /usr/include/c++/11/codecvt \
   /usr/include/c++/11/compare \
   /usr/include/c++/11/concepts \
   /usr/include/c++/11/condition_variable \
@@ -11822,15 +11902,18 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionP
   /usr/include/c++/11/ext/numeric_traits.h \
   /usr/include/c++/11/ext/string_conversions.h \
   /usr/include/c++/11/ext/type_traits.h \
+  /usr/include/c++/11/filesystem \
   /usr/include/c++/11/fstream \
   /usr/include/c++/11/functional \
   /usr/include/c++/11/initializer_list \
+  /usr/include/c++/11/iomanip \
   /usr/include/c++/11/ios \
   /usr/include/c++/11/iosfwd \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/iterator \
   /usr/include/c++/11/limits \
+  /usr/include/c++/11/locale \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/mutex \
   /usr/include/c++/11/new \
@@ -11877,6 +11960,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionP
   /usr/include/features.h \
   /usr/include/fmt/core.h \
   /usr/include/fmt/format.h \
+  /usr/include/libintl.h \
   /usr/include/limits.h \
   /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
@@ -12047,7 +12131,9 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionP
   /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -12065,6 +12151,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Texture.cpp.o: /home/bios/CLionP
 
 CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Application.cpp \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Assert.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/ErrorDetection.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.h \
@@ -12073,6 +12160,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/PlattformDetection.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Window.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Camera.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/FrameBuffer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/RenderAPI.h \
@@ -12080,16 +12168,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/EditorLayer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/ImGuiLayer/ImguiLayer.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Camera.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVBO.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Camera.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/RenderAPI.h \
-  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Application.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Core.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/KHR/khrplatform.h \
@@ -12123,6 +12202,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/c++/11/bits/basic_string.tcc \
   /usr/include/c++/11/bits/char_traits.h \
   /usr/include/c++/11/bits/charconv.h \
+  /usr/include/c++/11/bits/codecvt.h \
   /usr/include/c++/11/bits/concept_check.h \
   /usr/include/c++/11/bits/cpp_type_traits.h \
   /usr/include/c++/11/bits/cxxabi_forced.h \
@@ -12132,6 +12212,10 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_defines.h \
   /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/fs_dir.h \
+  /usr/include/c++/11/bits/fs_fwd.h \
+  /usr/include/c++/11/bits/fs_ops.h \
+  /usr/include/c++/11/bits/fs_path.h \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/functional_hash.h \
   /usr/include/c++/11/bits/hash_bytes.h \
@@ -12143,8 +12227,11 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/c++/11/bits/iterator_concepts.h \
   /usr/include/c++/11/bits/locale_classes.h \
   /usr/include/c++/11/bits/locale_classes.tcc \
+  /usr/include/c++/11/bits/locale_conv.h \
   /usr/include/c++/11/bits/locale_facets.h \
   /usr/include/c++/11/bits/locale_facets.tcc \
+  /usr/include/c++/11/bits/locale_facets_nonio.h \
+  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
   /usr/include/c++/11/bits/localefwd.h \
   /usr/include/c++/11/bits/max_size_type.h \
   /usr/include/c++/11/bits/memoryfwd.h \
@@ -12157,6 +12244,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/c++/11/bits/postypes.h \
   /usr/include/c++/11/bits/predefined_ops.h \
   /usr/include/c++/11/bits/ptr_traits.h \
+  /usr/include/c++/11/bits/quoted_string.h \
   /usr/include/c++/11/bits/range_access.h \
   /usr/include/c++/11/bits/ranges_algo.h \
   /usr/include/c++/11/bits/ranges_algobase.h \
@@ -12170,6 +12258,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/c++/11/bits/shared_ptr_atomic.h \
   /usr/include/c++/11/bits/shared_ptr_base.h \
   /usr/include/c++/11/bits/specfun.h \
+  /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/bits/std_function.h \
   /usr/include/c++/11/bits/std_mutex.h \
@@ -12205,11 +12294,11 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/c++/11/cassert \
   /usr/include/c++/11/cctype \
   /usr/include/c++/11/cerrno \
-  /usr/include/c++/11/cfloat \
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/climits \
   /usr/include/c++/11/clocale \
   /usr/include/c++/11/cmath \
+  /usr/include/c++/11/codecvt \
   /usr/include/c++/11/compare \
   /usr/include/c++/11/concepts \
   /usr/include/c++/11/condition_variable \
@@ -12232,14 +12321,17 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/c++/11/ext/numeric_traits.h \
   /usr/include/c++/11/ext/string_conversions.h \
   /usr/include/c++/11/ext/type_traits.h \
+  /usr/include/c++/11/filesystem \
   /usr/include/c++/11/functional \
   /usr/include/c++/11/initializer_list \
+  /usr/include/c++/11/iomanip \
   /usr/include/c++/11/ios \
   /usr/include/c++/11/iosfwd \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/iterator \
   /usr/include/c++/11/limits \
+  /usr/include/c++/11/locale \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/mutex \
   /usr/include/c++/11/new \
@@ -12251,6 +12343,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/c++/11/pstl/pstl_config.h \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/semaphore \
+  /usr/include/c++/11/sstream \
   /usr/include/c++/11/stdexcept \
   /usr/include/c++/11/stop_token \
   /usr/include/c++/11/streambuf \
@@ -12293,16 +12386,11 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/glm/detail/func_common.inl \
   /usr/include/glm/detail/func_exponential.inl \
   /usr/include/glm/detail/func_geometric.inl \
-  /usr/include/glm/detail/func_integer.inl \
   /usr/include/glm/detail/func_matrix.inl \
-  /usr/include/glm/detail/func_packing.inl \
   /usr/include/glm/detail/func_trigonometric.inl \
   /usr/include/glm/detail/func_vector_relational.inl \
   /usr/include/glm/detail/qualifier.hpp \
   /usr/include/glm/detail/setup.hpp \
-  /usr/include/glm/detail/type_float.hpp \
-  /usr/include/glm/detail/type_half.hpp \
-  /usr/include/glm/detail/type_half.inl \
   /usr/include/glm/detail/type_mat2x2.hpp \
   /usr/include/glm/detail/type_mat2x2.inl \
   /usr/include/glm/detail/type_mat2x3.hpp \
@@ -12321,8 +12409,6 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/glm/detail/type_mat4x3.inl \
   /usr/include/glm/detail/type_mat4x4.hpp \
   /usr/include/glm/detail/type_mat4x4.inl \
-  /usr/include/glm/detail/type_quat.hpp \
-  /usr/include/glm/detail/type_quat.inl \
   /usr/include/glm/detail/type_vec1.hpp \
   /usr/include/glm/detail/type_vec1.inl \
   /usr/include/glm/detail/type_vec2.hpp \
@@ -12374,95 +12460,45 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/glm/ext/matrix_projection.inl \
   /usr/include/glm/ext/matrix_transform.hpp \
   /usr/include/glm/ext/matrix_transform.inl \
-  /usr/include/glm/ext/quaternion_common.hpp \
-  /usr/include/glm/ext/quaternion_common.inl \
-  /usr/include/glm/ext/quaternion_double.hpp \
-  /usr/include/glm/ext/quaternion_double_precision.hpp \
-  /usr/include/glm/ext/quaternion_exponential.hpp \
-  /usr/include/glm/ext/quaternion_exponential.inl \
-  /usr/include/glm/ext/quaternion_float.hpp \
-  /usr/include/glm/ext/quaternion_float_precision.hpp \
-  /usr/include/glm/ext/quaternion_geometric.hpp \
-  /usr/include/glm/ext/quaternion_geometric.inl \
-  /usr/include/glm/ext/quaternion_relational.hpp \
-  /usr/include/glm/ext/quaternion_relational.inl \
-  /usr/include/glm/ext/quaternion_transform.hpp \
-  /usr/include/glm/ext/quaternion_transform.inl \
-  /usr/include/glm/ext/quaternion_trigonometric.hpp \
-  /usr/include/glm/ext/quaternion_trigonometric.inl \
   /usr/include/glm/ext/scalar_constants.hpp \
   /usr/include/glm/ext/scalar_constants.inl \
   /usr/include/glm/ext/scalar_int_sized.hpp \
   /usr/include/glm/ext/scalar_uint_sized.hpp \
-  /usr/include/glm/ext/vector_bool1.hpp \
-  /usr/include/glm/ext/vector_bool1_precision.hpp \
   /usr/include/glm/ext/vector_bool2.hpp \
   /usr/include/glm/ext/vector_bool2_precision.hpp \
   /usr/include/glm/ext/vector_bool3.hpp \
   /usr/include/glm/ext/vector_bool3_precision.hpp \
   /usr/include/glm/ext/vector_bool4.hpp \
   /usr/include/glm/ext/vector_bool4_precision.hpp \
-  /usr/include/glm/ext/vector_double1.hpp \
-  /usr/include/glm/ext/vector_double1_precision.hpp \
   /usr/include/glm/ext/vector_double2.hpp \
   /usr/include/glm/ext/vector_double2_precision.hpp \
   /usr/include/glm/ext/vector_double3.hpp \
   /usr/include/glm/ext/vector_double3_precision.hpp \
   /usr/include/glm/ext/vector_double4.hpp \
   /usr/include/glm/ext/vector_double4_precision.hpp \
-  /usr/include/glm/ext/vector_float1.hpp \
-  /usr/include/glm/ext/vector_float1_precision.hpp \
   /usr/include/glm/ext/vector_float2.hpp \
   /usr/include/glm/ext/vector_float2_precision.hpp \
   /usr/include/glm/ext/vector_float3.hpp \
   /usr/include/glm/ext/vector_float3_precision.hpp \
   /usr/include/glm/ext/vector_float4.hpp \
   /usr/include/glm/ext/vector_float4_precision.hpp \
-  /usr/include/glm/ext/vector_int1.hpp \
-  /usr/include/glm/ext/vector_int1_sized.hpp \
   /usr/include/glm/ext/vector_int2.hpp \
   /usr/include/glm/ext/vector_int2_sized.hpp \
   /usr/include/glm/ext/vector_int3.hpp \
   /usr/include/glm/ext/vector_int3_sized.hpp \
   /usr/include/glm/ext/vector_int4.hpp \
   /usr/include/glm/ext/vector_int4_sized.hpp \
-  /usr/include/glm/ext/vector_relational.hpp \
-  /usr/include/glm/ext/vector_relational.inl \
-  /usr/include/glm/ext/vector_uint1.hpp \
-  /usr/include/glm/ext/vector_uint1_sized.hpp \
   /usr/include/glm/ext/vector_uint2.hpp \
   /usr/include/glm/ext/vector_uint2_sized.hpp \
   /usr/include/glm/ext/vector_uint3.hpp \
   /usr/include/glm/ext/vector_uint3_sized.hpp \
   /usr/include/glm/ext/vector_uint4.hpp \
   /usr/include/glm/ext/vector_uint4_sized.hpp \
-  /usr/include/glm/fwd.hpp \
   /usr/include/glm/geometric.hpp \
-  /usr/include/glm/glm.hpp \
   /usr/include/glm/gtc/constants.hpp \
   /usr/include/glm/gtc/constants.inl \
-  /usr/include/glm/gtc/epsilon.hpp \
-  /usr/include/glm/gtc/epsilon.inl \
   /usr/include/glm/gtc/matrix_transform.hpp \
   /usr/include/glm/gtc/matrix_transform.inl \
-  /usr/include/glm/gtc/quaternion.hpp \
-  /usr/include/glm/gtc/quaternion.inl \
-  /usr/include/glm/gtc/type_ptr.hpp \
-  /usr/include/glm/gtc/type_ptr.inl \
-  /usr/include/glm/gtc/vec1.hpp \
-  /usr/include/glm/gtx/component_wise.hpp \
-  /usr/include/glm/gtx/component_wise.inl \
-  /usr/include/glm/gtx/norm.hpp \
-  /usr/include/glm/gtx/norm.inl \
-  /usr/include/glm/gtx/quaternion.hpp \
-  /usr/include/glm/gtx/quaternion.inl \
-  /usr/include/glm/gtx/rotate_vector.hpp \
-  /usr/include/glm/gtx/rotate_vector.inl \
-  /usr/include/glm/gtx/transform.hpp \
-  /usr/include/glm/gtx/transform.inl \
-  /usr/include/glm/gtx/vector_angle.hpp \
-  /usr/include/glm/gtx/vector_angle.inl \
-  /usr/include/glm/integer.hpp \
   /usr/include/glm/mat2x2.hpp \
   /usr/include/glm/mat2x3.hpp \
   /usr/include/glm/mat2x4.hpp \
@@ -12473,13 +12509,13 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/glm/mat4x3.hpp \
   /usr/include/glm/mat4x4.hpp \
   /usr/include/glm/matrix.hpp \
-  /usr/include/glm/packing.hpp \
   /usr/include/glm/simd/platform.h \
   /usr/include/glm/trigonometric.hpp \
   /usr/include/glm/vec2.hpp \
   /usr/include/glm/vec3.hpp \
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
+  /usr/include/libintl.h \
   /usr/include/limits.h \
   /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
@@ -12648,7 +12684,9 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -12658,7 +12696,6 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
@@ -14954,8 +14991,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
   /usr/lib/gcc/x86_64-linux-gnu/11/include/xtestintrin.h
 
 
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Renderer.h:
-
 /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/Sandbox.cpp:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/stb/stb_image.cpp:
@@ -15016,79 +15051,15 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.h:
 
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.h:
-
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.cpp:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVAO.h:
-
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.h:
-
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLFBO.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLFBO.cpp:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLContext.cpp:
-
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.h:
-
-/usr/include/glm/packing.hpp:
-
-/usr/include/glm/gtx/vector_angle.inl:
-
-/usr/include/glm/gtx/vector_angle.hpp:
-
-/usr/include/glm/gtx/transform.inl:
-
-/usr/include/glm/gtx/transform.hpp:
-
-/usr/include/glm/gtx/rotate_vector.inl:
-
-/usr/include/glm/gtx/rotate_vector.hpp:
-
-/usr/include/glm/gtx/norm.inl:
-
-/usr/include/glm/gtx/norm.hpp:
-
-/usr/include/glm/gtc/type_ptr.hpp:
-
-/usr/include/glm/gtc/quaternion.inl:
-
-/usr/include/glm/gtc/epsilon.hpp:
-
-/usr/include/c++/11/forward_list:
-
-/usr/include/glm/fwd.hpp:
-
-/usr/include/glm/ext/vector_uint1.hpp:
-
-/usr/include/glm/ext/vector_int1_sized.hpp:
-
-/usr/include/glm/ext/vector_float1.hpp:
-
-/usr/include/glm/ext/vector_double1.hpp:
-
-/usr/include/glm/ext/vector_bool1_precision.hpp:
-
-/usr/include/glm/ext/vector_bool1.hpp:
-
-/usr/include/glm/ext/quaternion_trigonometric.hpp:
-
-/usr/include/glm/ext/quaternion_transform.inl:
-
-/usr/include/glm/ext/quaternion_relational.inl:
-
-/usr/include/glm/ext/quaternion_float.hpp:
-
-/usr/include/glm/ext/quaternion_double_precision.hpp:
-
-/usr/include/glm/ext/quaternion_double.hpp:
-
-/usr/include/glm/detail/type_half.hpp:
-
-/usr/include/c++/11/cfloat:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
 
@@ -15148,10 +15119,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mwaitintrin.h:
 
-/usr/include/glm/ext/vector_relational.inl:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/movdirintrin.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/keylockerintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/immintrin.h:
@@ -15169,10 +15136,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/lib/gcc/x86_64-linux-gnu/11/include/clzerointrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/clflushoptintrin.h:
-
-/usr/include/glm/ext/quaternion_geometric.inl:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/cldemoteintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/cetintrin.h:
 
@@ -15222,6 +15185,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/vec3.hpp:
 
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.h:
+
+/usr/include/glm/packing.hpp:
+
 /usr/include/glm/mat4x4.hpp:
 
 /usr/include/glm/mat4x2.hpp:
@@ -15236,19 +15203,113 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/mat2x2.hpp:
 
+/usr/include/glm/gtx/vector_angle.inl:
+
+/usr/include/glm/gtx/vector_angle.hpp:
+
+/usr/include/glm/gtx/transform.inl:
+
+/usr/include/glm/gtx/transform.hpp:
+
+/usr/include/glm/gtx/rotate_vector.inl:
+
+/usr/include/glm/gtx/rotate_vector.hpp:
+
+/usr/include/glm/gtx/norm.inl:
+
+/usr/include/glm/gtx/norm.hpp:
+
+/usr/include/glm/gtc/type_ptr.hpp:
+
+/usr/include/glm/gtc/quaternion.inl:
+
 /usr/include/glm/gtc/matrix_transform.hpp:
 
+/usr/include/glm/gtc/epsilon.hpp:
+
 /usr/include/glm/geometric.hpp:
+
+/usr/include/c++/11/forward_list:
+
+/usr/include/glm/fwd.hpp:
 
 /usr/include/glm/ext/vector_uint4_sized.hpp:
 
 /usr/include/glm/ext/vector_uint3.hpp:
 
-/usr/include/glm/detail/type_quat.inl:
+/usr/include/glm/ext/vector_uint1.hpp:
 
-/usr/include/glm/ext/vector_int4.hpp:
+/usr/lib/gcc/x86_64-linux-gnu/11/include/movdirintrin.h:
+
+/usr/include/glm/ext/vector_relational.inl:
 
 /usr/include/glm/ext/vector_int3_sized.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/tsxldtrkintrin.h:
+
+/usr/include/glm/ext/vector_int3.hpp:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp:
+
+/usr/include/glm/ext/vector_int2.hpp:
+
+/usr/include/glm/ext/vector_int1_sized.hpp:
+
+/usr/include/glm/ext/vector_uint2_sized.hpp:
+
+/usr/include/glm/ext/vector_float4.hpp:
+
+/usr/include/c++/11/bits/forward_list.h:
+
+/usr/include/glm/ext/vector_float3_precision.hpp:
+
+/usr/include/glm/ext/vector_float3.hpp:
+
+/usr/include/glm/ext/vector_float2_precision.hpp:
+
+/usr/include/glm/ext/vector_float2.hpp:
+
+/usr/include/glm/ext/vector_float1.hpp:
+
+/usr/include/glm/ext/vector_double4_precision.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h:
+
+/usr/include/glm/ext/vector_double4.hpp:
+
+/usr/include/glm/ext/vector_double3_precision.hpp:
+
+/usr/include/glm/ext/vector_double3.hpp:
+
+/usr/include/glm/ext/vector_double2_precision.hpp:
+
+/usr/include/glm/ext/vector_double1.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h:
+
+/usr/include/glm/ext/vector_bool3.hpp:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/ImGuiLayer/ImguiLayer.cpp:
+
+/usr/include/glm/ext/vector_bool2_precision.hpp:
+
+/usr/include/glm/ext/vector_bool2.hpp:
+
+/usr/include/glm/ext/vector_bool1_precision.hpp:
+
+/usr/include/glm/ext/vector_bool1.hpp:
+
+/usr/include/glm/ext/scalar_int_sized.hpp:
+
+/usr/include/glm/ext/vector_uint3_sized.hpp:
+
+/usr/include/glm/ext/scalar_constants.inl:
+
+/usr/include/glm/ext/scalar_constants.hpp:
+
+/usr/include/glm/ext/quaternion_trigonometric.hpp:
+
+/usr/include/glm/ext/quaternion_transform.inl:
 
 /usr/include/spdlog/details/synchronous_factory.h:
 
@@ -15263,10 +15324,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/spdlog/details/log_msg-inl.h:
 
 /usr/include/spdlog/common.h:
-
-/usr/include/glm/ext/quaternion_exponential.hpp:
-
-/usr/include/syscall.h:
 
 /usr/include/sched.h:
 
@@ -15302,6 +15359,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
 
+/usr/include/glm/ext/vector_int4.hpp:
+
+/usr/include/glm/detail/type_quat.inl:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bwintrin.h:
 
 /usr/include/fcntl.h:
@@ -15316,19 +15377,11 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/tr1/riemann_zeta.tcc:
 
-/usr/include/glm/ext/vector_uint2_sized.hpp:
-
-/usr/include/glm/ext/vector_float4.hpp:
-
 /usr/include/c++/11/tr1/modified_bessel_func.tcc:
 
 /usr/include/c++/11/thread:
 
 /usr/include/c++/11/ratio:
-
-/usr/include/glm/ext/quaternion_common.hpp:
-
-/usr/include/c++/11/condition_variable:
 
 /usr/include/glm/ext/matrix_double2x2_precision.hpp:
 
@@ -15347,10 +15400,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/c++/11/stdexcept:
 
 /usr/include/c++/11/pstl/glue_algorithm_defs.h:
-
-/usr/include/glm/ext/quaternion_transform.hpp:
-
-/usr/include/glm/ext/matrix_float3x2_precision.hpp:
 
 /usr/include/glm/trigonometric.hpp:
 
@@ -15387,10 +15436,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/glm/gtc/matrix_transform.inl:
 
 /usr/include/c++/11/ext/concurrence.h:
-
-/usr/include/glm/detail/type_float.hpp:
-
-/usr/include/c++/11/bits/erase_if.h:
 
 /usr/include/c++/11/bits/ptr_traits.h:
 
@@ -15430,10 +15475,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/algorithm:
 
-/usr/include/glm/detail/func_integer.inl:
-
-/usr/include/c++/11/bits/allocator.h:
-
 /usr/include/c++/11/cstdio:
 
 /usr/include/c++/11/chrono:
@@ -15443,6 +15484,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/c++/11/unordered_map:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imconfig.h:
+
+/usr/include/glm/ext/vector_double2.hpp:
+
+/usr/include/c++/11/bits/vector.tcc:
 
 /usr/include/spdlog/formatter.h:
 
@@ -15518,9 +15563,9 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
-/usr/include/glm/glm.hpp:
-
 /usr/include/glm/matrix.hpp:
+
+/usr/include/glm/glm.hpp:
 
 /usr/include/c++/11/bits/ranges_base.h:
 
@@ -15586,10 +15631,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
-/usr/include/glm/ext/quaternion_exponential.inl:
-
-/usr/include/c++/11/ext/numeric_traits.h:
-
 /usr/include/c++/11/bits/atomic_base.h:
 
 /usr/include/c++/11/bits/string_view.tcc:
@@ -15611,8 +15652,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
 
 /usr/include/c++/11/filesystem:
-
-/usr/include/glm/ext/vector_float2_precision.hpp:
 
 /usr/include/c++/11/bits/specfun.h:
 
@@ -15636,10 +15675,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/stdc-predef.h:
 
-/usr/include/glm/ext/quaternion_geometric.hpp:
-
-/usr/include/glm/ext/matrix_float2x2_precision.hpp:
-
 /usr/include/spdlog/sinks/sink-inl.h:
 
 /usr/include/c++/11/ext/string_conversions.h:
@@ -15649,6 +15684,8 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/spdlog/details/os.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.cpp:
+
+/usr/include/glm/ext/quaternion_double.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
@@ -15686,10 +15723,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/cassert:
 
-/usr/include/glm/ext/quaternion_relational.hpp:
-
-/usr/include/c++/11/bits/stl_algo.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/lwpintrin.h:
 
 /usr/include/c++/11/bits/exception_defines.h:
@@ -15708,13 +15741,9 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/atomic:
 
-/usr/include/glm/ext/vector_double3.hpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
 /usr/include/c++/11/bits/stl_construct.h:
-
-/usr/include/glm/ext/scalar_int_sized.hpp:
 
 /usr/include/glm/detail/type_quat.hpp:
 
@@ -15794,10 +15823,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/bits/hashtable_policy.h:
 
-/usr/include/glm/ext/quaternion_common.inl:
-
-/usr/include/c++/11/bits/locale_facets_nonio.h:
-
 /usr/include/c++/11/bits/ios_base.h:
 
 /usr/include/c++/11/pstl/glue_memory_defs.h:
@@ -15827,6 +15852,8 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLCamera.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_internal.h:
+
+/usr/include/glm/ext/quaternion_double_precision.hpp:
 
 /usr/include/c++/11/tr1/hypergeometric.tcc:
 
@@ -15858,6 +15885,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/clocale:
 
+/usr/include/glm/ext/vector_bool3_precision.hpp:
+
+/usr/include/c++/11/bits/ostream.tcc:
+
 /usr/include/c++/11/bits/ostream_insert.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
@@ -15868,13 +15899,15 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/bits/parse_numbers.h:
 
+/usr/include/glm/detail/type_half.hpp:
+
 /usr/include/locale.h:
 
 /usr/include/c++/11/numbers:
 
-/usr/include/glm/ext/quaternion_trigonometric.inl:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512dqintrin.h:
+
+/usr/include/glm/ext/quaternion_trigonometric.inl:
 
 /usr/include/c++/11/codecvt:
 
@@ -15934,11 +15967,11 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
-/usr/include/glm/detail/type_half.inl:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mwaitxintrin.h:
 
 /usr/include/spdlog/details/log_msg_buffer-inl.h:
+
+/usr/include/glm/detail/type_half.inl:
 
 /usr/include/c++/11/bits/ranges_uninitialized.h:
 
@@ -15958,8 +15991,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/asm/posix_types.h:
 
-/usr/include/glm/ext/vector_double2_precision.hpp:
-
 /usr/include/c++/11/pstl/pstl_config.h:
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
@@ -15975,8 +16006,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
 
 /usr/include/c++/11/bits/std_mutex.h:
-
-/usr/include/glm/ext/vector_bool2.hpp:
 
 /usr/include/c++/11/cstdlib:
 
@@ -16028,6 +16057,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
+/usr/include/c++/11/bits/erase_if.h:
+
+/usr/include/glm/detail/type_float.hpp:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/xsaveintrin.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
@@ -16043,6 +16076,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/spdlog/spdlog-inl.h:
+
+/usr/include/c++/11/bits/allocator.h:
+
+/usr/include/glm/detail/func_integer.inl:
 
 /usr/include/spdlog/spdlog.h:
 
@@ -16070,10 +16107,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/asm/types.h:
 
-/usr/include/glm/ext/vector_uint3_sized.hpp:
-
-/usr/include/glm/ext/scalar_constants.inl:
-
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/semaphore.h:
@@ -16088,10 +16121,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
-/usr/include/c++/11/bits/vector.tcc:
-
-/usr/include/glm/ext/vector_double2.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
@@ -16101,6 +16130,8 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/fcntl.h:
+
+/usr/include/glm/ext/quaternion_float.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
@@ -16122,7 +16153,11 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/ext/matrix_double3x3.hpp:
 
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.h:
+
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
@@ -16134,8 +16169,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
-/usr/include/glm/ext/scalar_constants.hpp:
-
 /usr/include/spdlog/details/backtracer-inl.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
@@ -16144,9 +16177,9 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
-/usr/include/glm/ext/quaternion_float_precision.hpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/gfniintrin.h:
+
+/usr/include/glm/ext/quaternion_float_precision.hpp:
 
 /usr/include/glm/detail/type_vec4.inl:
 
@@ -16154,9 +16187,9 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
-/usr/include/glm/gtx/component_wise.hpp:
-
 /usr/include/glm/mat4x3.hpp:
+
+/usr/include/glm/gtx/component_wise.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
@@ -16170,19 +16203,13 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
+/usr/include/c++/11/cfloat:
+
 /usr/include/c++/11/bits/stl_iterator.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/glm/ext/vector_float3.hpp:
-
-/usr/include/glm/detail/func_packing.inl:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/amxbf16intrin.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
@@ -16207,6 +16234,12 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/spdlog/details/fmt_helper.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/amxbf16intrin.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/glm/detail/func_packing.inl:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
@@ -16239,6 +16272,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
+
+/usr/include/glm/ext/matrix_float3x2_precision.hpp:
+
+/usr/include/glm/ext/quaternion_transform.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
@@ -16304,6 +16341,12 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
+/usr/include/glm/ext/vector_int2_sized.hpp:
+
+/usr/include/c++/11/bits/basic_ios.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
+
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/FrameBuffer.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h:
@@ -16313,10 +16356,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/stdlib.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/ImGuiLayer/ImguiLayer.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h:
-
-/usr/include/glm/ext/vector_bool3.hpp:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
@@ -16348,6 +16387,8 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/spdlog/sinks/base_sink-inl.h:
 
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Renderer.h:
+
 /usr/include/glm/ext/matrix_double4x3.hpp:
 
 /usr/include/spdlog/sinks/base_sink.h:
@@ -16365,10 +16406,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/spdlog/details/periodic_worker-inl.h:
 
 /usr/include/glm/ext/matrix_float4x2_precision.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h:
-
-/usr/include/glm/ext/vector_double4.hpp:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/GraphicsContext.h:
 
@@ -16398,13 +16435,11 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/EditorLayer.h:
 
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.h:
+
 /usr/include/c++/11/math.h:
 
 /usr/include/c++/11/stdlib.h:
-
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/ImGuiLayer/ImguiLayer.cpp:
-
-/usr/include/glm/ext/vector_bool2_precision.hpp:
 
 /usr/include/glm/detail/_fixes.hpp:
 
@@ -16456,6 +16491,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/ext/matrix_double2x4_precision.hpp:
 
+/usr/include/c++/11/bits/stl_algo.h:
+
+/usr/include/glm/ext/quaternion_relational.hpp:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512fintrin.h:
 
 /usr/include/glm/ext/matrix_double3x2_precision.hpp:
@@ -16486,6 +16525,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/ext/matrix_double4x4_precision.hpp:
 
+/usr/include/c++/11/bits/locale_facets_nonio.h:
+
+/usr/include/glm/ext/quaternion_common.inl:
+
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
 /usr/include/glm/ext/matrix_float2x2.hpp:
@@ -16497,6 +16540,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/glm/ext/matrix_float2x4_precision.hpp:
 
 /usr/include/glm/ext/matrix_float3x4.hpp:
+
+/usr/include/glm/ext/matrix_float2x2_precision.hpp:
+
+/usr/include/glm/ext/quaternion_geometric.hpp:
 
 /usr/include/glm/ext/matrix_float4x3.hpp:
 
@@ -16514,30 +16561,20 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/ext/matrix_transform.hpp:
 
-/usr/include/c++/11/bits/ostream.tcc:
+/usr/include/c++/11/condition_variable:
 
-/usr/include/glm/ext/vector_bool3_precision.hpp:
+/usr/include/glm/ext/quaternion_common.hpp:
 
-/usr/include/glm/ext/vector_double3_precision.hpp:
+/usr/include/syscall.h:
 
-/usr/include/glm/ext/vector_double4_precision.hpp:
+/usr/include/glm/ext/quaternion_exponential.hpp:
 
-/usr/include/glm/ext/vector_float2.hpp:
+/usr/include/c++/11/ext/numeric_traits.h:
 
-/usr/include/c++/11/bits/forward_list.h:
+/usr/include/glm/ext/quaternion_exponential.inl:
 
-/usr/include/glm/ext/vector_float3_precision.hpp:
+/usr/lib/gcc/x86_64-linux-gnu/11/include/cldemoteintrin.h:
 
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp:
+/usr/include/glm/ext/quaternion_geometric.inl:
 
-/usr/include/glm/ext/vector_int2.hpp:
-
-/usr/include/c++/11/bits/basic_ios.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
-
-/usr/include/glm/ext/vector_int2_sized.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/tsxldtrkintrin.h:
-
-/usr/include/glm/ext/vector_int3.hpp:
+/usr/include/glm/ext/quaternion_relational.inl:

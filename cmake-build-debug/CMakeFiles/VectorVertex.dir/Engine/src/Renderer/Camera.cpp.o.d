@@ -446,4 +446,5 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Camera.cpp.o: \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/OpenGLCamera.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../../vendor/glad/include/glad/glad.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Renderer/Camera.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Renderer/Shader.h
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Renderer/Shader.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/../Plattform/OpenGL/../../Core/Log.h

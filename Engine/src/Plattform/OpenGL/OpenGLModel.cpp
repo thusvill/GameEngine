@@ -9,7 +9,7 @@
 
 namespace VectorVertex {
 
-    OpenGLModel::OpenGLModel(const char* file) {
+    OpenGLModel::OpenGLModel(const char* file, Ref<Shader> shader):m_Shader(shader) {
         std::string text = get_file_contents(file);
         JSON = json::parse(text);
 
@@ -19,52 +19,50 @@ namespace VectorVertex {
         traverseNode(0);
     }
 
-    void OpenGLModel::Draw(Ref<Shader> shader, Camera &camera) {
+    void OpenGLModel::Draw(Camera& camera) {
         // Go over all meshes and draw each one
-        if(meshes.empty() || !shader || !camera.GetCamera() || matricesMeshes.empty()){
+        if(meshes.empty() || !m_Shader || !camera.GetCamera() || matricesMeshes.empty()){
             VV_CORE_ERROR("Null values in Model Draw func!!");
         }
-#if defined(VV_DEBUG)
-        VV_CORE_INFO("Meshes: {0}, Shader ID:{1}, Camera Width:{2}, matricesMeshes Size:{3}", meshes.size(),shader->GetID() ,camera.GetProperties().width, matricesMeshes.size());
-#endif
-
         for (unsigned int i = 0; i < meshes.size(); i++)
         {
-        meshes[i]->Draw(std::move(shader), camera, matricesMeshes[i]);
-            VV_CORE_INFO("Mesh Drew!");
-        #if defined(VV_DEBUG)
-            VV_CORE_INFO("{0}, {1}, {2}", shader->GetID() ,camera.GetProperties().width, matricesMeshes[i].length());
-        #endif
-
+        meshes[i]->Draw(m_Shader, camera, matricesMeshes[i]);
         }
     }
 
-
-
-    void OpenGLModel::Position(Ref<Shader> shader, glm::vec3 newPosition) {
-
-        GLuint OpenGLModelMatrixLocation = glGetUniformLocation(shader->GetID(), "newPos");
-        glm::mat4 newOpenGLModelMatrix = glm::translate(glm::mat4(1.0f), newPosition);
-        glUniformMatrix4fv(OpenGLModelMatrixLocation, 1, GL_FALSE, glm::value_ptr(newOpenGLModelMatrix));
+    glm::vec3 OpenGLModel::GetPosition() {
+        return m_Position;
     }
 
-    void OpenGLModel::Rotation(Ref<Shader> shader, glm::vec3 newRotation) {
-        GLuint OpenGLModelMatrixLocation = glGetUniformLocation(shader->GetID(), "newRot");
+    void OpenGLModel::Position(glm::vec3 newPosition){
+
+        GLuint OpenGLModelMatrixLocation = glGetUniformLocation(m_Shader->GetID(), "newPos");
+        glm::mat4 newOpenGLModelMatrix = glm::translate(glm::mat4(1.0f), newPosition);
+        glUniformMatrix4fv(OpenGLModelMatrixLocation, 1, GL_FALSE, glm::value_ptr(newOpenGLModelMatrix));
+        m_Position = newPosition;
+    }
+
+    void OpenGLModel::Rotation(glm::vec3 newRotation) {
+        GLuint OpenGLModelMatrixLocation = glGetUniformLocation(m_Shader->GetID(), "newRot");
         glm::mat4 newOpenGLModelMatrix = glm::rotate(glm::mat4(1.0f), newRotation.x, {1,0,0})
                                    *glm::rotate(glm::mat4(1.0f), newRotation.y, {0,1,0})
                                    *glm::rotate(glm::mat4(1.0f), newRotation.z, {0,0,1});
         glUniformMatrix4fv(OpenGLModelMatrixLocation, 1, GL_FALSE, glm::value_ptr(newOpenGLModelMatrix));
     }
 
-    void OpenGLModel::Scale(Ref<Shader> shader, glm::vec3 newScale) {
-        GLuint OpenGLModelMatrixLocation = glGetUniformLocation(shader->GetID(), "newScale");
+    void OpenGLModel::Scale(glm::vec3 newScale) {
+        GLuint OpenGLModelMatrixLocation = glGetUniformLocation(m_Shader->GetID(), "newScale");
         glm::mat4 newOpenGLModelMatrix = glm::scale(glm::mat4(1.0f), newScale);
         glUniformMatrix4fv(OpenGLModelMatrixLocation, 1, GL_FALSE, glm::value_ptr(newOpenGLModelMatrix));
     }
-    void OpenGLModel::SetTransform(Ref<Shader> shader, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale) {
-        Position(std::move(shader), position);
-        Rotation(std::move(shader), rotation);
-        Scale(std::move(shader), scale);
+    void OpenGLModel::SetTransform(glm::vec3 position, glm::vec3 rotation, glm::vec3 scale) {
+        Position(position);
+        Rotation(rotation);
+        Scale(scale);
+    }
+
+    void OpenGLModel::UpdateShader(Ref<VectorVertex::Shader> shader) {
+        m_Shader = shader;
     }
 
     void OpenGLModel::loadMesh(unsigned int indMesh) {

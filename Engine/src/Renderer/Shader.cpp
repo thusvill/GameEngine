@@ -10,7 +10,7 @@ namespace VectorVertex{
     Shader::Create(const std::string name, const::std::string &vertexFile, const::std::string &fragmentFile, const::std::string &geometryFile) {
         switch (RenderAPI::GetAPI()) {
             case RenderAPI::API::None: VV_CORE_WARN("VectorVertex is currently not support for nonGraphicsAPI!"); return nullptr;
-            case RenderAPI::API::OpenGL: return CreateRef<GLShader>(vertexFile,fragmentFile,geometryFile);
+            case RenderAPI::API::OpenGL: return CreateRef<GLShader>(name, vertexFile,fragmentFile,geometryFile);
         }
         VV_CORE_ERROR("Unknown RendererAPI!");
         return nullptr;
@@ -29,9 +29,10 @@ namespace VectorVertex{
         VV_CORE_WARN("Shader Destroyed!");
     }
 
-    void ShaderLibrary::Add(const ::std::string& name, const Ref<Shader>& shader)
+    void ShaderLibrary::Add(const std::string& name, const Ref<Shader>& shader)
     {
-        VV_CORE_ASSERT(!Exists(name), "Shader already exists!");
+        VV_CORE_INFO("Adding shader:{}", name);
+        VV_CORE_ASSERT(!Exists(name), "Shader already exists!"+name);
         m_Shaders[name] = shader;
     }
 
@@ -57,7 +58,7 @@ namespace VectorVertex{
 
     Ref<Shader> ShaderLibrary::Get(const::std::string& name)
     {
-        VV_CORE_ASSERT(Exists(name), "Shader not found!");
+        VV_CORE_ASSERT(Exists(name), "Shader not found!"+name);
         return m_Shaders[name];
     }
 
