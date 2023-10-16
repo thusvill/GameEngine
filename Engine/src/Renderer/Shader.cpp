@@ -42,6 +42,11 @@ namespace VectorVertex{
         Add(name, shader);
     }
 
+    void ShaderLibrary::Update(const Ref<VectorVertex::Shader> shader) {
+        const std::string name = shader->GetName();
+        m_Shaders.find(name)->second = shader;
+    }
+
     Ref<Shader> ShaderLibrary::Load(const::std::string& filepath)
     {
         auto shader = Shader::Create(filepath);

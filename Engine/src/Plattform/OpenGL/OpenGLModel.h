@@ -37,6 +37,7 @@ namespace VectorVertex {
         virtual void SetTransform(glm::vec3 position,glm::vec3 rotation,glm::vec3 scale) override;
         virtual void UpdateShader(Ref<Shader> shader) override;
         virtual glm::vec3 GetPosition() override;
+        virtual Ref<Shader> GetShader() override {return m_Shader;}
 
         explicit operator bool() const {
             // Define the condition under which the Model is considered "true"

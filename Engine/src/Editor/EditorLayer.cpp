@@ -41,7 +41,7 @@ namespace VectorVertex {
     }
 
     void EditorLayer::OnRender() {
-        model->UpdateShader(m_ShaderLibrary.Get("default_shader"));
+        m_ShaderLibrary.Update(model->GetShader());
         model->Draw(*m_EditorCamera);
         VV_CORE_WARN("Model Position x:{0} y:{1} z:{2}",model->GetPosition().x, model->GetPosition().y, model->GetPosition().z);
     }
