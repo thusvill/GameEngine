@@ -13,13 +13,13 @@
 #include <cerrno>
 #include <string>
 #include "../../Renderer/Shader.h"
-#include "../../Core/Log.h"
 namespace VectorVertex {
     std::string get_file_contents(const char* filename);
 
     class GLShader : public Shader{
     public:
-        GLShader(const std::string& vertexFile,const std::string& fragmentFile,const std::string& geometryFile);
+        GLShader(const std::string name, const std::string& vertexFile,const std::string& fragmentFile,const std::string& geometryFile);
+        GLShader(const std::string filepath);
         virtual ~GLShader() override{
             VV_CORE_WARN("GLShader Destroyed!");
         }
@@ -32,9 +32,18 @@ namespace VectorVertex {
             return ID;
         }
 
+        virtual const std::string& GetName() const override { return m_Name; }
+
     private:
         GLuint ID = 0;
+        std::string m_Name;
+        std::string m_FilePath;
         static void compileErrors(unsigned int shader, const char* type);
+
+        std::unordered_map<GLenum , std::string> m_GLSources;
+
+        void CreateProgram(std::unordered_map<GLenum, std::string> sources);
+        std::string GetGLStateToString(GLenum state);
     };
 }
 

@@ -210,14 +210,11 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/GLShader.cpp.o: \
  /usr/include/c++/11/bits/stream_iterator.h \
  /usr/include/c++/11/bits/uses_allocator_args.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h /usr/include/c++/11/vector \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc \
+ /usr/include/c++/11/pstl/execution_defs.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/PlattformDetection.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/ErrorDetection.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/../../vendor/glad/include/glad/glad.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Core/Log.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/Log.h \
  /usr/include/spdlog/spdlog.h /usr/include/spdlog/common.h \
  /usr/include/spdlog/tweakme.h /usr/include/spdlog/details/null_mutex.h \
  /usr/include/c++/11/atomic /usr/include/c++/11/chrono \
@@ -229,7 +226,10 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/GLShader.cpp.o: \
  /usr/include/c++/11/bits/enable_special_members.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
- /usr/include/c++/11/bits/erase_if.h /usr/include/spdlog/fmt/fmt.h \
+ /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/vector \
+ /usr/include/c++/11/bits/stl_vector.h \
+ /usr/include/c++/11/bits/stl_bvector.h \
+ /usr/include/c++/11/bits/vector.tcc /usr/include/spdlog/fmt/fmt.h \
  /usr/include/fmt/core.h /usr/include/c++/11/cstddef \
  /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
  /usr/include/fmt/format.h /usr/include/c++/11/cmath /usr/include/math.h \
@@ -307,4 +307,15 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/GLShader.cpp.o: \
  /usr/include/spdlog/sinks/ansicolor_sink-inl.h \
  /usr/include/spdlog/version.h \
  /usr/include/spdlog/details/synchronous_factory.h \
- /usr/include/spdlog/spdlog-inl.h
+ /usr/include/spdlog/spdlog-inl.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/Base.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/Assert.h \
+ /usr/include/c++/11/filesystem /usr/include/c++/11/bits/fs_fwd.h \
+ /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h /usr/include/c++/11/iomanip \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/codecvt \
+ /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h

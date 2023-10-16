@@ -293,13 +293,25 @@ CMakeFiles/VectorVertex.dir/Engine/src/Core/Log.cpp.o: \
  /usr/include/spdlog/details/synchronous_factory.h \
  /usr/include/spdlog/spdlog-inl.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
- /usr/include/c++/11/iostream /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/PlattformDetection.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/ErrorDetection.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/../../vendor/glad/include/glad/glad.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/KHR/khrplatform.h \
- /usr/include/GLFW/glfw3.h /usr/include/spdlog/sinks/stdout_color_sinks.h \
+ /usr/include/GLFW/glfw3.h /usr/include/c++/11/iostream \
+ /usr/include/c++/11/istream /usr/include/c++/11/bits/istream.tcc \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Assert.h \
+ /usr/include/c++/11/filesystem /usr/include/c++/11/bits/fs_fwd.h \
+ /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h /usr/include/c++/11/iomanip \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
+ /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/codecvt \
+ /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
+ /usr/include/spdlog/sinks/stdout_color_sinks.h \
  /usr/include/spdlog/sinks/stdout_color_sinks-inl.h \
  /usr/include/spdlog/sinks/basic_file_sink.h \
  /usr/include/spdlog/details/file_helper.h \

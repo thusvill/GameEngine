@@ -102,10 +102,11 @@ namespace VectorVertex{
 
     }
     void Window::OnRender() {
-        model->Scale(std::move(shader), glm::vec3(1.0f));
+        /*model->Scale(std::move(shader), glm::vec3(1.0f));
         model->Position(std::move(shader), glm::vec3(1.0f));
         model->Rotation(std::move(shader), glm::vec3(0.0f));
         model->Draw(std::move(shader), Application::Get().m_EditorLayer->GetEditorCamera());
+         */
         /*glBegin(GL_TRIANGLES);
         glColor3f(1.0f, 0.0f, 0.0f);   // Red
         glVertex2f(0.0f, 0.5f);         // Top

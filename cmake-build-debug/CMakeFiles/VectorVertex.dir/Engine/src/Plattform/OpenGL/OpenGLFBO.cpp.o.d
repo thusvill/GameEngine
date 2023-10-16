@@ -306,6 +306,19 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLFBO.cpp.o: \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../VectorVertex/../Core/../../vendor/glad/include/glad/glad.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/KHR/khrplatform.h \
  /usr/include/GLFW/glfw3.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../VectorVertex/../Core/Log.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../VectorVertex/../Core/Assert.h \
+ /usr/include/c++/11/filesystem /usr/include/c++/11/bits/fs_fwd.h \
+ /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h /usr/include/c++/11/iomanip \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
+ /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/codecvt \
+ /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../VectorVertex/../Core/Layer.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../VectorVertex/../Core/LayerStack.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../VectorVertex/../Core/Layer.h \

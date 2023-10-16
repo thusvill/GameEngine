@@ -304,6 +304,19 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: \
  /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Core/../../vendor/glad/include/glad/glad.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/KHR/khrplatform.h \
  /usr/include/GLFW/glfw3.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Core/Log.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Core/Assert.h \
+ /usr/include/c++/11/filesystem /usr/include/c++/11/bits/fs_fwd.h \
+ /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h /usr/include/c++/11/iomanip \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
+ /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/codecvt \
+ /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Core/Layer.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Core/LayerStack.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Core/Layer.h \
@@ -319,6 +332,7 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: \
  /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Editor/../Renderer/RenderAPI.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Editor/../Renderer/Camera.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Editor/../Renderer/Shader.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Projects/Sandbox/../../Engine/src/VectorVertex/../Editor/../Renderer/../Core/Base.h \
  /usr/include/glm/vec3.hpp /usr/include/glm/ext/vector_bool3.hpp \
  /usr/include/glm/detail/type_vec3.hpp \
  /usr/include/glm/detail/qualifier.hpp /usr/include/glm/detail/setup.hpp \

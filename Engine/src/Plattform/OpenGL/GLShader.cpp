@@ -18,51 +18,62 @@ namespace VectorVertex{
         throw(errno);
     }
 
-    GLShader::GLShader(const std::string& vertexFile,const std::string& fragmentFile,const std::string& geometryFile) {
+    std::string GLShader::GetGLStateToString(GLenum state) {
+        switch (state) {
+            case GL_VERTEX_SHADER: return "GL_VERTEX_SHADER";
+            case GL_FRAGMENT_SHADER: return "GL_FRAGMENT_SHADER";
+            case GL_GEOMETRY_SHADER: return "GL_GEOMETRY_SHADER";
+        }
+        return nullptr;
+    }
+
+    GLShader::GLShader(const std::string name, const std::string& vertexFile,const std::string& fragmentFile,const std::string& geometryFile) {
 #if defined(VV_DEBUG)
         VV_CORE_INFO("GL Shader createing {0}, {1}, {2}", vertexFile, fragmentFile, geometryFile);
 #endif
-
         std::string vertexCode = get_file_contents(vertexFile.c_str());
         std::string fragmentCode = get_file_contents(fragmentFile.c_str());
         std::string geometryCode = get_file_contents(geometryFile.c_str());
 
-        const char* vertexSource = vertexCode.c_str();
-        const char* fragmentSource = fragmentCode.c_str();
-        const char* geometrySource = geometryCode.c_str();
+        //const char* vertexSource = vertexCode.c_str();
+        //const char* fragmentSource = fragmentCode.c_str();
+        //const char* geometrySource = geometryCode.c_str();
+        m_GLSources[GL_FRAGMENT_SHADER] = fragmentCode;
+        m_GLSources[GL_VERTEX_SHADER] = vertexCode;
+        m_GLSources[GL_GEOMETRY_SHADER] = geometryCode;
 
-        GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexShader, 1, &vertexSource, NULL);
-        glCompileShader(vertexShader);
-        compileErrors(vertexShader, "VERTEX");
-
-        GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
-        glCompileShader(fragmentShader);
-        compileErrors(fragmentShader, "FRAGMENT");
-
-        GLuint geometryShader = glCreateShader(GL_GEOMETRY_SHADER);
-        glShaderSource(geometryShader, 1, &geometrySource, NULL);
-        glCompileShader(geometryShader);
-        compileErrors(geometryShader, "GEOMETRY");
-
-        ID = glCreateProgram();
-
-        glAttachShader(ID, vertexShader);
-        glAttachShader(ID, geometryShader);
-        glAttachShader(ID, fragmentShader);
-        glLinkProgram(ID);
-        compileErrors(ID, "PROGRAM");
-
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
-        glDeleteShader(geometryShader);
+        CreateProgram(m_GLSources);
 
 #if defined(VV_DEBUG)
         VV_CORE_INFO("GL Shader Created ID:{0} : {1}, {2}, {3}",ID, vertexFile, fragmentFile, geometryFile);
 #endif
     }
 
+    void GLShader::CreateProgram(std::unordered_map<GLenum, std::string> sources) {
+        GLuint program = glCreateProgram();
+        std::vector<GLuint> shaderIDs;
+        for(auto&& [type, source] : sources){
+            GLuint shader_created = shaderIDs.emplace_back(glCreateShader(GL_VERTEX_SHADER));
+
+            const char* sourcePtr = source.c_str();
+            glShaderSource(shader_created, 1, &sourcePtr, NULL);
+
+            glCompileShader(shader_created);
+            compileErrors(shader_created, GetGLStateToString(type).c_str());
+
+            glAttachShader(program, shader_created);
+        }
+        glLinkProgram(program);
+        compileErrors(program, "PROGRAM");
+
+        for(auto id : shaderIDs){
+            glDetachShader(program, id);
+            glDeleteShader(id);
+        }
+
+        ID = program;
+
+    }
 
     void GLShader::Activate() const {
         glUseProgram(ID);

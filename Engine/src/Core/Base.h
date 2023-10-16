@@ -1,18 +1,26 @@
 //
 // Created by bios on 9/12/23.
 //
-#pragma once
+
 #ifndef GAMEENGINE_BASE_H
 #define GAMEENGINE_BASE_H
-#include "iostream"
 #include "memory"
-#include "vector"
 #include "PlattformDetection.h"
 #include "ErrorDetection.h"
 
+#define VV_EXPAND_MACRO(x) x
+#define VV_STRINGIFY_MACRO(x) #x
 
+#define BIT(x) (1 << x)
+
+#define VV_BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 
 #define VV_DEBUG true
+
+#ifdef VV_DEBUG
+#define VV_ENABLE_ASSERTS
+#endif
+
 
 #define CHECK_OPENGL_ERROR() \
     do { \
@@ -21,7 +29,6 @@
             VV_CORE_ERROR("OpenGL error: {0}", error); \
         } \
     } while (false)
-
 
 namespace VectorVertex{
     template<typename T>
@@ -40,7 +47,10 @@ namespace VectorVertex{
         return std::make_shared<T>(std::forward<Args>(args)...);
     }
 
+
     #define CONVERT_REF(type, ptr) std::shared_ptr<type>(ptr)
 }
+#include "Log.h"
+#include "Assert.h"
 
 #endif //GAMEENGINE_BASE_H

@@ -360,74 +360,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.o: \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/ErrorDetection.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/../../vendor/glad/include/glad/glad.h \
  /usr/include/GLFW/glfw3.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/Camera.h \
- /usr/include/glm/gtc/matrix_transform.hpp \
- /usr/include/glm/ext/matrix_projection.hpp \
- /usr/include/glm/gtc/constants.hpp \
- /usr/include/glm/ext/scalar_constants.hpp \
- /usr/include/glm/ext/scalar_constants.inl \
- /usr/include/glm/gtc/constants.inl \
- /usr/include/glm/ext/matrix_projection.inl \
- /usr/include/glm/ext/matrix_clip_space.hpp \
- /usr/include/glm/ext/matrix_clip_space.inl \
- /usr/include/glm/ext/matrix_transform.hpp \
- /usr/include/glm/ext/matrix_transform.inl \
- /usr/include/glm/gtc/matrix_transform.inl \
- /usr/include/glm/gtc/type_ptr.hpp /usr/include/glm/gtc/quaternion.hpp \
- /usr/include/glm/ext/vector_relational.hpp \
- /usr/include/glm/ext/vector_relational.inl \
- /usr/include/glm/detail/type_float.hpp \
- /usr/include/glm/ext/quaternion_common.hpp \
- /usr/include/glm/ext/quaternion_geometric.hpp \
- /usr/include/glm/ext/quaternion_geometric.inl \
- /usr/include/glm/ext/quaternion_common.inl \
- /usr/include/glm/ext/quaternion_float.hpp \
- /usr/include/glm/detail/type_quat.hpp \
- /usr/include/glm/ext/quaternion_relational.hpp \
- /usr/include/glm/ext/quaternion_relational.inl \
- /usr/include/glm/detail/type_quat.inl \
- /usr/include/glm/ext/quaternion_float_precision.hpp \
- /usr/include/glm/ext/quaternion_double.hpp \
- /usr/include/glm/ext/quaternion_double_precision.hpp \
- /usr/include/glm/ext/quaternion_trigonometric.hpp \
- /usr/include/glm/ext/quaternion_trigonometric.inl \
- /usr/include/glm/ext/quaternion_transform.hpp \
- /usr/include/glm/ext/quaternion_transform.inl \
- /usr/include/glm/gtc/quaternion.inl /usr/include/glm/gtc/epsilon.hpp \
- /usr/include/glm/detail/setup.hpp /usr/include/glm/gtc/epsilon.inl \
- /usr/include/glm/gtc/vec1.hpp /usr/include/glm/ext/vector_bool1.hpp \
- /usr/include/glm/ext/vector_bool1_precision.hpp \
- /usr/include/glm/ext/vector_float1.hpp \
- /usr/include/glm/ext/vector_float1_precision.hpp \
- /usr/include/glm/ext/vector_double1.hpp \
- /usr/include/glm/ext/vector_double1_precision.hpp \
- /usr/include/glm/ext/vector_int1.hpp \
- /usr/include/glm/ext/vector_int1_sized.hpp \
- /usr/include/glm/ext/vector_uint1.hpp \
- /usr/include/glm/ext/vector_uint1_sized.hpp /usr/include/c++/11/cstring \
- /usr/include/string.h /usr/include/strings.h \
- /usr/include/glm/gtc/type_ptr.inl /usr/include/glm/gtx/rotate_vector.hpp \
- /usr/include/glm/gtx/transform.hpp /usr/include/glm/gtx/transform.inl \
- /usr/include/glm/gtx/rotate_vector.inl \
- /usr/include/glm/gtx/vector_angle.hpp \
- /usr/include/glm/gtx/quaternion.hpp \
- /usr/include/glm/ext/quaternion_exponential.hpp \
- /usr/include/glm/ext/quaternion_exponential.inl \
- /usr/include/glm/gtx/norm.hpp /usr/include/glm/gtx/component_wise.hpp \
- /usr/include/glm/detail/setup.hpp \
- /usr/include/glm/gtx/component_wise.inl /usr/include/glm/gtx/norm.inl \
- /usr/include/glm/gtx/quaternion.inl \
- /usr/include/glm/gtx/vector_angle.inl \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLEBO.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.h \
- /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/Shader.h \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Core/Log.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/Log.h \
  /usr/include/spdlog/spdlog.h /usr/include/spdlog/common.h \
  /usr/include/spdlog/tweakme.h /usr/include/spdlog/details/null_mutex.h \
  /usr/include/c++/11/atomic /usr/include/c++/11/chrono \
@@ -440,7 +373,8 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.o: \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h /usr/include/spdlog/fmt/fmt.h \
- /usr/include/fmt/core.h /usr/include/fmt/format.h \
+ /usr/include/fmt/core.h /usr/include/c++/11/cstring \
+ /usr/include/string.h /usr/include/strings.h /usr/include/fmt/format.h \
  /usr/include/fmt/core.h /usr/include/spdlog/common-inl.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/ranges_algo.h \
  /usr/include/c++/11/bits/ranges_util.h \
@@ -495,6 +429,85 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.o: \
  /usr/include/spdlog/version.h \
  /usr/include/spdlog/details/synchronous_factory.h \
  /usr/include/spdlog/spdlog-inl.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/Base.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/../Core/Assert.h \
+ /usr/include/c++/11/filesystem /usr/include/c++/11/bits/fs_fwd.h \
+ /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h /usr/include/c++/11/iomanip \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
+ /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/codecvt \
+ /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/Camera.h \
+ /usr/include/glm/gtc/matrix_transform.hpp \
+ /usr/include/glm/ext/matrix_projection.hpp \
+ /usr/include/glm/gtc/constants.hpp \
+ /usr/include/glm/ext/scalar_constants.hpp \
+ /usr/include/glm/ext/scalar_constants.inl \
+ /usr/include/glm/gtc/constants.inl \
+ /usr/include/glm/ext/matrix_projection.inl \
+ /usr/include/glm/ext/matrix_clip_space.hpp \
+ /usr/include/glm/ext/matrix_clip_space.inl \
+ /usr/include/glm/ext/matrix_transform.hpp \
+ /usr/include/glm/ext/matrix_transform.inl \
+ /usr/include/glm/gtc/matrix_transform.inl \
+ /usr/include/glm/gtc/type_ptr.hpp /usr/include/glm/gtc/quaternion.hpp \
+ /usr/include/glm/ext/vector_relational.hpp \
+ /usr/include/glm/ext/vector_relational.inl \
+ /usr/include/glm/detail/type_float.hpp \
+ /usr/include/glm/ext/quaternion_common.hpp \
+ /usr/include/glm/ext/quaternion_geometric.hpp \
+ /usr/include/glm/ext/quaternion_geometric.inl \
+ /usr/include/glm/ext/quaternion_common.inl \
+ /usr/include/glm/ext/quaternion_float.hpp \
+ /usr/include/glm/detail/type_quat.hpp \
+ /usr/include/glm/ext/quaternion_relational.hpp \
+ /usr/include/glm/ext/quaternion_relational.inl \
+ /usr/include/glm/detail/type_quat.inl \
+ /usr/include/glm/ext/quaternion_float_precision.hpp \
+ /usr/include/glm/ext/quaternion_double.hpp \
+ /usr/include/glm/ext/quaternion_double_precision.hpp \
+ /usr/include/glm/ext/quaternion_trigonometric.hpp \
+ /usr/include/glm/ext/quaternion_trigonometric.inl \
+ /usr/include/glm/ext/quaternion_transform.hpp \
+ /usr/include/glm/ext/quaternion_transform.inl \
+ /usr/include/glm/gtc/quaternion.inl /usr/include/glm/gtc/epsilon.hpp \
+ /usr/include/glm/detail/setup.hpp /usr/include/glm/gtc/epsilon.inl \
+ /usr/include/glm/gtc/vec1.hpp /usr/include/glm/ext/vector_bool1.hpp \
+ /usr/include/glm/ext/vector_bool1_precision.hpp \
+ /usr/include/glm/ext/vector_float1.hpp \
+ /usr/include/glm/ext/vector_float1_precision.hpp \
+ /usr/include/glm/ext/vector_double1.hpp \
+ /usr/include/glm/ext/vector_double1_precision.hpp \
+ /usr/include/glm/ext/vector_int1.hpp \
+ /usr/include/glm/ext/vector_int1_sized.hpp \
+ /usr/include/glm/ext/vector_uint1.hpp \
+ /usr/include/glm/ext/vector_uint1_sized.hpp \
+ /usr/include/glm/gtc/type_ptr.inl /usr/include/glm/gtx/rotate_vector.hpp \
+ /usr/include/glm/gtx/transform.hpp /usr/include/glm/gtx/transform.inl \
+ /usr/include/glm/gtx/rotate_vector.inl \
+ /usr/include/glm/gtx/vector_angle.hpp \
+ /usr/include/glm/gtx/quaternion.hpp \
+ /usr/include/glm/ext/quaternion_exponential.hpp \
+ /usr/include/glm/ext/quaternion_exponential.inl \
+ /usr/include/glm/gtx/norm.hpp /usr/include/glm/gtx/component_wise.hpp \
+ /usr/include/glm/detail/setup.hpp \
+ /usr/include/glm/gtx/component_wise.inl /usr/include/glm/gtx/norm.inl \
+ /usr/include/glm/gtx/quaternion.inl \
+ /usr/include/glm/gtx/vector_angle.inl \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLEBO.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.h \
+ /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/Shader.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/Texture.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Core/Log.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLCamera.h \
  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/../../Renderer/Camera.h
