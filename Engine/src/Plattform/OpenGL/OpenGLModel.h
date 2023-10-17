@@ -16,7 +16,7 @@ namespace VectorVertex {
 
     class OpenGLModel : public Model {
     public:
-        OpenGLModel(const char* file, Ref<Shader> shader);
+        OpenGLModel(const char* file);
         virtual ~OpenGLModel() {
             for (int i = 0; i < meshes.size(); ++i) {
                 meshes[i].reset();
@@ -30,14 +30,12 @@ namespace VectorVertex {
 
         }
 
-        virtual void Draw(Camera& camera) override;
-        virtual void Position(glm::vec3 newPosition) override;
-        virtual void Rotation(glm::vec3 rotation) override;
-        virtual void Scale(glm::vec3 newScale) override;
-        virtual void SetTransform(glm::vec3 position,glm::vec3 rotation,glm::vec3 scale) override;
-        virtual void UpdateShader(Ref<Shader> shader) override;
+        virtual void Draw(Ref<Shader> shader,Camera& camera) override;
+        virtual void Position(Ref<Shader> shader,glm::vec3 newPosition) override;
+        virtual void Rotation(Ref<Shader> shader,glm::vec3 rotation) override;
+        virtual void Scale(Ref<Shader> shader,glm::vec3 newScale) override;
+        virtual void SetTransform(Ref<Shader> shader,glm::vec3 position,glm::vec3 rotation,glm::vec3 scale) override;
         virtual glm::vec3 GetPosition() override;
-        virtual Ref<Shader> GetShader() override {return m_Shader;}
 
         explicit operator bool() const {
             // Define the condition under which the Model is considered "true"
@@ -47,8 +45,6 @@ namespace VectorVertex {
         glm::vec3 m_Position;
 
     private:
-        Ref<Shader> m_Shader;
-
         const char* file;
         std::vector<unsigned char> data;
         json JSON;

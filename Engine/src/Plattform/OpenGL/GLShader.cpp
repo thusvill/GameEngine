@@ -3,6 +3,7 @@
 //
 
 #include "GLShader.h"
+#include "glm/gtc/type_ptr.hpp"
 namespace VectorVertex{
 
     static GLenum ShaderTypeFromString(const std::string& type)
@@ -43,9 +44,9 @@ namespace VectorVertex{
     GLShader::GLShader(const std::string filepath) :m_FilePath(filepath) {
         std::string source = get_file_contents(filepath.c_str());
         auto shaderSources = PreProcess(source);
-        {
-            CreateProgram(shaderSources);
-        }
+
+        Compile(shaderSources);
+
         // Extract name from filepath
         auto lastSlash = filepath.find_last_of("/\\");
         lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
@@ -66,11 +67,11 @@ namespace VectorVertex{
         //const char* vertexSource = vertexCode.c_str();
         //const char* fragmentSource = fragmentCode.c_str();
         //const char* geometrySource = geometryCode.c_str();
-        m_GLSources[GL_FRAGMENT_SHADER] = fragmentCode;
         m_GLSources[GL_VERTEX_SHADER] = vertexCode;
+        m_GLSources[GL_FRAGMENT_SHADER] = fragmentCode;
         m_GLSources[GL_GEOMETRY_SHADER] = geometryCode;
 
-        CreateProgram(m_GLSources);
+        Compile(m_GLSources);
 
 #if defined(VV_DEBUG)
         VV_CORE_INFO("GL Shader Created ID:{0} : {1}, {2}, {3}",ID, vertexFile, fragmentFile, geometryFile);
@@ -80,7 +81,7 @@ namespace VectorVertex{
     std::unordered_map<GLenum, std::string> GLShader::PreProcess(const std::string &source) {
         std::unordered_map<GLenum, std::string> shaderSources;
 
-        const char* typeToken = "#type";
+        const char* typeToken = "#shader";
         size_t typeTokenLength = strlen(typeToken);
         size_t pos = source.find(typeToken, 0); //Start of shader type declaration line
         while (pos != std::string::npos)
@@ -101,11 +102,12 @@ namespace VectorVertex{
         return shaderSources;
     }
 
-    void GLShader::CreateProgram(std::unordered_map<GLenum, std::string> sources) {
+    void GLShader::Compile(std::unordered_map<GLenum, std::string> sources) {
         GLuint program = glCreateProgram();
-        std::vector<GLuint> shaderIDs;
+        std::vector<GLuint> shaderIDs; //Use std::array it's fast than this!!
+        shaderIDs.reserve(sources.size());
         for(auto&& [type, source] : sources){
-            GLuint shader_created = shaderIDs.emplace_back(glCreateShader(type));
+            GLuint shader_created = glCreateShader(type);
 
             const char* sourcePtr = source.c_str();
             glShaderSource(shader_created, 1, &sourcePtr, NULL);
@@ -114,10 +116,26 @@ namespace VectorVertex{
             compileErrors(shader_created, GetGLStateToString(type).c_str());
 
             glAttachShader(program, shader_created);
+            shaderIDs.push_back(shader_created);
 
         }
         glLinkProgram(program);
-        compileErrors(program, "PROGRAM");
+        GLint isLinked;
+        glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
+        if (isLinked == GL_FALSE)
+        {
+            GLint maxLength;
+            glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
+
+            std::vector<GLchar> infoLog(maxLength);
+            glGetProgramInfoLog(program, maxLength, &maxLength, infoLog.data());
+            VV_CORE_ERROR("Shader linking failed ({0}):\n{1}", m_FilePath, infoLog.data());
+
+            glDeleteProgram(program);
+
+            for (auto id : shaderIDs)
+                glDeleteShader(id);
+        }
 
         for(auto id : shaderIDs){
             glDetachShader(program, id);
@@ -143,14 +161,107 @@ namespace VectorVertex{
             glGetShaderiv(shader, GL_COMPILE_STATUS, &hasCompiled);
             if(hasCompiled == GL_FALSE){
                 glGetShaderInfoLog(shader, 1024, NULL, infoLog);
-                VV_CORE_ERROR("Shader Compilation Error for: {0}, ID:{1}",type, shader);
+                VV_CORE_ERROR("Shader Compilation Error for: {0}, ID: {1}\n{2}", type, shader, infoLog);
+                VV_CORE_ASSERT(false, "Shader Compilation failed!");
+                return;
             }
         } else{
             glGetProgramiv(shader, GL_LINK_STATUS, &hasCompiled);
             if(hasCompiled == GL_FALSE){
                 glGetProgramInfoLog(shader, 1024, NULL, infoLog);
                 VV_CORE_ERROR("Shader Linking Error for: {0}, ID:{1}",type, shader);
+                return;
             }
         }
+    }
+
+
+    void GLShader::SetInt(const std::string& name, int value)
+    {
+        
+        UploadUniformInt(name, value);
+    }
+
+    void GLShader::SetIntArray(const std::string& name, int* values, uint32_t count)
+    {
+        UploadUniformIntArray(name, values, count);
+    }
+
+    void GLShader::SetFloat(const std::string& name, float value)
+    {
+        
+        UploadUniformFloat(name, value);
+    }
+
+    void GLShader::SetFloat2(const std::string& name, const glm::vec2& value)
+    {
+        
+        UploadUniformFloat2(name, value);
+    }
+
+    void GLShader::SetFloat3(const std::string& name, const glm::vec3& value)
+    {
+        
+        UploadUniformFloat3(name, value);
+    }
+
+    void GLShader::SetFloat4(const std::string& name, const glm::vec4& value)
+    {
+        
+        UploadUniformFloat4(name, value);
+    }
+
+    void GLShader::SetMat4(const std::string& name, const glm::mat4& value)
+    {
+        
+        UploadUniformMat4(name, value);
+    }
+
+    void GLShader::UploadUniformInt(const std::string& name, int value)
+    {
+        GLint location = glGetUniformLocation(ID, name.c_str());
+        glUniform1i(location, value);
+    }
+
+    void GLShader::UploadUniformIntArray(const std::string& name, int* values, uint32_t count)
+    {
+        GLint location = glGetUniformLocation(ID, name.c_str());
+        glUniform1iv(location, count, values);
+    }
+
+    void GLShader::UploadUniformFloat(const std::string& name, float value)
+    {
+        GLint location = glGetUniformLocation(ID, name.c_str());
+        glUniform1f(location, value);
+    }
+
+    void GLShader::UploadUniformFloat2(const std::string& name, const glm::vec2& value)
+    {
+        GLint location = glGetUniformLocation(ID, name.c_str());
+        glUniform2f(location, value.x, value.y);
+    }
+
+    void GLShader::UploadUniformFloat3(const std::string& name, const glm::vec3& value)
+    {
+        GLint location = glGetUniformLocation(ID, name.c_str());
+        glUniform3f(location, value.x, value.y, value.z);
+    }
+
+    void GLShader::UploadUniformFloat4(const std::string& name, const glm::vec4& value)
+    {
+        GLint location = glGetUniformLocation(ID, name.c_str());
+        glUniform4f(location, value.x, value.y, value.z, value.w);
+    }
+
+    void GLShader::UploadUniformMat3(const std::string& name, const glm::mat3& matrix)
+    {
+        GLint location = glGetUniformLocation(ID, name.c_str());
+        glUniformMatrix3fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+    }
+
+    void GLShader::UploadUniformMat4(const std::string& name, const glm::mat4& matrix)
+    {
+        GLint location = glGetUniformLocation(ID, name.c_str());
+        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 }

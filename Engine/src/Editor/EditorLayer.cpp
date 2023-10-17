@@ -11,14 +11,18 @@ namespace VectorVertex {
     EditorLayer::EditorLayer(): Layer("EditorLayer") {}
 
     Scope<Model> model;
+    Ref<Shader> model_shader;
 
     void EditorLayer::OnAttach() {
         m_EditorCamera = Camera::Create(m_CameraProps);
-        m_EditorCamera->GetProperties().Position = glm::vec3(1.0f);
+        m_EditorCamera->GetProperties().Position = glm::vec3(0.0f);
         m_FrameBuffer = FrameBuffer::Create(800, 700);
-        m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default_shader.glsl");
-        model = Model::Create("/home/bios/CLionProjects/Game/Models/statue/scene.gltf", m_ShaderLibrary.Get("default_shader"));
-        model->SetTransform(glm::vec3(0.1f), glm::vec3(0.1f), glm::vec3(1.0f));
+        model_shader = Shader::Create("default", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.vert", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.frag", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.geom");
+        m_ShaderLibrary.Add(model_shader);
+        model_shader->SetFloat4("lightColor", glm::vec4(1.0f));
+        model_shader->SetFloat3("lightPos", glm::vec3(1.0f));
+        model = Model::Create("/home/bios/CLionProjects/Game/Models/statue/scene.gltf");
+        model->SetTransform(model_shader,glm::vec3(0.1f), glm::vec3(0.1f), glm::vec3(1.0f));
 
     }
 
@@ -41,9 +45,8 @@ namespace VectorVertex {
     }
 
     void EditorLayer::OnRender() {
-        m_ShaderLibrary.Update(model->GetShader());
-        model->Draw(*m_EditorCamera);
-        VV_CORE_WARN("Model Position x:{0} y:{1} z:{2}",model->GetPosition().x, model->GetPosition().y, model->GetPosition().z);
+        model->Draw(model_shader, *m_EditorCamera);
+       //VV_CORE_WARN("Model Position x:{0} y:{1} z:{2}",model->GetPosition().x, model->GetPosition().y, model->GetPosition().z);
     }
 
     void EditorLayer::OnImGuiRender() {

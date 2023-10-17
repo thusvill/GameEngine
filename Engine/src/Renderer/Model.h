@@ -13,16 +13,14 @@ namespace VectorVertex {
     public:
         virtual ~Model() = default;
 
-        virtual void Draw(Camera& camera)=0;
-        virtual void Position(glm::vec3 newPosition)=0;
-        virtual void Rotation(glm::vec3 rotation)=0;
-        virtual void Scale(glm::vec3 newScale)=0;
-        virtual void SetTransform(glm::vec3 position,glm::vec3 rotation,glm::vec3 scale)=0;
-        virtual void UpdateShader(Ref<Shader> shader)=0;
+        virtual void Draw(Ref<Shader> shader,Camera& camera)=0;
+        virtual void Position(Ref<Shader> shader,glm::vec3 newPosition)=0;
+        virtual void Rotation(Ref<Shader> shader,glm::vec3 rotation)=0;
+        virtual void Scale(Ref<Shader> shader,glm::vec3 newScale)=0;
+        virtual void SetTransform(Ref<Shader> shader,glm::vec3 position,glm::vec3 rotation,glm::vec3 scale)=0;
         virtual glm::vec3 GetPosition() =   0;
-        virtual Ref<Shader> GetShader()=0;
 
-        static Scope<Model>Create(const char* file, Ref<Shader> shader);
+        static Scope<Model>Create(const char* file);
 
 
     };
