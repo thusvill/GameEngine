@@ -19,15 +19,12 @@ namespace VectorVertex {
     public:
         std::vector <Vertex> vertices;
         std::vector <GLuint> indices;
-        std::vector <Scope<Texture>> textures;
+        std::vector <Ref<Texture>> textures;
 
         OpenGLVAO vao;
 
-        OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Scope<Texture>> &i_textures);
+        OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Ref<Texture>> &i_textures);
         virtual ~OpenGLMesh(){
-            /*for(auto& tex : textures){
-                tex.reset();
-            }*/
             VV_CORE_WARN("Deleting Mesh");
         }
 

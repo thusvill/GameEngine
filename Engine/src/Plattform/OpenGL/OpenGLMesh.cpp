@@ -6,30 +6,17 @@
 #include "OpenGLCamera.h"
 namespace VectorVertex{
 
-    OpenGLMesh::OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Scope<Texture>> &i_textures) {
+    OpenGLMesh::OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Ref<Texture>> &i_textures) {
         OpenGLMesh::vertices = vertices;
         OpenGLMesh::indices = indices;
-        //for (int i = 0; i < OpenGLMesh::textures.capacity(); ++i) {
-        //    for (int j = 0; j < textures.capacity(); ++j) {
-        //        OpenGLMesh::textures[i] = static_cast<OpenGLTexture*>(textures[j]->GetTexture());
-        //    }
-        //}
-
         for (auto& i_texture : i_textures) {
-            textures.emplace_back(i_texture.release());  // Move ownership of Texture
-
+            textures.emplace_back(i_texture);
             }
 
         for (int i = 0; i < textures.size(); ++i) {
-//            Scope<Texture> tex = Texture::Create(i_textures[i]->GetData());
- //           OpenGLMesh::textures.push_back(std::move(tex));
-#if defined(VV_DEBUG)
+
             VV_CORE_INFO("Texture added: {}", textures[i]->GetData().image);
-#endif
         }
-#if defined(VV_DEBUG)
-        VV_CORE_INFO("Textures count: {}", textures.size());
-#endif
 
         vao.Bind();
         // Generates Vertex Buffer Object and links it to vertices
@@ -45,22 +32,17 @@ namespace VectorVertex{
         vao.Unbind();
         VBO.Unbind();
         EBO.Unbind();
+        VV_CORE_INFO("Mesh created with {0} vertices, {1} indices, {2} textures", vertices.size(), indices.size(), textures.size());
 
     }
 
     void OpenGLMesh::Draw(Ref<Shader> shader, Camera &i_camera, glm::mat4 matrix, glm::vec3 translation, glm::quat rotation,
                     glm::vec3 scale) {
 
-        OpenGLCamera* camera = static_cast<OpenGLCamera*>(i_camera.GetCamera());
-        //GLShader* shader = static_cast<GLShader*>(_shader->GetShader());
-#if defined(VV_DEBUG)
-      if(!camera){
-          VV_CORE_ERROR("Draw Mesh camera NULL!");
-      }
-        else if(!shader){
+        if(!shader){
             VV_CORE_ERROR("Draw Mesh shader NULL!");
         }
-#endif
+
         shader->Activate();
         vao.Bind();
 
@@ -84,8 +66,8 @@ namespace VectorVertex{
             }
         }
         // Take care of the camera Matrix
-        glUniform3f(glGetUniformLocation(shader->GetID(), "camPos"), camera->m_CameraProperties.Position.x, camera->m_CameraProperties.Position.y, camera->m_CameraProperties.Position.z);
-        camera->Matrix(shader.get(), "camMatrix");
+        glUniform3f(glGetUniformLocation(shader->GetID(), "camPos"), i_camera.GetProperties().Position.x, i_camera.GetProperties().Position.y, i_camera.GetProperties().Position.z);
+        i_camera.Matrix(shader.get(), "camMatrix");
 
         glm::mat4 trans = glm::mat4(1.0f);
         glm::mat4 rot = glm::mat4(1.0f);
@@ -98,6 +80,6 @@ namespace VectorVertex{
 
         // Draw the actual mesh
         glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
-        shader->Delete();
+        //shader->Delete();
     }
 }

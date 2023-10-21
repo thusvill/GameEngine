@@ -15,14 +15,12 @@ namespace VectorVertex {
 
     void EditorLayer::OnAttach() {
         m_EditorCamera = Camera::Create(m_CameraProps);
-        m_EditorCamera->GetProperties().Position = glm::vec3(0.0f);
+        m_EditorCamera->GetProperties().Position = glm::vec3(-1.0f);
         m_FrameBuffer = FrameBuffer::Create(800, 700);
-        model_shader = Shader::Create("default", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.vert", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.frag", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.geom");
-        m_ShaderLibrary.Add(model_shader);
-        model_shader->SetFloat4("lightColor", glm::vec4(1.0f));
-        model_shader->SetFloat3("lightPos", glm::vec3(1.0f));
+
+        model_shader = m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
         model = Model::Create("/home/bios/CLionProjects/Game/Models/statue/scene.gltf");
-        model->SetTransform(model_shader,glm::vec3(0.1f), glm::vec3(0.1f), glm::vec3(1.0f));
+        model->SetTransform(model_shader,glm::vec3(1.0f), glm::vec3(0.001f), glm::vec3(1.0f));
 
     }
 
@@ -41,13 +39,25 @@ namespace VectorVertex {
     void EditorLayer::OnUpdate(){
         GLFWwindow* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
         m_EditorCamera->Inputs(window);
-        m_EditorCamera->updateMatrix();
-    }
 
-    void EditorLayer::OnRender() {
-        model->Draw(model_shader, *m_EditorCamera);
-       //VV_CORE_WARN("Model Position x:{0} y:{1} z:{2}",model->GetPosition().x, model->GetPosition().y, model->GetPosition().z);
+
     }
+    void ExampleTriangle(){
+        glBegin(GL_TRIANGLES);
+        glColor3f(1.0f, 0.0f, 0.0f);   // Red
+        glVertex2f(0.0f, 0.5f);         // Top
+        glColor3f(0.0f, 1.0f, 0.0f);   // Green
+        glVertex2f(-0.5f, -0.5f);       // Bottom left
+        glColor3f(0.0f, 0.0f, 1.0f);   // Blue
+        glVertex2f(0.5f, -0.5f);        // Bottom right
+        glEnd();
+    }
+    void EditorLayer::OnRender() {
+        m_EditorCamera->updateMatrix();
+        //ExampleTriangle();
+        model->Draw(model_shader, *m_EditorCamera);
+    }
+    glm::vec3 pos;
 
     void EditorLayer::OnImGuiRender() {
         //FrameBuffer
@@ -66,20 +76,40 @@ namespace VectorVertex {
 
             ImGui::End();
         }
-        //Scene Hierarchy
+        //Camera
         {
-            ImGui::Begin("Scene");
+            ImGui::Begin("Camera");
+            ImGui::Text("Position x:%f  y:%f  z:%f", m_EditorCamera->GetProperties().Position.x, m_EditorCamera->GetProperties().Position.y, m_EditorCamera->GetProperties().Position.z);
+            ImGui::Text("Rotation x:%f  y:%f  z:%f", m_EditorCamera->GetProperties().Orientation.x, m_EditorCamera->GetProperties().Orientation.y, m_EditorCamera->GetProperties().Orientation.z);
             ImGui::End();
         }
-        //Console
+        //Model
         {
-            ImGui::Begin("Console");
+            ImGui::Begin("Model");
+            ImGui::Text("Position x:%f  y:%f  z:%f", model->GetPosition().x,model->GetPosition().y,model->GetPosition().z);
+
+            ImGui::DragFloat3("Pos", glm::value_ptr(pos), 0.5f);
+            model->Position(model_shader, pos);
             ImGui::End();
         }
-        //Browser
+
+        //In Development
         {
-            ImGui::Begin("Browser");
-            ImGui::End();
+            //Scene Hierarchy
+            {
+                ImGui::Begin("Scene");
+                ImGui::End();
+            }
+            //Console
+            {
+                ImGui::Begin("Console");
+                ImGui::End();
+            }
+            //Browser
+            {
+                ImGui::Begin("Browser");
+                ImGui::End();
+            }
         }
         //Settings
         {

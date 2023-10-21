@@ -61,7 +61,7 @@ namespace VectorVertex {
         GLuint ID = 0;
         std::string m_Name;
         std::string m_FilePath;
-        static void compileErrors(unsigned int shader, const char* type);
+        static void compileErrors(unsigned int shader,std::string src,const char* type);
         std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
 
         std::unordered_map<GLenum , std::string> m_GLSources;

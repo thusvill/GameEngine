@@ -43,6 +43,7 @@ namespace VectorVertex {
         bool DockSpaceEnabled = true;
         bool ExternalViewpoertsEnabled = false;
     private:
+        friend Window;
         ApplicationSpecs m_AppSpecs;
         Scope<Window> m_Window;
         LayerStack m_LayerStack;

@@ -5,7 +5,6 @@
 #include "OpenGLModel.h"
 #include "GLShader.h"
 #include "vector"
-#include "memory"
 
 namespace VectorVertex {
 
@@ -76,11 +75,11 @@ namespace VectorVertex {
 
         std::vector<Vertex> vertices = assembleVertices(positions, normals, texUVs);
         std::vector<GLuint> indices = getIndices(JSON["accessors"][indAccInd]);
-        std::vector<Scope<Texture>> textures = getTexture();
+        std::vector<Ref<Texture>> textures = getTexture();
 
 
 
-        Scope<Mesh> newMesh = Mesh::Create(vertices, indices, textures);
+        Ref<Mesh> newMesh = Mesh::Create(vertices, indices, textures);
         VV_CORE_INFO("Mesh Loaded {0} vertices, {1} indices, {2} textures", vertices.size(), indices.size(), textures.size());
 
         meshes.push_back(std::move(newMesh));
@@ -169,8 +168,8 @@ namespace VectorVertex {
         std::string fileDirectory = fileStr.substr(0, fileStr.find_last_of("/")+1);
         bytesText = get_file_contents((fileDirectory + uri).c_str());
 
-        std::vector<unsigned char> data(bytesText.begin(), bytesText.end());
-        return data;
+        std::vector<unsigned char> r_data(bytesText.begin(), bytesText.end());
+        return r_data;
     }
 
     std::vector<float> OpenGLModel::getFloats(json accessor) {
@@ -193,7 +192,7 @@ namespace VectorVertex {
 
         unsigned int beginningOfData = byteOffset + accByteOffset;
         unsigned int lengthOfData = count * 4 * numPerVert;
-        for(unsigned int i=beginningOfData; i < beginningOfData + lengthOfData; i)
+        for(unsigned int i=beginningOfData; i < beginningOfData + lengthOfData;)
         {
             unsigned char bytes[] = { data[i++],data[i++],data[i++],data[i++]};
             float value;
@@ -223,7 +222,7 @@ namespace VectorVertex {
          *
          * */
         if(componentType == 5125){//unsigned int
-            for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 4; i){
+            for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 4;){
                 unsigned char bytes[] = {data[i++],data[i++],data[i++],data[i++]};
                 unsigned int value;
                 std::memcpy(&value, bytes, sizeof(unsigned int));
@@ -231,7 +230,7 @@ namespace VectorVertex {
                 indices.push_back((GLuint)value);
             }
         } else if(componentType == 5123){//unsigned short
-            for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 2; i){
+            for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 2;){
                 unsigned char bytes[] = {data[i++],data[i++]};
                 unsigned int value;
                 std::memcpy(&value, bytes, sizeof(unsigned short));
@@ -239,7 +238,7 @@ namespace VectorVertex {
                 indices.push_back((GLuint)value);
             }
         }else if(componentType == 5122){//unsigned int
-            for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 2; i){
+            for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 2;){
                 unsigned char bytes[] = {data[i++],data[i++]};
                 unsigned int value;
                 std::memcpy(&value, bytes, sizeof(int));
@@ -250,8 +249,8 @@ namespace VectorVertex {
         return indices;
     }
 
-    std::vector<Scope<Texture>> OpenGLModel::getTexture() {
-        std::vector<Scope<Texture>> textures;
+    std::vector<Ref<Texture>> OpenGLModel::getTexture() {
+        std::vector<Ref<Texture>> textures;
 
         std::string fileStr = std::string(file);
         std::string fileDirectory = fileStr.substr(0, fileStr.find_last_of('/')+1);
@@ -317,8 +316,8 @@ namespace VectorVertex {
 
     std::vector<glm::vec2> OpenGLModel::groupFloatsVec2(std::vector<float> floatVec) {
         std::vector<glm::vec2> vectors;
-        for (int i = 0; i < floatVec.size(); i) {
-            vectors.push_back(glm::vec2(floatVec[i++], floatVec[i++]));
+        for (int i = 0; i < floatVec.size(); i++) {
+            vectors.push_back(glm::vec2(floatVec[i], floatVec[i]));
 
         }
         return vectors;
@@ -326,8 +325,8 @@ namespace VectorVertex {
 
     std::vector<glm::vec3> OpenGLModel::groupFloatsVec3(std::vector<float> floatVec) {
         std::vector<glm::vec3> vectors;
-        for (int i = 0; i < floatVec.size(); i) {
-            vectors.push_back(glm::vec3(floatVec[i++], floatVec[i++], floatVec[i++]));
+        for (int i = 0; i < floatVec.size(); i++) {
+            vectors.push_back(glm::vec3(floatVec[i], floatVec[i], floatVec[i]));
 
         }
         return vectors;
@@ -335,8 +334,8 @@ namespace VectorVertex {
 
     std::vector<glm::vec4> OpenGLModel::groupFloatsVec4(std::vector<float> floatVec) {
         std::vector<glm::vec4> vectors;
-        for (int i = 0; i < floatVec.size(); i) {
-            vectors.push_back(glm::vec4(floatVec[i++], floatVec[i++], floatVec[i++], floatVec[i++]));
+        for (int i = 0; i < floatVec.size(); i++) {
+            vectors.push_back(glm::vec4(floatVec[i], floatVec[i], floatVec[i], floatVec[i]));
 
         }
         return vectors;

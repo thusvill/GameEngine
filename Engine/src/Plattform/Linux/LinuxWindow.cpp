@@ -87,7 +87,6 @@ namespace VectorVertex {
 
         if (!glfwWindowShouldClose(m_Window))
         {
-
             m_Context->SwapBuffers();
             glfwPollEvents();
         }

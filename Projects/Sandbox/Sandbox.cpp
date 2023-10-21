@@ -4,17 +4,8 @@
 class NewLayer : public  VectorVertex::Layer {
 public:
     NewLayer(): Layer("NewLayer"){}
-    virtual void OnImGuiRender() override;
-    virtual void OnRender() override;
 };
 
-void NewLayer::OnImGuiRender() {
-    //ImGui::ShowDemoWindow();
-}
-
-void NewLayer::OnRender() {
-
-    }
 
 
 class SandBox: public VectorVertex::Application{

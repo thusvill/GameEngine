@@ -18,9 +18,9 @@ in vec2 texCoord;
 uniform sampler2D diffuse0;
 uniform sampler2D specular0;
 // Gets the color of the light from the main function
-uniform vec4 lightColor;
+uniform vec4 lightColor = vec4(1.0f);
 // Gets the position of the light from the main function
-uniform vec3 lightPos;
+uniform vec3 lightPos = vec3(0.0f);
 // Gets the position of the camera from the main function
 uniform vec3 camPos;
 

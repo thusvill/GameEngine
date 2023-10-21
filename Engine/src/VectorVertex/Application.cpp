@@ -51,13 +51,13 @@ namespace VectorVertex{
             {
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
+
                 m_EditorLayer->BindFrameBuffer();
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
                 m_Window->OnRender();
-                for (Layer *layer: m_LayerStack)
-                    layer->OnRender();
                 m_EditorLayer->UnbindFrameBuffer();
+
                 m_ImGuiLayer->Begin();
                 //ShowDockSpace
                 if(DockSpaceEnabled) {
@@ -95,6 +95,12 @@ namespace VectorVertex{
 
     }
     void Window::OnRender() {
+        for (Layer *layer: Application::Get().m_LayerStack) {
+            if(!layer){
+                VV_CORE_ERROR("Layer {} is Null or empty!", layer->GetName());
+            }
+            layer->OnRender();
+        }
         /*glBegin(GL_TRIANGLES);
         glColor3f(1.0f, 0.0f, 0.0f);   // Red
         glVertex2f(0.0f, 0.5f);         // Top
@@ -103,7 +109,7 @@ namespace VectorVertex{
         glColor3f(0.0f, 0.0f, 1.0f);   // Blue
         glVertex2f(0.5f, -0.5f);        // Bottom right
         glEnd();
-         */
+*/
     }
 
 }

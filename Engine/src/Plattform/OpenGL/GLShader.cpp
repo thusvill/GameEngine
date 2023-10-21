@@ -113,7 +113,7 @@ namespace VectorVertex{
             glShaderSource(shader_created, 1, &sourcePtr, NULL);
 
             glCompileShader(shader_created);
-            compileErrors(shader_created, GetGLStateToString(type).c_str());
+            compileErrors(shader_created, source,GetGLStateToString(type).c_str());
 
             glAttachShader(program, shader_created);
             shaderIDs.push_back(shader_created);
@@ -154,7 +154,7 @@ namespace VectorVertex{
         glDeleteProgram(ID);
     }
 
-    void GLShader::compileErrors(unsigned int shader, const char *type) {
+    void GLShader::compileErrors(unsigned int shader,std::string src,const char *type) {
         GLint hasCompiled;
         char infoLog[1024];
         if(strcmp(type, "PROGRAM") != 0){
@@ -162,6 +162,7 @@ namespace VectorVertex{
             if(hasCompiled == GL_FALSE){
                 glGetShaderInfoLog(shader, 1024, NULL, infoLog);
                 VV_CORE_ERROR("Shader Compilation Error for: {0}, ID: {1}\n{2}", type, shader, infoLog);
+                //VV_CORE_WARN("{0} source: {1}", type, src);
                 VV_CORE_ASSERT(false, "Shader Compilation failed!");
                 return;
             }

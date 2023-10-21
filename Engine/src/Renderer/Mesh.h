@@ -26,7 +26,7 @@ namespace VectorVertex {
         virtual void Draw(Ref<Shader> shader, Camera &i_camera, glm::mat4 matrix, glm::vec3 translation= glm::vec3 (0.0f), glm::quat rotation = glm::quat (1.0f, 0.0f, 0.0f, 0.0f),
                           glm::vec3 scale = glm::vec3(1.0f))=0;
 
-        static Scope<Mesh> Create(std::vector <Vertex>& vertices, std::vector <unsigned int>& indices, std::vector <Scope<Texture>> &textures);
+        static Ref<Mesh> Create(std::vector <Vertex>& vertices, std::vector <unsigned int>& indices, std::vector <Ref<Texture>> &textures);
     };
 
 } // VectorVertex
