@@ -7,7 +7,7 @@
 namespace VectorVertex{
     void CheckFBOErrors(){
         GLenum fbStatus = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-        std::cerr << "Framebuffer status: " << fbStatus << std::endl;
+        //std::cerr << "Framebuffer status: " << fbStatus << std::endl;
 
         if (fbStatus != GL_FRAMEBUFFER_COMPLETE) {
             // Print a more informative error message based on the status

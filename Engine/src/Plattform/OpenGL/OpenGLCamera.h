@@ -27,7 +27,7 @@ namespace VectorVertex{
 
         virtual void updateMatrix() override;
 
-        virtual void Matrix(Shader* i_shader, const char* uniform);
+        virtual void Matrix(Ref<Shader> i_shader, const char* uniform) override;
 
         virtual void Inputs(GLFWwindow *window) override;
 

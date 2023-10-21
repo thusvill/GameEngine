@@ -33,7 +33,7 @@ namespace VectorVertex {
         virtual ~Camera() = default;
 
         virtual void updateMatrix()=0;
-        virtual void Matrix(Shader *i_shader, const char* uniform)=0;
+        virtual void Matrix(Ref<Shader> i_shader, const char* uniform)=0;
         virtual void Inputs(GLFWwindow* window)=0;
         virtual void SetCameraMode(CamMode newMode)=0;
 

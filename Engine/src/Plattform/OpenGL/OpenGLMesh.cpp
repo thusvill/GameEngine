@@ -67,7 +67,7 @@ namespace VectorVertex{
         }
         // Take care of the camera Matrix
         glUniform3f(glGetUniformLocation(shader->GetID(), "camPos"), i_camera.GetProperties().Position.x, i_camera.GetProperties().Position.y, i_camera.GetProperties().Position.z);
-        i_camera.Matrix(shader.get(), "camMatrix");
+        i_camera.Matrix(shader, "camMatrix");
 
         glm::mat4 trans = glm::mat4(1.0f);
         glm::mat4 rot = glm::mat4(1.0f);

@@ -97,6 +97,7 @@ namespace VectorVertex{
             pos = source.find(typeToken, nextLinePos); //Start of next shader type declaration line
 
             shaderSources[ShaderTypeFromString(type)] = (pos == std::string::npos) ? source.substr(nextLinePos) : source.substr(nextLinePos, pos - nextLinePos);
+            //VV_CORE_WARN("Shader {0} :: {1}",type,shaderSources[ShaderTypeFromString(type)]);
         }
 
         return shaderSources;

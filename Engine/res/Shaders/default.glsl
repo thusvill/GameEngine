@@ -19,7 +19,7 @@ out DATA
 	vec2 texCoord;
 	mat4 projection;
 } data_out;
-
+out vec3 crntPos;
 
 
 // Imports the camera matrix
@@ -42,6 +42,8 @@ void main()
 	data_out.color = aColor;
 	data_out.texCoord = mat2(0.0, -1.0, 1.0, 0.0) * aTex;
 	data_out.projection = camMatrix;
+
+	crntPos = data_out.crntPos;
 }
 #shader fragment
 #version 460
@@ -104,25 +106,6 @@ vec4 pointLight()
 	return (texture(diffuse0, texCoord) * (diffuse * inten + ambient) + texture(specular0, texCoord).r * specular * inten) * lightColor*intensity;
 }
 
-vec4 directLight()
-{
-	// ambient lighting
-	float ambient = 0.50f;
-
-	// diffuse lighting
-	vec3 normal = normalize(Normal);
-	vec3 lightDirection = normalize(vec3(1.0f, 1.0f, 0.0f));
-	float diffuse = max(dot(normal, lightDirection), 0.0f);
-
-	// specular lighting
-	float specularLight = 0.50f;
-	vec3 viewDirection = normalize(camPos - crntPos);
-	vec3 reflectionDirection = reflect(-lightDirection, normal);
-	float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 16);
-	float specular = specAmount * specularLight;
-
-	return (texture(diffuse0, texCoord) * (diffuse + ambient) + texture(specular0, texCoord).r * specular) * lightColor*intensity;
-}
 
 vec4 spotLight()
 {
@@ -152,6 +135,27 @@ vec4 spotLight()
 	return (texture(diffuse0, texCoord) * (diffuse * inten + ambient) + texture(specular0, texCoord).r * specular * inten) * lightColor*intensity;
 }
 
+vec4 directLight()
+{
+	// ambient lighting
+	float ambient = 0.50f;
+
+	// diffuse lighting
+	vec3 normal = normalize(Normal);
+	vec3 lightDirection = normalize(vec3(1.0f, 1.0f, 0.0f));
+	float diffuse = max(dot(normal, lightDirection), 0.0f);
+
+	// specular lighting
+	float specularLight = 0.50f;
+	vec3 viewDirection = normalize(camPos - crntPos);
+	vec3 reflectionDirection = reflect(-lightDirection, normal);
+	float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 16);
+	float specular = specAmount * specularLight;
+
+	return (texture(diffuse0, texCoord) * (diffuse + ambient) + texture(specular0, texCoord).r * specular) * lightColor*intensity;
+}
+
+
 
 void main()
 {
@@ -172,6 +176,7 @@ layout (triangle_strip, max_vertices = 3) out;
 out vec3 Normal;
 out vec3 color;
 out vec2 texCoord;
+out vec3 crntPos;
 
 in DATA
 {

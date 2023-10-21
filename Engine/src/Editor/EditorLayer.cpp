@@ -19,8 +19,8 @@ namespace VectorVertex {
         m_FrameBuffer = FrameBuffer::Create(800, 700);
 
         model_shader = m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
-        model = Model::Create("/home/bios/CLionProjects/Game/Models/statue/scene.gltf");
-        model->SetTransform(model_shader,glm::vec3(1.0f), glm::vec3(0.001f), glm::vec3(1.0f));
+        model = Model::Create("/home/bios/CLionProjects/Game/Models/bunny/scene.gltf");
+        model->SetTransform(model_shader,glm::vec3(1.0f), glm::vec3(1.0f), glm::vec3(1.0f));
 
     }
 
@@ -53,9 +53,10 @@ namespace VectorVertex {
         glEnd();
     }
     void EditorLayer::OnRender() {
-        m_EditorCamera->updateMatrix();
         //ExampleTriangle();
+
         model->Draw(model_shader, *m_EditorCamera);
+        m_EditorCamera->updateMatrix();
     }
     glm::vec3 pos;
 

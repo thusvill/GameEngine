@@ -77,12 +77,9 @@ namespace VectorVertex {
         std::vector<GLuint> indices = getIndices(JSON["accessors"][indAccInd]);
         std::vector<Ref<Texture>> textures = getTexture();
 
-
-
-        Ref<Mesh> newMesh = Mesh::Create(vertices, indices, textures);
         VV_CORE_INFO("Mesh Loaded {0} vertices, {1} indices, {2} textures", vertices.size(), indices.size(), textures.size());
 
-        meshes.push_back(std::move(newMesh));
+        meshes.push_back(Mesh::Create(vertices, indices, textures));
 
     }
 
@@ -168,8 +165,8 @@ namespace VectorVertex {
         std::string fileDirectory = fileStr.substr(0, fileStr.find_last_of("/")+1);
         bytesText = get_file_contents((fileDirectory + uri).c_str());
 
-        std::vector<unsigned char> r_data(bytesText.begin(), bytesText.end());
-        return r_data;
+        std::vector<unsigned char> o_data(bytesText.begin(), bytesText.end());
+        return o_data;
     }
 
     std::vector<float> OpenGLModel::getFloats(json accessor) {
@@ -278,20 +275,21 @@ namespace VectorVertex {
                     diff_data.image = (fileDirectory + texPath);
                     diff_data.type = "diffuse";
                     diff_data.unit = loadedTex.size();
-                    Scope<Texture> diffuse = Texture::Create(diff_data);
-                    textures.push_back(std::move(diffuse));
-                    loadedTex.push_back(std::move(diffuse));
+                    Ref<Texture> diffuse = Texture::Create(diff_data);
+                    textures.push_back(diffuse);
+                    loadedTex.push_back(diffuse);
                     loadedTexName.push_back(texPath);
                 } else if (texPath.find("metallicRoughness") != std::string::npos) {
                     TextureData specular_data;
                     specular_data.image = (fileDirectory + texPath);
                     specular_data.type = "specular";
                     specular_data.unit = loadedTex.size();
-                    Scope<Texture> specular = Texture::Create(specular_data);
-                    textures.push_back(std::move(specular));
-                    loadedTex.push_back(std::move(specular));
+                    Ref<Texture> specular = Texture::Create(specular_data);
+                    textures.push_back(specular);
+                    loadedTex.push_back(specular);
                     loadedTexName.push_back(texPath);
                 }
+                //Add more texture types
             }
         }
         VV_CORE_INFO("Textures loaded : {}", textures.size());
