@@ -28,7 +28,7 @@ namespace VectorVertex {
             VV_CORE_WARN("Deleting Mesh");
         }
 
-        virtual void Draw(Ref<Shader> shader, Camera &i_camera, glm::mat4 matrix, glm::vec3 translation= glm::vec3 (0.0f), glm::quat rotation = glm::quat (1.0f, 0.0f, 0.0f, 0.0f),
+        virtual void Draw(Ref<Shader> shader, Ref<Camera> i_camera, glm::mat4 matrix, glm::vec3 translation= glm::vec3 (0.0f), glm::quat rotation = glm::quat (1.0f, 0.0f, 0.0f, 0.0f),
                           glm::vec3 scale = glm::vec3(1.0f)) override;
 
 

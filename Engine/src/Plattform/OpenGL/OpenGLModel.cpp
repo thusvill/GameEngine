@@ -18,11 +18,12 @@ namespace VectorVertex {
         traverseNode(0);
     }
 
-    void OpenGLModel::Draw(Ref<Shader> shader,Camera& camera) {
+    void OpenGLModel::Draw(Ref<Shader> shader,Ref<Camera> camera) {
         // Go over all meshes and draw each one
-        if(meshes.empty() || !shader || !camera.GetCamera() || matricesMeshes.empty()){
+        if(meshes.empty() || !shader || !camera->GetCamera() || matricesMeshes.empty()){
             VV_CORE_ERROR("Null values in Model Draw func!!");
         }
+
         for (unsigned int i = 0; i < meshes.size(); i++)
         {
         meshes[i]->Draw(shader, camera, matricesMeshes[i]);

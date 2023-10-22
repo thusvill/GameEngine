@@ -94,11 +94,13 @@ namespace VectorVertex{
         VV_CORE_INFO("Texture: {} created! ", data.image);
     }
 
-    void OpenGLTexture::texUni(Shader* _shader, const char* uniform, unsigned int unit) {
+    void OpenGLTexture::texUni(Ref<Shader> _shader, const char* uniform, unsigned int unit) {
         //get texture uniforms
-        GLuint texUni = glGetUniformLocation(_shader->GetID(), uniform);
         _shader->Activate();
+        GLuint texUni = glGetUniformLocation(_shader->GetID(), uniform);
         glUniform1i(texUni, unit);
+        //VV_CORE_INFO("Added Texture Uniform: {}",uniform);
+
     }
 
     void OpenGLTexture::Bind() {

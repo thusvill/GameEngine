@@ -42,7 +42,7 @@ namespace VectorVertex {
         virtual CameraProperties GetProperties() = 0;
         virtual void* GetCamera()=0;
 
-        static Scope<Camera> Create(CameraProperties props);
+        static Ref<Camera> Create(CameraProperties props);
 
     };
 

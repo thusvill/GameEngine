@@ -23,9 +23,9 @@ namespace VectorVertex {
         void BindFrameBuffer();
         void UnbindFrameBuffer();
         unsigned int GetFBORenderTextuer() {return m_FrameBuffer->GetRenderTexture();}
-        Camera& GetEditorCamera() {
+        Ref<Camera> GetEditorCamera() {
             if(m_EditorCamera != nullptr)
-                return *m_EditorCamera;
+                return m_EditorCamera;
             else
                 VV_CORE_ERROR("Editor Camera is NULL!");
         }
@@ -35,7 +35,7 @@ namespace VectorVertex {
 
         ShaderLibrary m_ShaderLibrary;
     private:
-        Scope<Camera> m_EditorCamera;
+        Ref<Camera> m_EditorCamera;
         CameraProperties m_CameraProps;
         Scope<FrameBuffer> m_FrameBuffer;
     };

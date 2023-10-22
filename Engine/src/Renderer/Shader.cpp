@@ -63,7 +63,7 @@ namespace VectorVertex{
 
     Ref<Shader> ShaderLibrary::Get(const::std::string& name)
     {
-        VV_CORE_ASSERT(Exists(name), "Shader not found!"+name);
+        VV_CORE_ASSERT(!Exists(name), "Shader not found!"+name);
         return m_Shaders[name];
     }
 

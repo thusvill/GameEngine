@@ -20,7 +20,7 @@ namespace VectorVertex {
         virtual ~OpenGLModel() {
         }
 
-        virtual void Draw(Ref<Shader> shader,Camera& camera) override;
+        virtual void Draw(Ref<Shader> shader,Ref<Camera> camera) override;
         virtual void Position(Ref<Shader> shader,glm::vec3 newPosition) override;
         virtual void Rotation(Ref<Shader> shader,glm::vec3 rotation) override;
         virtual void Scale(Ref<Shader> shader,glm::vec3 newScale) override;

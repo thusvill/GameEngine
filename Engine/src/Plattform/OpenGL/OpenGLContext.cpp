@@ -11,8 +11,6 @@ namespace VectorVertex {
     {
     if(!windowHandle){
         VV_CORE_ERROR("OpenGL Graphics Context Null Window request!!");
-    }else{
-        VV_CORE_INFO("Graphics Context success!");
     }
     }
 
@@ -36,14 +34,19 @@ namespace VectorVertex {
             return;
         }
 
-
-#if defined(VV_DEBUG)
         VV_CORE_INFO("GLFW made context!");
         VV_CORE_WARN("OpenGL Info:");
         VV_CORE_WARN("  Vendor: {0}", glGetString(GL_VENDOR));
         VV_CORE_WARN("  Renderer: {0}", glGetString(GL_RENDERER));
         VV_CORE_WARN("  Version: {0}", glGetString(GL_VERSION));
-#endif
+
+        GLenum error = glGetError();
+        if (error != GL_NO_ERROR) {
+            VV_CORE_ERROR("OpenGL error before rendering in GLContext: {}", error);
+            VV_CORE_ASSERT(false, "Rendering error");
+        } else{
+            VV_CORE_INFO("OpenGL Context success!");
+        }
     }
 
     void OpenGLContext::SwapBuffers()

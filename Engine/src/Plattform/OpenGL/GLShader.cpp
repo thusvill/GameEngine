@@ -121,6 +121,7 @@ namespace VectorVertex{
 
         }
         glLinkProgram(program);
+        compileErrors(program,"","PROGRAM");
         GLint isLinked;
         glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
         if (isLinked == GL_FALSE)

@@ -18,7 +18,7 @@ public:
     virtual ~OpenGLTexture(){
     }
 
-    virtual void texUni(Shader* _shader, const char* uniform, unsigned int unit) override;
+    virtual void texUni(Ref<Shader> _shader, const char* uniform, unsigned int unit) override;
     virtual void Bind() override;
     virtual void Unbind() override;
     virtual void Delete() override;

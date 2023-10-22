@@ -24,6 +24,12 @@ namespace VectorVertex {
         void Unbind();
 
         void Delete();
+
+        bool Empty(){
+            return empty;
+        }
+    private:
+        bool empty = true;
     };
 
 }

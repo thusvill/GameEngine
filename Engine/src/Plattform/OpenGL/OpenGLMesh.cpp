@@ -7,11 +7,16 @@
 namespace VectorVertex{
 
     OpenGLMesh::OpenGLMesh(std::vector <Vertex>& vertices, std::vector <GLuint>& indices, std::vector <Ref<Texture>> &i_textures) {
+
         OpenGLMesh::vertices = vertices;
         OpenGLMesh::indices = indices;
-        for (auto& i_texture : i_textures) {
-            textures.emplace_back(i_texture);
-            }
+        VV_CORE_ASSERT(!vertices.empty(), "Vertices NULL in GLMesh");
+        VV_CORE_ASSERT(!indices.empty(), "Indices NULL in GLMesh");
+        //for (auto& i_texture : i_textures) {
+        //    textures.emplace_back(i_texture);
+        //    }
+        textures = i_textures;
+        VV_CORE_ASSERT(!i_textures.empty(), "Textures is NULL in GLMesh");
 
         for (int i = 0; i < textures.size(); ++i) {
 
@@ -21,6 +26,7 @@ namespace VectorVertex{
         vao.Bind();
         // Generates Vertex Buffer Object and links it to vertices
         OpenGLVBO VBO(vertices);
+        VV_CORE_ASSERT(!VBO.Empty(), "GLVBO NULL in GLMesh");
         // Generates Element Buffer Object and links it to indices
         OpenGLEBO EBO(indices);
         // Links VBO attributes such as coordinates and colors to vao
@@ -36,9 +42,11 @@ namespace VectorVertex{
 
     }
 
-    void OpenGLMesh::Draw(Ref<Shader> shader, Camera &i_camera, glm::mat4 matrix, glm::vec3 translation, glm::quat rotation,
+    void OpenGLMesh::Draw(Ref<Shader> shader, Ref<Camera> i_camera, glm::mat4 matrix, glm::vec3 translation, glm::quat rotation,
                     glm::vec3 scale) {
-
+        if(!i_camera){
+            VV_CORE_ERROR("Draw Mesh camera NULL!");
+        }
         if(!shader){
             VV_CORE_ERROR("Draw Mesh shader NULL!");
         }
@@ -60,14 +68,15 @@ namespace VectorVertex{
                 } else if (type == "specular") {
                     num = std::to_string(numSpecular++);
                 }
-                textures[i]->texUni(shader.get(), (type + num).c_str(), i);
+                textures[i]->texUni(shader, (type + num).c_str(), i);
                 textures[i]->Bind();
+                //VV_CORE_INFO("Bound {0} shader with uniform: {1}{2} in unit {3}",type,type,num, i);
 
             }
         }
         // Take care of the camera Matrix
-        glUniform3f(glGetUniformLocation(shader->GetID(), "camPos"), i_camera.GetProperties().Position.x, i_camera.GetProperties().Position.y, i_camera.GetProperties().Position.z);
-        i_camera.Matrix(shader, "camMatrix");
+        glUniform3f(glGetUniformLocation(shader->GetID(), "camPos"), i_camera->GetProperties().Position.x, i_camera->GetProperties().Position.y, i_camera->GetProperties().Position.z);
+        i_camera->Matrix(shader, "camMatrix");
 
         glm::mat4 trans = glm::mat4(1.0f);
         glm::mat4 rot = glm::mat4(1.0f);
@@ -80,6 +89,6 @@ namespace VectorVertex{
 
         // Draw the actual mesh
         glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
-        //shader->Delete();
+
     }
 }

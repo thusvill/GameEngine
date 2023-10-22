@@ -19,8 +19,6 @@ out DATA
 	vec2 texCoord;
 	mat4 projection;
 } data_out;
-out vec3 crntPos;
-
 
 // Imports the camera matrix
 uniform mat4 camMatrix;
@@ -42,8 +40,6 @@ void main()
 	data_out.color = aColor;
 	data_out.texCoord = mat2(0.0, -1.0, 1.0, 0.0) * aTex;
 	data_out.projection = camMatrix;
-
-	crntPos = data_out.crntPos;
 }
 #shader fragment
 #version 460
@@ -190,6 +186,7 @@ in DATA
 // Default main function
 void main()
 {
+
 	gl_Position = data_in[0].projection * gl_in[0].gl_Position;
 	Normal = data_in[0].Normal;
 	color = data_in[0].color;

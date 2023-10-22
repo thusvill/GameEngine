@@ -19,7 +19,7 @@ namespace VectorVertex {
         m_FrameBuffer = FrameBuffer::Create(800, 700);
 
         model_shader = m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
-        model = Model::Create("/home/bios/CLionProjects/Game/Models/bunny/scene.gltf");
+        model = Model::Create("/home/bios/CLionProjects/Game/Models/map/scene.gltf");
         model->SetTransform(model_shader,glm::vec3(1.0f), glm::vec3(1.0f), glm::vec3(1.0f));
 
     }
@@ -43,20 +43,43 @@ namespace VectorVertex {
 
     }
     void ExampleTriangle(){
-        glBegin(GL_TRIANGLES);
-        glColor3f(1.0f, 0.0f, 0.0f);   // Red
-        glVertex2f(0.0f, 0.5f);         // Top
-        glColor3f(0.0f, 1.0f, 0.0f);   // Green
-        glVertex2f(-0.5f, -0.5f);       // Bottom left
-        glColor3f(0.0f, 0.0f, 1.0f);   // Blue
-        glVertex2f(0.5f, -0.5f);        // Bottom right
-        glEnd();
+        // Define vertex data for the triangle
+        GLfloat vertices[] = {
+                0.0f, 0.5f, 0.0f,
+                -0.5f, -0.5f, 0.0f,
+                0.5f, -0.5f, 0.0f
+        };
+
+        // Create VBO and VAO for the triangle
+        GLuint vao, vbo;
+        glGenVertexArrays(1, &vao);
+        glGenBuffers(1, &vbo);
+
+        glBindVertexArray(vao);
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+        // Specify vertex data layout
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+        glEnableVertexAttribArray(0);
+
+        // Render the triangle
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        // Clean up
+        glBindVertexArray(0);
+        glDeleteVertexArrays(1, &vao);
+        glDeleteBuffers(1, &vbo);
     }
     void EditorLayer::OnRender() {
-        //ExampleTriangle();
-
-        model->Draw(model_shader, *m_EditorCamera);
         m_EditorCamera->updateMatrix();
+        //ExampleTriangle();
+        GLenum error = glGetError();
+        if (error != GL_NO_ERROR) {
+            VV_CORE_ERROR("OpenGL error before rendering: {}", error);
+            //VV_CORE_ASSERT(false, "Rendering error");
+        }
+        model->Draw(model_shader, m_EditorCamera);
     }
     glm::vec3 pos;
 

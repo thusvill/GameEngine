@@ -16,7 +16,7 @@ namespace VectorVertex {
     public:
         virtual ~Texture()=default;
 
-        virtual void texUni(Shader* _shader, const char * uniform, unsigned int unit)=0;
+        virtual void texUni(Ref<Shader> _shader, const char * uniform, unsigned int unit)=0;
         virtual void Bind()=0;
         virtual void Unbind()=0;
         virtual void Delete()=0;

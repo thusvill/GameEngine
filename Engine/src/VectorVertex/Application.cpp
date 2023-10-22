@@ -19,6 +19,7 @@ namespace VectorVertex{
 
         m_EditorLayer = new EditorLayer();
         PushOverlay(m_EditorLayer);
+
         //m_EditorLayer->m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default_shader.glsl");
 
     }
@@ -52,9 +53,17 @@ namespace VectorVertex{
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
 
+
                 m_EditorLayer->BindFrameBuffer();
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
+
+                for (Layer *layer: m_LayerStack) {
+                    if(!layer){
+                        VV_CORE_ERROR("Layer {} is Null or empty!", layer->GetName());
+                    }
+                    layer->OnRender();
+                }
                 m_Window->OnRender();
                 m_EditorLayer->UnbindFrameBuffer();
 
@@ -95,21 +104,6 @@ namespace VectorVertex{
 
     }
     void Window::OnRender() {
-        for (Layer *layer: Application::Get().m_LayerStack) {
-            if(!layer){
-                VV_CORE_ERROR("Layer {} is Null or empty!", layer->GetName());
-            }
-            layer->OnRender();
-        }
-        /*glBegin(GL_TRIANGLES);
-        glColor3f(1.0f, 0.0f, 0.0f);   // Red
-        glVertex2f(0.0f, 0.5f);         // Top
-        glColor3f(0.0f, 1.0f, 0.0f);   // Green
-        glVertex2f(-0.5f, -0.5f);       // Bottom left
-        glColor3f(0.0f, 0.0f, 1.0f);   // Blue
-        glVertex2f(0.5f, -0.5f);        // Bottom right
-        glEnd();
-*/
     }
 
 }
