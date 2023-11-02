@@ -13,7 +13,7 @@ layout (location = 3) in vec2 aTex;
 
 out DATA
 {
-	vec3 crntPos;
+	vec3 Pos;
 	vec3 Normal;
 	vec3 color;
 	vec2 texCoord;
@@ -34,12 +34,12 @@ uniform mat4 newScale = mat4(1.0f);
 
 void main()
 {
-	data_out.crntPos = vec3(model*vec4(aPos, 1.0f));
 	gl_Position = model * translation * rotation * scale*newRot*newScale * newPos*vec4(aPos, 1.0f);
 	data_out.Normal = aNormal;
 	data_out.color = aColor;
 	data_out.texCoord = mat2(0.0, -1.0, 1.0, 0.0) * aTex;
 	data_out.projection = camMatrix;
+	data_out.Pos = aPos;
 }
 #shader fragment
 #version 460
@@ -47,8 +47,7 @@ void main()
 // Outputs colors in RGBA
 out vec4 FragColor;
 
-// Imports the current position from the Vertex Shader
-in vec3 crntPos;
+in vec3 Pos;
 // Imports the normal from the Vertex Shader
 in vec3 Normal;
 // Imports the color from the Vertex Shader
@@ -75,6 +74,7 @@ uniform float intensity = 1.0f;
 
 vec4 pointLight()
 {
+	vec3 crntPos = Pos;
 	// used in two variables so I calculate it here to not have to do it twice
 	vec3 lightVec = lightPos - crntPos;
 
@@ -105,6 +105,7 @@ vec4 pointLight()
 
 vec4 spotLight()
 {
+	vec3 crntPos = Pos;
 	// controls how big the area that is lit up is
 	float outerCone = 0.90f;
 	float innerCone = 0.95f;
@@ -133,6 +134,7 @@ vec4 spotLight()
 
 vec4 directLight()
 {
+	vec3 crntPos = Pos;
 	// ambient lighting
 	float ambient = 0.50f;
 
@@ -169,14 +171,14 @@ void main()
 layout (triangles) in;
 layout (triangle_strip, max_vertices = 3) out;
 
+out vec3 Pos;
 out vec3 Normal;
 out vec3 color;
 out vec2 texCoord;
-out vec3 crntPos;
 
 in DATA
 {
-	vec3 crntPos;
+	vec3 Pos;
 	vec3 Normal;
 	vec3 color;
 	vec2 texCoord;
@@ -186,20 +188,22 @@ in DATA
 // Default main function
 void main()
 {
-
 	gl_Position = data_in[0].projection * gl_in[0].gl_Position;
+	Pos = data_in[0].Pos;
 	Normal = data_in[0].Normal;
 	color = data_in[0].color;
 	texCoord = data_in[0].texCoord;
 	EmitVertex();
 
 	gl_Position = data_in[1].projection * gl_in[1].gl_Position;
+	Pos = data_in[1].Pos;
 	Normal = data_in[1].Normal;
 	color = data_in[1].color;
 	texCoord = data_in[1].texCoord;
 	EmitVertex();
 
 	gl_Position = data_in[2].projection * gl_in[2].gl_Position;
+	Pos = data_in[2].Pos;
 	Normal = data_in[2].Normal;
 	color = data_in[2].color;
 	texCoord = data_in[2].texCoord;

@@ -74,19 +74,25 @@ namespace VectorVertex{
 
             }
         }
+        shader->SetFloat3("camPos", i_camera->GetProperties().Position);
         // Take care of the camera Matrix
-        glUniform3f(glGetUniformLocation(shader->GetID(), "camPos"), i_camera->GetProperties().Position.x, i_camera->GetProperties().Position.y, i_camera->GetProperties().Position.z);
+        //glUniform3f(glGetUniformLocation(shader->GetID(), "camPos"), i_camera->GetProperties().Position.x, i_camera->GetProperties().Position.y, i_camera->GetProperties().Position.z);
         i_camera->Matrix(shader, "camMatrix");
 
         glm::mat4 trans = glm::mat4(1.0f);
         glm::mat4 rot = glm::mat4(1.0f);
         glm::mat4 sca = glm::mat4(1.0f);
 
-        glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "translation"), 1, GL_FALSE, glm::value_ptr(trans));
-        glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "rotation"), 1, GL_FALSE, glm::value_ptr(rot));
-        glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "scale"), 1, GL_FALSE, glm::value_ptr(sca));
-        glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "model"), 1, GL_FALSE, glm::value_ptr(matrix));
-
+        shader->SetMat4("translation", trans);
+        shader->SetMat4("rotation", rot);
+        shader->SetMat4("scale", sca);
+        shader->SetMat4("model", matrix);
+        {
+            //glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "translation"), 1, GL_FALSE, glm::value_ptr(trans));
+            //glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "rotation"), 1, GL_FALSE, glm::value_ptr(rot));
+            //glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "scale"), 1, GL_FALSE, glm::value_ptr(sca));
+            //glUniformMatrix4fv(glGetUniformLocation(shader->GetID(), "model"), 1, GL_FALSE, glm::value_ptr(matrix));
+        }
         // Draw the actual mesh
         glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 

@@ -3,6 +3,7 @@
 //
 
 #include "Application.h"
+#include "../Renderer/Texture.h"
 namespace VectorVertex{
     Application* Application::s_Instance = nullptr;
     Application::Application(const ApplicationSpecs &specs): m_AppSpecs(specs) {
@@ -99,6 +100,7 @@ namespace VectorVertex{
 
         delete m_ImGuiLayer;
         delete m_EditorLayer;
+        TextureLibrary::DeleteAll();
     }
     void Window::OnStart() {
 

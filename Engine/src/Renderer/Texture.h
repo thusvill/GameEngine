@@ -11,6 +11,7 @@ namespace VectorVertex {
         const char*type;
         unsigned int unit =0;
         std::string image = "";
+        std::string name;
     };
     class Texture {
     public:
@@ -23,8 +24,21 @@ namespace VectorVertex {
         virtual void* GetTexture()=0;
         virtual TextureData GetData()=0;
 
-        static Scope<Texture>Create(TextureData data);
+        static Ref<Texture>Create(TextureData data);
 
+    };
+
+    class TextureLibrary{
+    public:
+        static void Add(const std::string name, const std::string file_path);
+        static void Add(Ref<Texture> texture);
+        static bool Exists(std::string name);
+        static Ref<Texture> Get(std::string name);
+        static void Delete(const std::string name);
+        static void Delete(Ref<Texture> texture);
+        static void DeleteAll();
+    private:
+        static std::unordered_map<std::string , Ref<Texture>> m_Textures;
     };
 
 } // VectorVertex

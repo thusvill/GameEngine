@@ -16,6 +16,7 @@ public:
 
     OpenGLTexture(TextureData data);
     virtual ~OpenGLTexture(){
+        Delete();
     }
 
     virtual void texUni(Ref<Shader> _shader, const char* uniform, unsigned int unit) override;

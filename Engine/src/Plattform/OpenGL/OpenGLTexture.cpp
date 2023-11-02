@@ -114,5 +114,6 @@ namespace VectorVertex{
 
     void OpenGLTexture::Delete() {
         glDeleteTextures(1, &m_Data.ID);
+        VV_CORE_INFO("Texture deleted: {0}", m_Data.image);
     }
 }

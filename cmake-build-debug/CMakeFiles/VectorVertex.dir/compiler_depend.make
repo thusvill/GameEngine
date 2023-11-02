@@ -6232,6 +6232,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLMesh.cpp.o: /home/
 CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o: /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.cpp \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/json/json.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Assert.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
@@ -6249,7 +6250,12 @@ CMakeFiles/VectorVertex.dir/Engine/src/Plattform/OpenGL/OpenGLModel.cpp.o: /home
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Core.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLEBO.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVAO.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVBO.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/KHR/khrplatform.h \
   /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
@@ -10622,13 +10628,21 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o: /home/bios/CLionPro
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/ErrorDetection.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/PlattformDetection.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/json/json.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Camera.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Model.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLEBO.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVAO.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVBO.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/LayerStack.h \
@@ -10685,6 +10699,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o: /home/bios/CLionPro
   /usr/include/c++/11/bits/fs_fwd.h \
   /usr/include/c++/11/bits/fs_ops.h \
   /usr/include/c++/11/bits/fs_path.h \
+  /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/functional_hash.h \
   /usr/include/c++/11/bits/gslice.h \
@@ -10806,6 +10821,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o: /home/bios/CLionPro
   /usr/include/c++/11/ext/type_traits.h \
   /usr/include/c++/11/filesystem \
   /usr/include/c++/11/forward_list \
+  /usr/include/c++/11/fstream \
   /usr/include/c++/11/functional \
   /usr/include/c++/11/initializer_list \
   /usr/include/c++/11/iomanip \
@@ -11221,8 +11237,10 @@ CMakeFiles/VectorVertex.dir/Engine/src/Renderer/Model.cpp.o: /home/bios/CLionPro
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \

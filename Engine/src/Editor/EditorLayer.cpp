@@ -73,12 +73,6 @@ namespace VectorVertex {
     }
     void EditorLayer::OnRender() {
         m_EditorCamera->updateMatrix();
-        //ExampleTriangle();
-        GLenum error = glGetError();
-        if (error != GL_NO_ERROR) {
-            VV_CORE_ERROR("OpenGL error before rendering: {}", error);
-            //VV_CORE_ASSERT(false, "Rendering error");
-        }
         model->Draw(model_shader, m_EditorCamera);
     }
     glm::vec3 pos;

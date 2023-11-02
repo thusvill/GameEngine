@@ -9,6 +9,7 @@
 #include "../../Renderer/Mesh.h"
 #include "../../VectorVertex/Core.h"
 #include "../../Renderer/Model.h"
+#include "OpenGLMesh.h"
 
 namespace VectorVertex {
     using json = nlohmann::json;
@@ -39,7 +40,7 @@ namespace VectorVertex {
         std::vector<unsigned char> data;
         json JSON;
 
-        std::vector<Ref<Mesh>> meshes;
+        std::vector<Ref<OpenGLMesh>> meshes;
         std::vector<glm::vec3> translationMeshes;
         std::vector<glm::quat> rotationMeshes;
         std::vector<glm::vec3> scalesMeshes;

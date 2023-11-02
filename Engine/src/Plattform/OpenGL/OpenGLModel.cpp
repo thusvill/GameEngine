@@ -80,7 +80,7 @@ namespace VectorVertex {
 
         VV_CORE_INFO("Mesh Loaded {0} vertices, {1} indices, {2} textures", vertices.size(), indices.size(), textures.size());
 
-        meshes.push_back(Mesh::Create(vertices, indices, textures));
+        meshes.push_back(CreateRef<OpenGLMesh>(vertices, indices, textures));
 
     }
 

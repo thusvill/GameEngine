@@ -14,6 +14,7 @@ in vec2 texCoord;
 
 
 
+
 // Gets the Texture Units from the main function
 uniform sampler2D diffuse0;
 uniform sampler2D specular0;
@@ -31,6 +32,7 @@ uniform float intensity = 1.0f;
 
 vec4 pointLight()
 {
+	vec3 crntPos = aPos;
 	// used in two variables so I calculate it here to not have to do it twice
 	vec3 lightVec = lightPos - crntPos;
 
@@ -60,6 +62,7 @@ vec4 pointLight()
 
 vec4 directLight()
 {
+	vec3 crntPos = aPos;
 	// ambient lighting
 	float ambient = 0.50f;
 
@@ -80,6 +83,7 @@ vec4 directLight()
 
 vec4 spotLight()
 {
+	vec3 crntPos = aPos;
 	// controls how big the area that is lit up is
 	float outerCone = 0.90f;
 	float innerCone = 0.95f;
