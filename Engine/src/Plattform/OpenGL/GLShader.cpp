@@ -118,13 +118,17 @@ namespace VectorVertex{
 
             glAttachShader(program, shader_created);
             shaderIDs.push_back(shader_created);
+            GLenum err;
+            if((err = glGetError()) != GL_NO_ERROR) {
+                std::cerr << "Shader Compiling OpenGL Error: " << err << std::endl;
+            }
 
         }
         glLinkProgram(program);
         compileErrors(program,"","PROGRAM");
         GLint isLinked;
         glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
-        if (isLinked == GL_FALSE)
+        if (isLinked != GL_TRUE)
         {
             GLint maxLength;
             glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
@@ -143,7 +147,6 @@ namespace VectorVertex{
             glDetachShader(program, id);
             glDeleteShader(id);
         }
-
         ID = program;
 
     }
@@ -154,6 +157,7 @@ namespace VectorVertex{
 
     void GLShader::Delete() const{
         glDeleteProgram(ID);
+        VV_CORE_INFO("Shader {} Deactivated.", m_Name);
     }
 
     void GLShader::compileErrors(unsigned int shader,std::string src,const char *type) {
@@ -214,9 +218,7 @@ namespace VectorVertex{
         UploadUniformFloat4(name, value);
     }
 
-    void GLShader::SetMat4(const std::string& name, const glm::mat4& value)
-    {
-        
+    void GLShader::SetMat4(const std::string& name, const glm::mat4& value){
         UploadUniformMat4(name, value);
     }
 
@@ -266,5 +268,11 @@ namespace VectorVertex{
     {
         GLint location = glGetUniformLocation(ID, name.c_str());
         glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+        VV_CORE_ASSERT(location > -1, "UniformNouFound!");
+        GLenum err;
+        if((err = glGetError()) != GL_NO_ERROR) {
+            std::cerr << "Compiling OpenGL Error: " << err << std::endl;
+            //VV_CORE_ASSERT(false, "Error");
+        }
     }
 }

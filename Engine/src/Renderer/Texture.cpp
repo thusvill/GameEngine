@@ -14,7 +14,7 @@ namespace VectorVertex {
         VV_CORE_ERROR("Unknown RendererAPI!");
         return nullptr;
     }
-
+/*
     void TextureLibrary::Add(const std::string name, const std::string file_path) {
         TextureData data;
         data.image = file_path.c_str();
@@ -53,5 +53,5 @@ namespace VectorVertex {
         }
         m_Textures.clear();
     }
-
+*/
 } // VectorVertex

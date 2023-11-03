@@ -1634,6 +1634,17 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_internal.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imstb_textedit.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/ImGuiLayer/ImgGuiSRC.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/glad/glad.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Log.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLEBO.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVAO.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVBO.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Base.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.h \
@@ -1707,6 +1718,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /usr/include/c++/11/bits/fs_fwd.h \
   /usr/include/c++/11/bits/fs_ops.h \
   /usr/include/c++/11/bits/fs_path.h \
+  /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/functional_hash.h \
   /usr/include/c++/11/bits/hash_bytes.h \
@@ -1814,6 +1826,7 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /usr/include/c++/11/ext/string_conversions.h \
   /usr/include/c++/11/ext/type_traits.h \
   /usr/include/c++/11/filesystem \
+  /usr/include/c++/11/fstream \
   /usr/include/c++/11/functional \
   /usr/include/c++/11/initializer_list \
   /usr/include/c++/11/iomanip \
@@ -2227,8 +2240,10 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: /home/bios/CLio
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
@@ -12794,6 +12809,8 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: /home/bio
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Layer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/ImGuiLayer/ImguiLayer.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/RenderAPI.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Shader.h \
+  /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Texture.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Application.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/Core.h \
   /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/glad/include/KHR/khrplatform.h \
@@ -15688,23 +15705,11 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLModel.cpp:
 
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVAO.h:
-
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLFBO.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLFBO.cpp:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLContext.cpp:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
-
-/usr/include/c++/11/fstream:
-
-/usr/include/c++/11/bits/fstream.tcc:
-
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.cpp:
 
@@ -15814,15 +15819,15 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx5124fmapsintrin.h:
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
+
 /usr/include/glm/vector_relational.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512ifmaintrin.h:
 
 /usr/include/glm/vec3.hpp:
-
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.h:
-
-/usr/include/glm/packing.hpp:
 
 /usr/include/glm/mat4x4.hpp:
 
@@ -15946,6 +15951,14 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/ext/quaternion_transform.inl:
 
+/usr/include/glm/ext/quaternion_relational.inl:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/cldemoteintrin.h:
+
+/usr/include/glm/ext/quaternion_geometric.inl:
+
+/usr/include/glm/ext/quaternion_float.hpp:
+
 /usr/include/spdlog/details/synchronous_factory.h:
 
 /usr/include/spdlog/details/null_mutex.h:
@@ -16036,6 +16049,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/pstl/glue_algorithm_defs.h:
 
+/usr/include/glm/ext/quaternion_transform.hpp:
+
+/usr/include/glm/ext/matrix_float3x2_precision.hpp:
+
 /usr/include/glm/trigonometric.hpp:
 
 /usr/include/c++/11/sstream:
@@ -16065,12 +16082,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/c++/11/cctype:
 
 /usr/include/c++/11/ext/new_allocator.h:
-
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLEBO.h:
-
-/usr/include/glm/gtc/matrix_transform.inl:
-
-/usr/include/c++/11/ext/concurrence.h:
 
 /usr/include/c++/11/bits/ptr_traits.h:
 
@@ -16134,6 +16145,12 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/spdlog/details/log_msg.h:
 
+/usr/include/glm/gtc/matrix_transform.inl:
+
+/usr/include/c++/11/ext/concurrence.h:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLEBO.h:
+
 /usr/include/c++/11/stop_token:
 
 /usr/include/GL/gl.h:
@@ -16177,6 +16194,8 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/c++/11/bits/stl_heap.h:
 
 /usr/include/c++/11/bits/std_abs.h:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/GLShader.h:
 
 /usr/include/glm/gtx/dual_quaternion.hpp:
 
@@ -16266,6 +16285,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
+/usr/include/glm/ext/quaternion_exponential.inl:
+
+/usr/include/c++/11/ext/numeric_traits.h:
+
 /usr/include/c++/11/bits/atomic_base.h:
 
 /usr/include/c++/11/bits/string_view.tcc:
@@ -16310,6 +16333,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/stdc-predef.h:
 
+/usr/include/glm/ext/quaternion_geometric.hpp:
+
+/usr/include/glm/ext/matrix_float2x2_precision.hpp:
+
 /usr/include/spdlog/sinks/sink-inl.h:
 
 /usr/include/c++/11/ext/string_conversions.h:
@@ -16350,6 +16377,8 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/asm-generic/posix_types.h:
 
+/usr/include/c++/11/bits/fstream.tcc:
+
 /usr/include/glm/gtc/constants.hpp:
 
 /usr/include/c++/11/ext/aligned_buffer.h:
@@ -16357,6 +16386,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/c++/11/bits/locale_classes.tcc:
 
 /usr/include/c++/11/cassert:
+
+/usr/include/glm/ext/quaternion_relational.hpp:
+
+/usr/include/c++/11/bits/stl_algo.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/lwpintrin.h:
 
@@ -16513,10 +16546,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/c++/11/bits/unique_ptr.h:
-
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVBO.h:
-
-/usr/include/c++/11/semaphore:
 
 /usr/include/c++/11/clocale:
 
@@ -16766,8 +16795,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
-/usr/include/glm/ext/quaternion_float.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/include/c++/11/bits/ranges_algobase.h:
@@ -16908,10 +16935,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
-/usr/include/glm/ext/matrix_float3x2_precision.hpp:
-
-/usr/include/glm/ext/quaternion_transform.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
@@ -17036,6 +17059,10 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Window.cpp:
 
+/usr/include/glm/packing.hpp:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLMesh.h:
+
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Core/Window.h:
 
 /usr/include/spdlog/details/periodic_worker-inl.h:
@@ -17050,10 +17077,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/dlfcn.h:
 
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.h:
-
-/usr/include/x86_64-linux-gnu/bits/dl_find_object.h:
-
 /usr/include/c++/11/bits/semaphore_base.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/EditorLayer.cpp:
@@ -17062,15 +17085,31 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui.h:
 
+/usr/include/c++/11/semaphore:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVBO.h:
+
 /usr/include/glm/detail/type_mat3x2.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/vendor/imgui/imgui_impl_glfw.h:
 
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.h:
+
+/usr/include/x86_64-linux-gnu/bits/dl_find_object.h:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLTexture.h:
+
+/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Plattform/OpenGL/OpenGLVAO.h:
+
 /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/EditorLayer.h:
 
-/home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Renderer/Mesh.h:
+/usr/include/c++/11/fstream:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/glm/ext/matrix_double3x4_precision.hpp:
 
 /usr/include/c++/11/math.h:
 
@@ -17126,10 +17165,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/ext/matrix_double2x4_precision.hpp:
 
-/usr/include/c++/11/bits/stl_algo.h:
-
-/usr/include/glm/ext/quaternion_relational.hpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512fintrin.h:
 
 /usr/include/glm/ext/matrix_double3x2_precision.hpp:
@@ -17141,10 +17176,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/glm/ext/matrix_double3x4.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/local_lim.h:
-
-/usr/include/glm/ext/matrix_double3x4_precision.hpp:
 
 /usr/include/glm/detail/type_mat3x3.hpp:
 
@@ -17176,10 +17207,6 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 
 /usr/include/glm/ext/matrix_float3x4.hpp:
 
-/usr/include/glm/ext/matrix_float2x2_precision.hpp:
-
-/usr/include/glm/ext/quaternion_geometric.hpp:
-
 /usr/include/glm/ext/matrix_float4x3.hpp:
 
 /usr/include/glm/integer.hpp:
@@ -17203,13 +17230,3 @@ CMakeFiles/VectorVertex.dir/Projects/Sandbox/Sandbox.cpp.o: /home/bios/CLionProj
 /usr/include/syscall.h:
 
 /usr/include/glm/ext/quaternion_exponential.hpp:
-
-/usr/include/c++/11/ext/numeric_traits.h:
-
-/usr/include/glm/ext/quaternion_exponential.inl:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/cldemoteintrin.h:
-
-/usr/include/glm/ext/quaternion_geometric.inl:
-
-/usr/include/glm/ext/quaternion_relational.inl:

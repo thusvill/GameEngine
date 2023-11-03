@@ -611,4 +611,19 @@ CMakeFiles/VectorVertex.dir/Engine/src/Editor/EditorLayer.cpp.o: \
  /usr/include/glm/gtx/component_wise.inl /usr/include/glm/gtx/norm.inl \
  /usr/include/glm/gtx/quaternion.inl \
  /usr/include/glm/gtx/vector_angle.inl \
- /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../VectorVertex/../Renderer/Texture.h
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../VectorVertex/../Renderer/Texture.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/OpenGLMesh.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/OpenGLVAO.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/../../../vendor/glad/include/glad/glad.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/OpenGLVBO.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/../../Renderer/Mesh.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/OpenGLEBO.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/OpenGLTexture.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/GLShader.h \
+ /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/../../Renderer/Shader.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/../../Renderer/Texture.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/Editor/../Plattform/OpenGL/../../Core/Log.h

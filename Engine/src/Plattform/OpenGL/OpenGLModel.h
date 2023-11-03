@@ -26,7 +26,10 @@ namespace VectorVertex {
         virtual void Rotation(Ref<Shader> shader,glm::vec3 rotation) override;
         virtual void Scale(Ref<Shader> shader,glm::vec3 newScale) override;
         virtual void SetTransform(Ref<Shader> shader,glm::vec3 position,glm::vec3 rotation,glm::vec3 scale) override;
-        virtual glm::vec3 GetPosition() override;
+        virtual glm::vec3 GetPosition() override
+        {
+          return m_Position;
+        }
 
         explicit operator bool() const {
             // Define the condition under which the Model is considered "true"
@@ -40,7 +43,7 @@ namespace VectorVertex {
         std::vector<unsigned char> data;
         json JSON;
 
-        std::vector<Ref<OpenGLMesh>> meshes;
+        std::vector<Ref<Mesh>> meshes;
         std::vector<glm::vec3> translationMeshes;
         std::vector<glm::quat> rotationMeshes;
         std::vector<glm::vec3> scalesMeshes;

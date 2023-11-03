@@ -458,4 +458,6 @@ CMakeFiles/VectorVertex.dir/Engine/src/VectorVertex/Application.cpp.o: \
  /usr/include/glm/ext/matrix_clip_space.inl \
  /usr/include/glm/ext/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_transform.inl \
- /usr/include/glm/gtc/matrix_transform.inl
+ /usr/include/glm/gtc/matrix_transform.inl \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Renderer/Texture.h \
+ /home/bios/CLionProjects/GameEngine/GameEngine/Engine/src/VectorVertex/../Renderer/Shader.h

@@ -12,6 +12,9 @@ namespace VectorVertex {
         unsigned int unit =0;
         std::string image = "";
         std::string name;
+        TextureData() = default;
+        TextureData(unsigned int id, std::string new_name):ID(id), name(new_name) {}
+        TextureData(unsigned int id, std::string new_name, std::string path):ID(id), name(new_name), image(path) {}
     };
     class Texture {
     public:
@@ -27,7 +30,7 @@ namespace VectorVertex {
         static Ref<Texture>Create(TextureData data);
 
     };
-
+/*
     class TextureLibrary{
     public:
         static void Add(const std::string name, const std::string file_path);
@@ -40,7 +43,7 @@ namespace VectorVertex {
     private:
         static std::unordered_map<std::string , Ref<Texture>> m_Textures;
     };
-
+*/
 } // VectorVertex
 
 #endif //GAMEENGINE_TEXTURE_H

@@ -6,9 +6,14 @@
 #include "../ImGuiLayer/ImgGuiSRC.h"
 #include "../VectorVertex/Application.h"
 #include "../VectorVertex/Renderer.h"
+
+#include "glm/gtc/matrix_transform.hpp"
+#include "../Plattform/OpenGL/OpenGLMesh.h"
 namespace VectorVertex {
     bool StyleEditorOpened = false;
-    EditorLayer::EditorLayer(): Layer("EditorLayer") {}
+    EditorLayer::EditorLayer(): Layer("EditorLayer") {
+
+    }
 
     Scope<Model> model;
     Ref<Shader> model_shader;
@@ -17,10 +22,7 @@ namespace VectorVertex {
         m_EditorCamera = Camera::Create(m_CameraProps);
         m_EditorCamera->GetProperties().Position = glm::vec3(-1.0f);
         m_FrameBuffer = FrameBuffer::Create(800, 700);
-
         model_shader = m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
-        model = Model::Create("/home/bios/CLionProjects/Game/Models/map/scene.gltf");
-        model->SetTransform(model_shader,glm::vec3(1.0f), glm::vec3(1.0f), glm::vec3(1.0f));
 
     }
 
@@ -39,8 +41,6 @@ namespace VectorVertex {
     void EditorLayer::OnUpdate(){
         GLFWwindow* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
         m_EditorCamera->Inputs(window);
-
-
     }
     void ExampleTriangle(){
         // Define vertex data for the triangle
@@ -71,6 +71,7 @@ namespace VectorVertex {
         glDeleteVertexArrays(1, &vao);
         glDeleteBuffers(1, &vbo);
     }
+
     void EditorLayer::OnRender() {
         m_EditorCamera->updateMatrix();
         model->Draw(model_shader, m_EditorCamera);

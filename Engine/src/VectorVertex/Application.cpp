@@ -15,11 +15,10 @@ namespace VectorVertex{
             return;
         }
         m_Window = Window::Create(WindowProps(m_AppSpecs.Name, (uint32_t)m_AppSpecs.width, (uint32_t)m_AppSpecs.height));
-        m_ImGuiLayer = new ImguiLayer();
-        PushOverlay(m_ImGuiLayer);
-
         m_EditorLayer = new EditorLayer();
         PushOverlay(m_EditorLayer);
+        m_ImGuiLayer = new ImguiLayer();
+        PushOverlay(m_ImGuiLayer);
 
         //m_EditorLayer->m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default_shader.glsl");
 
@@ -32,7 +31,7 @@ namespace VectorVertex{
 
     void Application::PushOverlay(VectorVertex::Layer *layer) {
         m_LayerStack.PushOverlay(layer);
-        VV_CORE_INFO("PushingOverlay");
+        VV_CORE_INFO("PushingOverlay: {}", layer->GetName());
        // layer->OnAttach();
     }
 
@@ -53,7 +52,6 @@ namespace VectorVertex{
             {
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
-
 
                 m_EditorLayer->BindFrameBuffer();
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
@@ -94,18 +92,19 @@ namespace VectorVertex{
     }
 
     void Window::OnUpdate() {
+
     }
 
     void Application::Stop() {
 
         delete m_ImGuiLayer;
         delete m_EditorLayer;
-        TextureLibrary::DeleteAll();
     }
     void Window::OnStart() {
 
     }
     void Window::OnRender() {
+
     }
 
 }
