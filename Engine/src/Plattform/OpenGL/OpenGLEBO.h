@@ -13,6 +13,9 @@ namespace VectorVertex{
     public:
         GLuint ID;
         OpenGLEBO(std::vector <GLuint>& indices);
+        ~OpenGLEBO(){
+          Delete();
+        }
 
         void Bind();
         void Unbind();

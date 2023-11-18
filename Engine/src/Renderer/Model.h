@@ -19,8 +19,9 @@ namespace VectorVertex {
         virtual void Scale(Ref<Shader> shader,glm::vec3 newScale)=0;
         virtual void SetTransform(Ref<Shader> shader,glm::vec3 position,glm::vec3 rotation,glm::vec3 scale)=0;
         virtual glm::vec3 GetPosition() =   0;
+        virtual glm::vec3 GetScale()  =0;
 
-        static Scope<Model>Create(const char* file);
+        static Ref<Model>Create(const char* file);
 
 
     };

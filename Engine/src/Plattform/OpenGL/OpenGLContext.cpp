@@ -13,6 +13,9 @@ namespace VectorVertex {
         VV_CORE_ERROR("OpenGL Graphics Context Null Window request!!");
     }
     }
+    OpenGLContext::~OpenGLContext(){
+    VV_CORE_WARN("GL Context Destroyed!");
+    }
 
     void OpenGLContext::Init()
     {

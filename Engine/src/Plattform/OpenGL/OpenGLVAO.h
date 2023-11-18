@@ -13,6 +13,9 @@ namespace VectorVertex {
         GLuint ID;
 
         OpenGLVAO();
+        ~OpenGLVAO(){
+          Delete();
+        }
 
         void LinkAttrib(OpenGLVBO& VBO,
         GLuint layout, GLuint

@@ -9,7 +9,7 @@ namespace VectorVertex {
 
     class FrameBuffer {
     public:
-        static Scope<FrameBuffer> Create(int width, int height);
+        static Ref<FrameBuffer> Create(int width, int height);
         virtual ~FrameBuffer() = default;
 
         virtual void Resize(int newWidth, int newHeight) = 0;

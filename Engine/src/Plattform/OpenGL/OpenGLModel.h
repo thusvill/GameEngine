@@ -30,6 +30,10 @@ namespace VectorVertex {
         {
           return m_Position;
         }
+        virtual glm::vec3 GetScale() override
+        {
+          return m_Scale;
+        }
 
         explicit operator bool() const {
             // Define the condition under which the Model is considered "true"
@@ -37,6 +41,7 @@ namespace VectorVertex {
         }
     private:
         glm::vec3 m_Position;
+        glm::vec3 m_Scale;
 
     private:
         const char* file;

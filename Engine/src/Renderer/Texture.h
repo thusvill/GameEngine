@@ -8,7 +8,7 @@
 namespace VectorVertex {
     struct TextureData{
         unsigned int ID = 0;
-        const char*type;
+        const char* type;
         unsigned int unit =0;
         std::string image = "";
         std::string name;

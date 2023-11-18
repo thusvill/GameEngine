@@ -208,13 +208,11 @@ namespace VectorVertex{
 
     void GLShader::SetFloat3(const std::string& name, const glm::vec3& value)
     {
-        
         UploadUniformFloat3(name, value);
     }
 
     void GLShader::SetFloat4(const std::string& name, const glm::vec4& value)
     {
-        
         UploadUniformFloat4(name, value);
     }
 
@@ -248,8 +246,12 @@ namespace VectorVertex{
 
     void GLShader::UploadUniformFloat3(const std::string& name, const glm::vec3& value)
     {
-        GLint location = glGetUniformLocation(ID, name.c_str());
-        glUniform3f(location, value.x, value.y, value.z);
+      GLint location = glGetUniformLocation(ID, name.c_str());
+      if(!location){
+        VV_CORE_ERROR("Float3 {0} not found! in Shader: {1}",name, ID);
+      }
+      VV_CORE_ASSERT(location, "Float3 not Found!");
+      glUniform3f(location, value.x, value.y, value.z);
     }
 
     void GLShader::UploadUniformFloat4(const std::string& name, const glm::vec4& value)
@@ -266,13 +268,8 @@ namespace VectorVertex{
 
     void GLShader::UploadUniformMat4(const std::string& name, const glm::mat4& matrix)
     {
-        GLint location = glGetUniformLocation(ID, name.c_str());
-        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
-        VV_CORE_ASSERT(location > -1, "UniformNouFound!");
-        GLenum err;
-        if((err = glGetError()) != GL_NO_ERROR) {
-            std::cerr << "Compiling OpenGL Error: " << err << std::endl;
-            //VV_CORE_ASSERT(false, "Error");
-        }
+      GLint location = glGetUniformLocation(ID, name.c_str());
+      VV_CORE_ASSERT(location > -1, "UniformNotFound!");
+      glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 }

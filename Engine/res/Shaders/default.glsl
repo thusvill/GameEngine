@@ -26,15 +26,15 @@ uniform mat4 camMatrix;
 uniform mat4 model;
 uniform mat4 translation;
 uniform mat4 rotation;
-uniform mat4 scale;
+uniform mat4 scale = mat4(1.0f);
 
-uniform mat4 newPos = mat4(0.0001f);
-uniform mat4 newRot = mat4(0.0001f);
-uniform mat4 newScale = mat4(1.0f);
+uniform vec3 newPos = vec3(0.0001f);
+uniform vec3 newRot = vec3(0.0001f);
+uniform vec3 newScale = vec3(1.0f);
 
 void main()
 {
-	gl_Position = model * translation * rotation * scale*newRot*newScale * newPos*vec4(aPos, 1.0f);
+	gl_Position = model * translation * rotation * scale*vec4(newRot, 1.0f)*vec4(newScale, 1.0f) * vec4(newPos, 1.0f)*vec4(aPos, 1.0f);
 	data_out.Normal = aNormal;
 	data_out.color = aColor;
 	data_out.texCoord = mat2(0.0, -1.0, 1.0, 0.0) * aTex;
@@ -71,10 +71,10 @@ uniform int type = 0;
 
 uniform float intensity = 1.0f;
 
+vec3 crntPos;
 
 vec4 pointLight()
 {
-	vec3 crntPos = Pos;
 	// used in two variables so I calculate it here to not have to do it twice
 	vec3 lightVec = lightPos - crntPos;
 
@@ -105,7 +105,6 @@ vec4 pointLight()
 
 vec4 spotLight()
 {
-	vec3 crntPos = Pos;
 	// controls how big the area that is lit up is
 	float outerCone = 0.90f;
 	float innerCone = 0.95f;
@@ -134,7 +133,6 @@ vec4 spotLight()
 
 vec4 directLight()
 {
-	vec3 crntPos = Pos;
 	// ambient lighting
 	float ambient = 0.50f;
 
@@ -157,12 +155,16 @@ vec4 directLight()
 
 void main()
 {
+	crntPos = Pos;
+
 	if(type == 0){
 		FragColor = directLight();
 	}else if(type == 1){
 		FragColor =pointLight();
 	}else if(type ==2 ){
 		FragColor =spotLight();
+	}else{
+		FragColor = vec4(1.0, 1.0, 1.0, 1.0);
 	}
 }
 #shader geom

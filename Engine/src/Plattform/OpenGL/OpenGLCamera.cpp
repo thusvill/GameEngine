@@ -40,7 +40,6 @@ namespace VectorVertex{
         }
 
         m_CameraProperties.cameraMatrix  = projection * view;
-
     }
 
 

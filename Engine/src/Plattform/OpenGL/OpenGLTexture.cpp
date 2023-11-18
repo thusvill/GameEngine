@@ -79,6 +79,7 @@ void OpenGLTexture::Unbind() {
   glBindTexture(GL_TEXTURE_2D, 0);
 }
 void OpenGLTexture::Delete() {
+  VV_CORE_WARN("GLTexture Deleted!");
   glDeleteTextures(1, &m_Data.ID);
 }
 }

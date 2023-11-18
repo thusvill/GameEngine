@@ -15,23 +15,31 @@ OpenGLModel::OpenGLModel(const char *file): file(file) {
   traverseNode(0);
 }
 void OpenGLModel::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera> camera) {
+  VV_CORE_ASSERT(!meshes.empty(), "Meshes are Empty!");
   for (int i = 0; i < meshes.size(); ++i) {
-    meshes[i]->Draw(shader, camera, matricesMeshes[i], translationMeshes[i] ,rotationMeshes[i], scalesMeshes[i]);
+    meshes[i]->Draw(shader, camera, matricesMeshes[i]);
     }
 }
 void OpenGLModel::Position(Ref<VectorVertex::Shader> shader, glm::vec3 newPosition) {
-    shader->SetFloat3("newPos", newPosition);
+    //shader->SetFloat3("newPos", newPosition);
+    shader->SetMat4("newPos", glm::translate(glm::mat4(1.0f), newPosition));
+    m_Position = newPosition;
 }
 void OpenGLModel::Rotation(Ref<VectorVertex::Shader> shader, glm::vec3 rotation) {
-    shader->SetFloat3("newRot", rotation);
+    //shader->SetFloat3("newRot", rotation);
+    shader->SetMat4("newRot", glm::translate(glm::mat4(1.0f), rotation));
 }
 void OpenGLModel::Scale(Ref<VectorVertex::Shader> shader, glm::vec3 newScale) {
-    shader->SetFloat3("newScale", newScale);
+    //shader->SetFloat3("newScale", newScale);
+    shader->SetMat4("newScale", glm::translate(glm::mat4(1.0f), newScale));
+    m_Scale = newScale;
 }
-void OpenGLModel::SetTransform(Ref<VectorVertex::Shader> shader, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale) {
-    shader->SetFloat3("newPos", position);
-    shader->SetFloat3("newRot", rotation);
-    shader->SetFloat3("newScale", scale);
+void OpenGLModel:: SetTransform(Ref<VectorVertex::Shader> shader, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale) {
+    glm::mat4 transformMatrix = glm::translate(glm::mat4(1.0f), position) *
+                                glm::mat4_cast(glm::quat(rotation)) *
+                                glm::scale(glm::mat4(1.0f), scale);
+
+    shader->SetMat4("model", transformMatrix);
 }
 void OpenGLModel::loadMesh(unsigned int indMesh) {
     unsigned int posAccInd = JSON["meshes"][indMesh]["primitives"][0]["attributes"]["POSITION"];
@@ -216,8 +224,6 @@ std::vector<Ref<Texture>> OpenGLModel::getTexture() {
 
     std::string fileStr = std::string(file);
     std::string fileDirectory = fileStr.substr(0, fileStr.find_last_of('/')+1);
-
-
 
     for (unsigned int i = 0; i<JSON["images"].size(); i++){
     std::string texPath = JSON["images"][i]["uri"];

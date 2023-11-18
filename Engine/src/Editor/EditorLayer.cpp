@@ -15,14 +15,23 @@ namespace VectorVertex {
 
     }
 
-    Scope<Model> model;
+    Ref<Model> model;
     Ref<Shader> model_shader;
 
     void EditorLayer::OnAttach() {
         m_EditorCamera = Camera::Create(m_CameraProps);
-        m_EditorCamera->GetProperties().Position = glm::vec3(-1.0f);
-        m_FrameBuffer = FrameBuffer::Create(800, 700);
-        model_shader = m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
+      m_EditorCamera->GetProperties().Position = glm::vec3(-1.0f);
+      m_FrameBuffer = FrameBuffer::Create(800,700);
+      model = Model::Create("/home/bios/CLionProjects/Game/Models/map/scene.gltf");
+      model_shader = Shader::Create("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
+      m_ShaderLibrary.Add(model_shader);
+      //model_shader = m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
+
+      model->Position(model_shader, glm::vec3(1.0f));
+
+      model->Scale(model_shader, glm::vec3(1.0f, 1.0f, 1.0f));
+
+
 
     }
 
@@ -44,6 +53,7 @@ namespace VectorVertex {
     }
     void ExampleTriangle(){
         // Define vertex data for the triangle
+
         GLfloat vertices[] = {
                 0.0f, 0.5f, 0.0f,
                 -0.5f, -0.5f, 0.0f,
@@ -57,10 +67,12 @@ namespace VectorVertex {
 
         glBindVertexArray(vao);
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices,
+                     GL_STATIC_DRAW);
 
         // Specify vertex data layout
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat),
+                              (GLvoid *)0);
         glEnableVertexAttribArray(0);
 
         // Render the triangle
@@ -73,10 +85,12 @@ namespace VectorVertex {
     }
 
     void EditorLayer::OnRender() {
-        m_EditorCamera->updateMatrix();
-        model->Draw(model_shader, m_EditorCamera);
+      model->Draw(model_shader, m_EditorCamera);
+      ExampleTriangle();
+      m_EditorCamera->updateMatrix();
     }
     glm::vec3 pos;
+    glm::vec3 scal;
 
     void EditorLayer::OnImGuiRender() {
         //FrameBuffer
@@ -106,13 +120,17 @@ namespace VectorVertex {
         {
             ImGui::Begin("Model");
             ImGui::Text("Position x:%f  y:%f  z:%f", model->GetPosition().x,model->GetPosition().y,model->GetPosition().z);
-
             ImGui::DragFloat3("Pos", glm::value_ptr(pos), 0.5f);
-            model->Position(model_shader, pos);
+
+            ImGui::Text("Scale x:%f  y:%f  z:%f", model->GetScale().x,model->GetScale().y,model->GetScale().z);
+            ImGui::DragFloat3("Scal", glm::value_ptr(scal), 0.2f);
+          model->Position(model_shader, pos);
+          model->Scale(model_shader,scal);
             ImGui::End();
         }
 
         //In Development
+        /*
         {
             //Scene Hierarchy
             {
@@ -148,6 +166,6 @@ namespace VectorVertex {
                 ImGui::End();
             }
             ImGui::End();
-        }
+        }*/
     }
 } // VectorVertex

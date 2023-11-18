@@ -66,6 +66,7 @@ namespace VectorVertex{
     OpenGLFBO::~OpenGLFBO() {
         glDeleteFramebuffers(1, &framebufferID);
         glDeleteTextures(1, &textureID);
+        VV_CORE_WARN("FBO Destroyed!");
     }
 
     void OpenGLFBO::Resize(int newWidth, int newHeight) {

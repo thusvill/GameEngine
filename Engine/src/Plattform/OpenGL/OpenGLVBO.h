@@ -18,6 +18,9 @@ namespace VectorVertex {
         GLuint ID;
 
         OpenGLVBO(std::vector<Vertex> &vertices);
+        ~OpenGLVBO(){
+          Delete();
+        }
 
         void Bind();
 

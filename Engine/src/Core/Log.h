@@ -8,6 +8,7 @@
 #include <spdlog/spdlog.h>
 #include "Base.h"
 namespace VectorVertex {
+
     class Log {
     public:
         static void Init();
