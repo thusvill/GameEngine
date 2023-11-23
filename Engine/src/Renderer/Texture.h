@@ -10,11 +10,12 @@ namespace VectorVertex {
         unsigned int ID = 0;
         const char* type;
         unsigned int unit =0;
-        std::string image = "";
+        std::string image = "";//path
         std::string name;
         TextureData() = default;
         TextureData(unsigned int id, std::string new_name):ID(id), name(new_name) {}
         TextureData(unsigned int id, std::string new_name, std::string path):ID(id), name(new_name), image(path) {}
+        TextureData(std::string path, const char* type, unsigned int Unit):type(type), image(path),unit(Unit) {}
     };
     class Texture {
     public:

@@ -22,13 +22,15 @@ namespace VectorVertex {
         m_EditorCamera = Camera::Create(m_CameraProps);
       m_EditorCamera->GetProperties().Position = glm::vec3(-1.0f);
       m_FrameBuffer = FrameBuffer::Create(800,700);
+      //model_shader = Shader::Create("default", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.vert", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.frag", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.geom");
+      //m_ShaderLibrary.Add(model_shader);
+      model_shader = m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
+      model_shader->Activate();
+
       model = Model::Create("/home/bios/CLionProjects/Game/Models/map/scene.gltf");
-      model_shader = Shader::Create("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
-      m_ShaderLibrary.Add(model_shader);
-      //model_shader = m_ShaderLibrary.Load("/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.glsl");
 
       model->Position(model_shader, glm::vec3(1.0f));
-
+      model->Rotation(model_shader, glm::vec3(0.1f));
       model->Scale(model_shader, glm::vec3(1.0f, 1.0f, 1.0f));
 
 
@@ -85,9 +87,9 @@ namespace VectorVertex {
     }
 
     void EditorLayer::OnRender() {
-      model->Draw(model_shader, m_EditorCamera);
-      ExampleTriangle();
       m_EditorCamera->updateMatrix();
+      model->Draw(model_shader, m_EditorCamera);
+      //ExampleTriangle();
     }
     glm::vec3 pos;
     glm::vec3 scal;
@@ -129,6 +131,26 @@ namespace VectorVertex {
             ImGui::End();
         }
 
+        //Settings
+        {
+            ImGui::Begin("Settings");
+            ImGui::Text("VectorVertex Engine V1.0");
+            ImGui::SeparatorText("OpenGL Informations");
+            ImGui::Text("  Vendor: %s", glGetString(GL_VENDOR));
+            ImGui::Text("  Renderer: %s", glGetString(GL_RENDERER));
+            ImGui::Text("  Version: %s", glGetString(GL_VERSION));
+            ImGui::SeparatorText("Styles");
+            ImGui::Checkbox("Dockspace", &Application::Get().DockSpaceEnabled);
+            ImGui::Checkbox("Editor Layout", &StyleEditorOpened);
+            if ( StyleEditorOpened)
+            {
+                ImGui::Begin("Styles Editor");
+                ImGui::ShowStyleEditor();
+                ImGui::End();
+            }
+            ImGui::End();
+        }
+
         //In Development
         /*
         {
@@ -148,24 +170,6 @@ namespace VectorVertex {
                 ImGui::End();
             }
         }
-        //Settings
-        {
-            ImGui::Begin("Settings");
-            ImGui::Text("VectorVertex Engine V1.0");
-            ImGui::SeparatorText("OpenGL Informations");
-            ImGui::Text("  Vendor: %s", glGetString(GL_VENDOR));
-            ImGui::Text("  Renderer: %s", glGetString(GL_RENDERER));
-            ImGui::Text("  Version: %s", glGetString(GL_VERSION));
-            ImGui::SeparatorText("Styles");
-            ImGui::Checkbox("Dockspace", &Application::Get().DockSpaceEnabled);
-            ImGui::Checkbox("Editor Layout", &StyleEditorOpened);
-            if ( StyleEditorOpened)
-            {
-                ImGui::Begin("Styles Editor");
-                ImGui::ShowStyleEditor();
-                ImGui::End();
-            }
-            ImGui::End();
-        }*/
+        */
     }
 } // VectorVertex

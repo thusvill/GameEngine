@@ -34,13 +34,14 @@ void OpenGLMesh::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera
   for (unsigned int i = 0; i < textures.size(); ++i) {
     std::string num;
     std::string type(textures[i]->GetData().type);
-    if(type == "diffuse"){
+    if (type == "diffuse") {
       num = std::to_string(numDiffuse++);
-    } else if (type == "specular"){
+    } else if (type == "specular") {
       num = std::to_string(numSpecular++);
     }
-    textures[i]->texUni(shader, (type +num).c_str(), i);
+    textures[i]->texUni(shader, (type + num).c_str(), i);
     textures[i]->Bind();
+  }
 
     GLCall(shader->SetFloat3("camPos", i_camera->GetProperties().Position));
     i_camera->Matrix(shader, "camMatrix");
@@ -56,11 +57,11 @@ void OpenGLMesh::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera
 
     // Draw the actual mesh
     GLCall(glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0));
-    vao.Unbind();
+    //vao.Unbind();
     GLenum error = glGetError();
     if (error != GL_NO_ERROR) {
       std::cerr << "OpenGL error: " << error << std::endl;
     }
-  }
+
 }
 }

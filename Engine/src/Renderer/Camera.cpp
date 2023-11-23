@@ -9,7 +9,7 @@ namespace VectorVertex {
     Ref<Camera> Camera::Create(VectorVertex::CameraProperties props) {
         switch (RenderAPI::GetAPI()) {
             case RenderAPI::API::None: VV_CORE_WARN("VectorVertex is currently not support for nonGraphicsAPI!"); return nullptr;
-            case RenderAPI::API::OpenGL: return CreateScope<OpenGLCamera>(props);
+            case RenderAPI::API::OpenGL: return CreateRef<OpenGLCamera>(props);
         }
     }
 } // VectorVertex

@@ -38,7 +38,7 @@ namespace VectorVertex {
         virtual void* GetNativeWindow() const = 0;
         virtual GLFWwindow* GetWindow() = 0;
 
-        static Scope<Window> Create(const WindowProps& props = WindowProps());
+        static Ref<Window> Create(const WindowProps& props = WindowProps());
 
     };
 

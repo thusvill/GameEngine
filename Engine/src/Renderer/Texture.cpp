@@ -9,7 +9,7 @@ namespace VectorVertex {
     Ref<Texture> Texture::Create(VectorVertex::TextureData data) {
         switch (RenderAPI::GetAPI()) {
             case RenderAPI::API::None: VV_CORE_WARN("VectorVertex is currently not support for nonGraphicsAPI!"); return nullptr;
-            case RenderAPI::API::OpenGL: return CreateScope<OpenGLTexture>(data);
+            case RenderAPI::API::OpenGL: return CreateRef<OpenGLTexture>(data);
         }
         VV_CORE_ERROR("Unknown RendererAPI!");
         return nullptr;

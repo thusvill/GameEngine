@@ -14,6 +14,7 @@ layout (location = 3) in vec2 aTex;
 out DATA
 {
 	vec3 Pos;
+	vec3 crntPos;
 	vec3 Normal;
 	vec3 color;
 	vec2 texCoord;
@@ -28,19 +29,21 @@ uniform mat4 translation;
 uniform mat4 rotation;
 uniform mat4 scale = mat4(1.0f);
 
-uniform vec3 newPos = vec3(0.0001f);
+uniform vec3 newPos;
 uniform vec3 newRot = vec3(0.0001f);
 uniform vec3 newScale = vec3(1.0f);
 
 void main()
 {
 	gl_Position = model * translation * rotation * scale*vec4(newRot, 1.0f)*vec4(newScale, 1.0f) * vec4(newPos, 1.0f)*vec4(aPos, 1.0f);
+	data_out.Pos = aPos;
+	data_out.crntPos = vec3(model * vec4(aPos, 1.0f));
 	data_out.Normal = aNormal;
 	data_out.color = aColor;
 	data_out.texCoord = mat2(0.0, -1.0, 1.0, 0.0) * aTex;
 	data_out.projection = camMatrix;
-	data_out.Pos = aPos;
 }
+
 #shader fragment
 #version 460
 
@@ -48,6 +51,7 @@ void main()
 out vec4 FragColor;
 
 in vec3 Pos;
+in vec3 crntPos;
 // Imports the normal from the Vertex Shader
 in vec3 Normal;
 // Imports the color from the Vertex Shader
@@ -65,13 +69,13 @@ uniform vec4 lightColor;
 // Gets the position of the light from the main function
 uniform vec3 lightPos;
 // Gets the position of the camera from the main function
-uniform vec3 camPos;
+uniform vec3 camPos = vec3(1.0f);
 
 uniform int type = 0;
 
 uniform float intensity = 1.0f;
 
-vec3 crntPos;
+//in vec3 crntPos;
 
 vec4 pointLight()
 {
@@ -155,7 +159,6 @@ vec4 directLight()
 
 void main()
 {
-	crntPos = Pos;
 
 	if(type == 0){
 		FragColor = directLight();
@@ -167,6 +170,7 @@ void main()
 		FragColor = vec4(1.0, 1.0, 1.0, 1.0);
 	}
 }
+
 #shader geom
 #version 460
 
@@ -177,39 +181,30 @@ out vec3 Pos;
 out vec3 Normal;
 out vec3 color;
 out vec2 texCoord;
+out vec3 crntPos;
 
 in DATA
 {
 	vec3 Pos;
-	vec3 Normal;
-	vec3 color;
-	vec2 texCoord;
-	mat4 projection;
+	vec3 crntPos;
+vec3 Normal;
+vec3 color;
+vec2 texCoord;
+mat4 projection;
 } data_in[];
 
 // Default main function
 void main()
 {
-	gl_Position = data_in[0].projection * gl_in[0].gl_Position;
-	Pos = data_in[0].Pos;
-	Normal = data_in[0].Normal;
-	color = data_in[0].color;
-	texCoord = data_in[0].texCoord;
-	EmitVertex();
-
-	gl_Position = data_in[1].projection * gl_in[1].gl_Position;
-	Pos = data_in[1].Pos;
-	Normal = data_in[1].Normal;
-	color = data_in[1].color;
-	texCoord = data_in[1].texCoord;
-	EmitVertex();
-
-	gl_Position = data_in[2].projection * gl_in[2].gl_Position;
-	Pos = data_in[2].Pos;
-	Normal = data_in[2].Normal;
-	color = data_in[2].color;
-	texCoord = data_in[2].texCoord;
-	EmitVertex();
+	for (int i = 0; i < 3; ++i) {
+		gl_Position = data_in[i].projection * gl_in[i].gl_Position;
+		Pos = data_in[i].Pos;
+		Normal = data_in[i].Normal;
+		color = data_in[i].color;
+		texCoord = data_in[i].texCoord;
+		//crntPos = data_in[i].crntPos;
+		EmitVertex();
+	}
 
 	EndPrimitive();
 }

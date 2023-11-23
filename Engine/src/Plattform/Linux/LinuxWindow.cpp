@@ -41,12 +41,11 @@ namespace VectorVertex {
             }
         }
 
-
-
-#if defined(VV_DEBUG)
             if (RenderAPI::GetAPI() == RenderAPI::API::OpenGL)
 				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
-#endif
+                                glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+                                glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+
             m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
             ++s_GLFWWindowCount;
 

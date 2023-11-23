@@ -1,7 +1,7 @@
 //
 // Created by bios on 9/12/23.
 //
-
+#pragma once
 #ifndef GAMEENGINE_OPENGLCAMERA_H
 #define GAMEENGINE_OPENGLCAMERA_H
 

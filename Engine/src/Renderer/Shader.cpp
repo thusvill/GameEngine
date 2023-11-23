@@ -25,10 +25,6 @@ namespace VectorVertex{
         return nullptr;
     }
 
-    Shader::~Shader() noexcept {
-        VV_CORE_WARN("Shader Destroyed!");
-    }
-
     void ShaderLibrary::Add(const std::string& name, const Ref<Shader>& shader)
     {
         VV_CORE_INFO("Adding shader:{}", name);

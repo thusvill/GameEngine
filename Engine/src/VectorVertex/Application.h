@@ -45,7 +45,7 @@ namespace VectorVertex {
     private:
         friend Window;
         ApplicationSpecs m_AppSpecs;
-        Scope<Window> m_Window;
+        Ref<Window> m_Window;
         LayerStack m_LayerStack;
         static Application* s_Instance;
 

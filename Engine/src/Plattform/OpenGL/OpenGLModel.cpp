@@ -22,16 +22,16 @@ void OpenGLModel::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camer
 }
 void OpenGLModel::Position(Ref<VectorVertex::Shader> shader, glm::vec3 newPosition) {
     //shader->SetFloat3("newPos", newPosition);
-    shader->SetMat4("newPos", glm::translate(glm::mat4(1.0f), newPosition));
+    shader->SetFloat3("newPos", newPosition);
     m_Position = newPosition;
 }
 void OpenGLModel::Rotation(Ref<VectorVertex::Shader> shader, glm::vec3 rotation) {
     //shader->SetFloat3("newRot", rotation);
-    shader->SetMat4("newRot", glm::translate(glm::mat4(1.0f), rotation));
+    shader->SetFloat3("newRot", rotation);
 }
 void OpenGLModel::Scale(Ref<VectorVertex::Shader> shader, glm::vec3 newScale) {
     //shader->SetFloat3("newScale", newScale);
-    shader->SetMat4("newScale", glm::translate(glm::mat4(1.0f), newScale));
+    shader->SetFloat3("newScale",  newScale);
     m_Scale = newScale;
 }
 void OpenGLModel:: SetTransform(Ref<VectorVertex::Shader> shader, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale) {
@@ -240,14 +240,15 @@ std::vector<Ref<Texture>> OpenGLModel::getTexture() {
     {
       if (texPath.find("baseColor") != std::string::npos) {
         TextureData diff_data;
-        diff_data.image = (fileDirectory + texPath).c_str(), "diffuse", loadedTex.size();
+        diff_data.image = (fileDirectory + texPath).c_str();
+        diff_data.type = "diffuse";
+        diff_data.unit = loadedTex.size();
         Ref<Texture> diffuse = Texture::Create(diff_data);
         textures.push_back(diffuse);
         loadedTex.push_back(diffuse);
         loadedTexName.push_back(texPath);
       } else if (texPath.find("metallicRoughness") != std::string::npos) {
-        TextureData spec_data;
-        spec_data.image = (fileDirectory + texPath).c_str(), "specular", loadedTex.size();
+        TextureData spec_data((fileDirectory + texPath).c_str(), "specular", loadedTex.size());
         Ref<Texture> specular = Texture::Create(spec_data);
         textures.push_back(specular);
         loadedTex.push_back(specular);

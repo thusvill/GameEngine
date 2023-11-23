@@ -6,13 +6,13 @@
 #include "../Plattform/OpenGL/OpenGLContext.h"
 
 namespace VectorVertex {
-    Scope<GraphicsContext> GraphicsContext::Create(void* window)
+    Ref<GraphicsContext> GraphicsContext::Create(void* window)
     {
         switch (RenderAPI::GetAPI())
         {
             case RenderAPI::API::None:  return nullptr;
             case RenderAPI::API::OpenGL:  if(window!=NULL){
-                return CreateScope<OpenGLContext>(static_cast<GLFWwindow*>(window));
+                return CreateRef<OpenGLContext>(static_cast<GLFWwindow*>(window));
             }
                 else{
                     VV_CORE_ERROR("[GraphicsContext.cpp] NULL Window");

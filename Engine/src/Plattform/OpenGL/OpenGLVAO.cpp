@@ -11,8 +11,8 @@ namespace VectorVertex{
 
     void OpenGLVAO::LinkAttrib(OpenGLVBO& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, void* offset) {
         VBO.Bind();
-        glVertexAttribPointer(layout, numComponents, type, GL_FALSE, stride, offset);
-        glEnableVertexAttribArray(layout);
+        GLCall(glVertexAttribPointer(layout, numComponents, type, GL_FALSE, stride, offset));
+        GLCall(glEnableVertexAttribArray(layout));
         VBO.Unbind();
     }
 

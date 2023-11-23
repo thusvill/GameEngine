@@ -15,6 +15,7 @@ namespace VectorVertex {
     }
     OpenGLContext::~OpenGLContext(){
     VV_CORE_WARN("GL Context Destroyed!");
+    glfwTerminate();
     }
 
     void OpenGLContext::Init()

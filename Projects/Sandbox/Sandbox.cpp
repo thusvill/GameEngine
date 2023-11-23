@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
     m_Specs.height = 720;
     m_Specs.Name = "VectorVertex";
     auto app = VectorVertex::CreateApplication(m_Specs);
-    //app->DockSpaceEnabled = false;
+    app->DockSpaceEnabled = true;
     VV_INFO("Started!");
     VectorVertex::RenderAPI::SetAPI(VectorVertex::RenderAPI::API::OpenGL);
     app->OnStart();

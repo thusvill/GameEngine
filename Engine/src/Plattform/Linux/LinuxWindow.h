@@ -33,7 +33,7 @@ namespace VectorVertex {
         virtual void Shutdown();
     private:
         GLFWwindow* m_Window;
-        Scope<GraphicsContext> m_Context;
+        Ref<GraphicsContext> m_Context;
 
         struct WindowData
         {

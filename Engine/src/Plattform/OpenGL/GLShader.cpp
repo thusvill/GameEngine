@@ -43,23 +43,22 @@ namespace VectorVertex{
     }
     GLShader::GLShader(const std::string filepath) :m_FilePath(filepath) {
         std::string source = get_file_contents(filepath.c_str());
-        auto shaderSources = PreProcess(source);
+      // Extract name from filepath
+      auto lastSlash = filepath.find_last_of("/\\");
+      lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
+      auto lastDot = filepath.rfind('.');
+      auto count = lastDot == std::string::npos ? filepath.size() - lastSlash : lastDot - lastSlash;
+      m_Name = filepath.substr(lastSlash, count);
+      //Codes from Cherno
 
-        Compile(shaderSources);
+      auto shaderSources = PreProcess(source);
 
-        // Extract name from filepath
-        auto lastSlash = filepath.find_last_of("/\\");
-        lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
-        auto lastDot = filepath.rfind('.');
-        auto count = lastDot == std::string::npos ? filepath.size() - lastSlash : lastDot - lastSlash;
-        m_Name = filepath.substr(lastSlash, count);
-        //Codes from Cherno
+      Compile(shaderSources);
     }
 
     GLShader::GLShader(const std::string name, const std::string& vertexFile,const std::string& fragmentFile,const std::string& geometryFile) {
-#if defined(VV_DEBUG)
+
         VV_CORE_INFO("GL Shader createing {0}, {1}, {2}", vertexFile, fragmentFile, geometryFile);
-#endif
         std::string vertexCode = get_file_contents(vertexFile.c_str());
         std::string fragmentCode = get_file_contents(fragmentFile.c_str());
         std::string geometryCode = get_file_contents(geometryFile.c_str());
@@ -73,9 +72,7 @@ namespace VectorVertex{
 
         Compile(m_GLSources);
 
-#if defined(VV_DEBUG)
         VV_CORE_INFO("GL Shader Created ID:{0} : {1}, {2}, {3}",ID, vertexFile, fragmentFile, geometryFile);
-#endif
     }
 
     std::unordered_map<GLenum, std::string> GLShader::PreProcess(const std::string &source) {
@@ -105,58 +102,65 @@ namespace VectorVertex{
 
     void GLShader::Compile(std::unordered_map<GLenum, std::string> sources) {
         GLuint program = glCreateProgram();
-        std::vector<GLuint> shaderIDs; //Use std::array it's fast than this!!
+        std::vector<GLuint> shaderIDs; // Use std::array, it's faster than this!!
         shaderIDs.reserve(sources.size());
         for(auto&& [type, source] : sources){
             GLuint shader_created = glCreateShader(type);
 
             const char* sourcePtr = source.c_str();
-            glShaderSource(shader_created, 1, &sourcePtr, NULL);
+            GLCall(glShaderSource(shader_created, 1, &sourcePtr, NULL));
 
-            glCompileShader(shader_created);
-            compileErrors(shader_created, source,GetGLStateToString(type).c_str());
+            GLCall(glCompileShader(shader_created));
+            compileErrors(shader_created, source, GetGLStateToString(type).c_str());
 
-            glAttachShader(program, shader_created);
+            GLCall(glAttachShader(program, shader_created));
             shaderIDs.push_back(shader_created);
+
             GLenum err;
             if((err = glGetError()) != GL_NO_ERROR) {
-                std::cerr << "Shader Compiling OpenGL Error: " << err << std::endl;
+              std::cerr << "Shader Compiling OpenGL Error: " << err << std::endl;
             }
-
+            //VV_CORE_WARN("TYPE: {0} :: ID {1}",type, shader_created);
         }
-        glLinkProgram(program);
-        compileErrors(program,"","PROGRAM");
+
+        GLCall(glLinkProgram(program));
+        compileErrors(program, "", "PROGRAM");
+
         GLint isLinked;
         glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
         if (isLinked != GL_TRUE)
         {
             GLint maxLength;
-            glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
+            GLCall(glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength));
 
             std::vector<GLchar> infoLog(maxLength);
-            glGetProgramInfoLog(program, maxLength, &maxLength, infoLog.data());
+            GLCall(glGetProgramInfoLog(program, maxLength, &maxLength, infoLog.data()));
             VV_CORE_ERROR("Shader linking failed ({0}):\n{1}", m_FilePath, infoLog.data());
 
-            glDeleteProgram(program);
+            GLCall(glDeleteProgram(program));
 
             for (auto id : shaderIDs)
-                glDeleteShader(id);
+              glDeleteShader(id);
+        }else{
+            VV_CORE_INFO("Shader Linked Successfully!");
         }
 
         for(auto id : shaderIDs){
-            glDetachShader(program, id);
-            glDeleteShader(id);
+            //GLCall(glDetachShader(program, id));
+            GLCall(glDeleteShader(id));
         }
         ID = program;
-
+        if(ID>0){
+            VV_CORE_INFO("Shader Compilation Done!");
+        }
     }
 
     void GLShader::Activate() const {
-        glUseProgram(ID);
+        GLCall(glUseProgram(ID));
     }
 
     void GLShader::Delete() const{
-        glDeleteProgram(ID);
+        GLCall(glDeleteProgram(ID));
         VV_CORE_INFO("Shader {} Deactivated.", m_Name);
     }
 
@@ -223,19 +227,19 @@ namespace VectorVertex{
     void GLShader::UploadUniformInt(const std::string& name, int value)
     {
         GLint location = glGetUniformLocation(ID, name.c_str());
-        glUniform1i(location, value);
+        GLCall(glUniform1i(location, value));
     }
 
     void GLShader::UploadUniformIntArray(const std::string& name, int* values, uint32_t count)
     {
         GLint location = glGetUniformLocation(ID, name.c_str());
-        glUniform1iv(location, count, values);
+        GLCall(glUniform1iv(location, count, values));
     }
 
     void GLShader::UploadUniformFloat(const std::string& name, float value)
     {
         GLint location = glGetUniformLocation(ID, name.c_str());
-        glUniform1f(location, value);
+        GLCall(glUniform1f(location, value));
     }
 
     void GLShader::UploadUniformFloat2(const std::string& name, const glm::vec2& value)
@@ -247,29 +251,29 @@ namespace VectorVertex{
     void GLShader::UploadUniformFloat3(const std::string& name, const glm::vec3& value)
     {
       GLint location = glGetUniformLocation(ID, name.c_str());
-      if(!location){
-        VV_CORE_ERROR("Float3 {0} not found! in Shader: {1}",name, ID);
-      }
-      VV_CORE_ASSERT(location, "Float3 not Found!");
-      glUniform3f(location, value.x, value.y, value.z);
+      VV_CORE_ASSERT(location, "Float3 not Found! "+name);
+      GLCall(glUniform3f(location, value.x, value.y, value.z));
     }
 
     void GLShader::UploadUniformFloat4(const std::string& name, const glm::vec4& value)
     {
         GLint location = glGetUniformLocation(ID, name.c_str());
-        glUniform4f(location, value.x, value.y, value.z, value.w);
+        GLCall(glUniform4f(location, value.x, value.y, value.z, value.w));
     }
 
     void GLShader::UploadUniformMat3(const std::string& name, const glm::mat3& matrix)
     {
         GLint location = glGetUniformLocation(ID, name.c_str());
-        glUniformMatrix3fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+        GLCall(glUniformMatrix3fv(location, 1, GL_FALSE, glm::value_ptr(matrix)));
     }
 
     void GLShader::UploadUniformMat4(const std::string& name, const glm::mat4& matrix)
     {
       GLint location = glGetUniformLocation(ID, name.c_str());
+      if(location < -1){
+        VV_CORE_ERROR("Mat4 Uniform Not found: {}",name);
+      }
       VV_CORE_ASSERT(location > -1, "UniformNotFound!");
-      glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+      GLCall(glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix)));
     }
 }
