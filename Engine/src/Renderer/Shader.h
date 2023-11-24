@@ -13,7 +13,7 @@ namespace VectorVertex {
 
     class Shader {
     public:
-        virtual ~Shader() = 0;
+        virtual ~Shader() = default;
 
         virtual void Activate() const = 0;
         virtual void Delete() const = 0;

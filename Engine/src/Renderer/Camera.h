@@ -14,16 +14,16 @@ namespace VectorVertex {
     };
     struct CameraProperties{
         CamMode mode = CamMode::Perspective;
-        float fov = 45.0f;
+        float fov = 55.0f;
         float nearPlane = 0.1f;
         float farPlane = 1000.0f;
         int width = 800;
         int height = 800;
         float speed = 0.005f;
-        float sensitivity = 100.0f;
+        float sensitivity = 50.0f;
         bool enableControl = true;
         glm::vec3 Position = glm::vec3(0.0f);
-        glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -1.0f);
+        glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -0.0001f);
         glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
         glm::mat4 cameraMatrix;// = glm::mat4(1.0f);
     };
@@ -33,7 +33,7 @@ namespace VectorVertex {
         virtual ~Camera() = default;
 
         virtual void updateMatrix()=0;
-        virtual void Matrix(Ref<Shader> i_shader, const char* uniform)=0;
+        virtual void Matrix(Ref<Shader> i_shader, std::string uniform)=0;
         virtual void Inputs(GLFWwindow* window)=0;
         virtual void SetCameraMode(CamMode newMode)=0;
 

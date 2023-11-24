@@ -20,6 +20,7 @@ namespace VectorVertex {
         virtual void SetTransform(Ref<Shader> shader,glm::vec3 position,glm::vec3 rotation,glm::vec3 scale)=0;
         virtual glm::vec3 GetPosition() =   0;
         virtual glm::vec3 GetScale()  =0;
+        virtual glm::vec3 GetRotation() =0;
 
         static Ref<Model>Create(const char* file);
 

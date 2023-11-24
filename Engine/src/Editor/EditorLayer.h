@@ -22,7 +22,7 @@ namespace VectorVertex {
 
         void BindFrameBuffer();
         void UnbindFrameBuffer();
-        unsigned int GetFBORenderTextuer() {return m_FrameBuffer->GetRenderTexture();}
+        unsigned int GetFBORenderTextuer() {return NULL;}//m_FrameBuffer->GetRenderTexture();}
         Ref<Camera> GetEditorCamera() {
             if(m_EditorCamera != nullptr)
                 return m_EditorCamera;
@@ -37,7 +37,7 @@ namespace VectorVertex {
     private:
         Ref<Camera> m_EditorCamera;
         CameraProperties m_CameraProps;
-        Ref<FrameBuffer> m_FrameBuffer;
+        //Ref<FrameBuffer> m_FrameBuffer;
     };
 
 } // VectorVertex

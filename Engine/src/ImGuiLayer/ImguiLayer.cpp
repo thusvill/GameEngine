@@ -18,7 +18,7 @@ namespace VectorVertex {
     void InitializeImGui(GLFWwindow* window) {
         if (!initializedImGui) {
             // Initialize ImGui for GLFW
-            ImGui_ImplOpenGL3_Init("#version 460");
+            ImGui_ImplOpenGL3_Init("#version 460 core");
             // Initialize ImGui for OpenGL
             {
                 ImGui_ImplGlfw_InitForOpenGL(window, true);

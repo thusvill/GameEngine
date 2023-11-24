@@ -34,6 +34,9 @@ namespace VectorVertex {
         {
           return m_Scale;
         }
+        virtual glm::vec3 GetRotation() override{
+          return m_Rotation;
+        }
 
         explicit operator bool() const {
             // Define the condition under which the Model is considered "true"
@@ -42,6 +45,7 @@ namespace VectorVertex {
     private:
         glm::vec3 m_Position;
         glm::vec3 m_Scale;
+        glm::vec3 m_Rotation;
 
     private:
         const char* file;

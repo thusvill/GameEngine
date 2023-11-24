@@ -85,6 +85,7 @@ namespace VectorVertex{
         GLCall(glDeleteTextures(1, &textureID));
         GLCall(glDeleteRenderbuffers(1, &RBO));
 
+
         GLCall(glGenFramebuffers(1, &framebufferID));
         GLCall(glBindFramebuffer(GL_FRAMEBUFFER, framebufferID));
 
@@ -107,7 +108,7 @@ namespace VectorVertex{
         // Check for framebuffer completeness
         CheckFBOErrors();
 
-        GLCall(glBindFramebuffer(GL_FRAMEBUFFER, 0));
+        Bind();// defaulth Unibind();
     }
 
 

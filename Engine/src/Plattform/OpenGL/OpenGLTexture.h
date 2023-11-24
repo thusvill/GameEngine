@@ -19,7 +19,7 @@ public:
         Delete();
     }
 
-    virtual void texUni(Ref<Shader> _shader, const char* uniform, unsigned int unit) override;
+    virtual void texUni(Ref<Shader> _shader, std::string uniform, unsigned int unit) override;
     virtual void Bind() override;
     virtual void Unbind() override;
     virtual void Delete() override;

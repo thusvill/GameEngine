@@ -31,13 +31,13 @@ namespace VectorVertex{
 
     void Application::PushOverlay(VectorVertex::Layer *layer) {
         m_LayerStack.PushOverlay(layer);
-        VV_CORE_INFO("PushingOverlay: {}", layer->GetName());
+        //VV_CORE_INFO("PushingOverlay: {}", layer->GetName());
        // layer->OnAttach();
     }
 
     void Application::OnStart() {
         VV_CORE_WARN("Started!");
-        RenderAPI::SetAPI(RenderAPI::API::OpenGL);
+        //RenderAPI::SetAPI(RenderAPI::API::OpenGL);
 
     }
     void Application::Run() {
@@ -49,21 +49,21 @@ namespace VectorVertex{
                 VV_CORE_ERROR("ImGui Layer not found!");
                 return;
             }
-            {
+
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
 
-                m_EditorLayer->BindFrameBuffer();
-                glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
-                glClear(GL_COLOR_BUFFER_BIT);
-                m_Window->OnRender();
+                //m_EditorLayer->BindFrameBuffer();
+                //glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
+                //glClear(GL_COLOR_BUFFER_BIT);
                 for (Layer *layer: m_LayerStack) {
-                    if(!layer){
-                        VV_CORE_ERROR("Layer {} is Null or empty!", layer->GetName());
-                    }
-                    layer->OnRender();
+                  if(!layer){
+                    VV_CORE_ERROR("Layer {} is Null or empty!", layer->GetName());
+                  }
+                  layer->OnRender();
                 }
-                m_EditorLayer->UnbindFrameBuffer();
+                m_Window->OnRender();
+          //m_EditorLayer->UnbindFrameBuffer();
 
                 m_ImGuiLayer->Begin();
                 //ShowDockSpace
@@ -85,7 +85,7 @@ namespace VectorVertex{
                 m_ImGuiLayer->End();
                 m_Window->OnUpdate();
 
-            }
+
         }
         Stop();
     }
@@ -95,15 +95,16 @@ namespace VectorVertex{
     }
 
     void Application::Stop() {
-
+        m_LayerStack.PopLayer(m_ImGuiLayer);
+        m_LayerStack.PopLayer(m_EditorLayer);
         delete m_ImGuiLayer;
         delete m_EditorLayer;
+        VV_CORE_INFO("Application Stopped!");
     }
     void Window::OnStart() {
 
     }
     void Window::OnRender() {
-
     }
 
 }

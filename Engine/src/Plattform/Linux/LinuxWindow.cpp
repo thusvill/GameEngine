@@ -39,13 +39,16 @@ namespace VectorVertex {
                 VV_CORE_ERROR("Failed to initialize GLFW in LinuxWindow.cpp");
                 return;
             }
+            else{
+                VV_CORE_INFO("GLFW Initialized successfully!");
+            }
         }
 
-            if (RenderAPI::GetAPI() == RenderAPI::API::OpenGL)
-				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
-                                glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-                                glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 
+            glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+            glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
             m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
             ++s_GLFWWindowCount;
 
@@ -86,8 +89,8 @@ namespace VectorVertex {
 
         if (!glfwWindowShouldClose(m_Window))
         {
-            m_Context->SwapBuffers();
-            glfwPollEvents();
+          glfwPollEvents();
+          m_Context->SwapBuffers();
         }
         else
         {

@@ -5,9 +5,11 @@ layout (line_strip, max_vertices = 6) out;
 
 in DATA
 {
+    vec3 Pos;
+    vec3 crntPos;
     vec3 Normal;
-	vec3 color;
-	vec2 texCoord;
+    vec3 color;
+    vec2 texCoord;
     mat4 projection;
 } data_in[];
 

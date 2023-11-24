@@ -12,13 +12,13 @@ layout (location = 3) in vec2 aTex;
 
 out DATA
 {
-    vec3 Normal;
+	vec3 Pos;
+	vec3 crntPos;
+	vec3 Normal;
 	vec3 color;
 	vec2 texCoord;
-    mat4 projection;
+	mat4 projection;
 } data_out;
-
-
 
 // Imports the camera matrix
 uniform mat4 camMatrix;
@@ -26,15 +26,17 @@ uniform mat4 camMatrix;
 uniform mat4 model;
 uniform mat4 translation;
 uniform mat4 rotation;
-uniform mat4 scale;
+uniform mat4 scale = mat4(1.0f);
 
-uniform mat4 newPos = mat4(0.0001f);
-uniform mat4 newRot = mat4(0.0001f);
-uniform mat4 newScale = mat4(1.0f);
+uniform vec3 newPos;
+uniform vec3 newRot = vec3(0.0001f);
+uniform vec3 newScale = vec3(1.0f);
 
 void main()
 {
-	gl_Position = model * translation * rotation * scale*newRot*newScale * newPos*vec4(aPos, 1.0f);
+	gl_Position = model * translation * rotation * scale*vec4(newRot, 1.0f)*vec4(newScale, 1.0f) * vec4(newPos, 1.0f)*vec4(aPos, 1.0f);
+	data_out.Pos = aPos;
+	data_out.crntPos = vec3(model * vec4(aPos, 1.0f));
 	data_out.Normal = aNormal;
 	data_out.color = aColor;
 	data_out.texCoord = mat2(0.0, -1.0, 1.0, 0.0) * aTex;

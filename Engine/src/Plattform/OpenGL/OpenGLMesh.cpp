@@ -9,6 +9,8 @@ OpenGLMesh::OpenGLMesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indic
   vao.Bind();
 
   VV_CORE_ASSERT(vertices.size() > 0, "Vertices are 0!");
+  VV_CORE_ASSERT(indices.size() > 0, "Indices are 0!");
+  VV_CORE_ASSERT(textures.size() > 0, "Textures are 0!");
 
   OpenGLVBO vbo(vertices);
   OpenGLEBO ebo(indices);
@@ -26,8 +28,6 @@ OpenGLMesh::OpenGLMesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indic
 
 void OpenGLMesh::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera> i_camera, glm::mat4 matrix, glm::vec3 translation, glm::quat rotation, glm::vec3 scale) {
   shader->Activate();
-  vao.Bind();
-
   unsigned int numDiffuse = 0;
   unsigned int numSpecular = 0;
 
@@ -39,14 +39,14 @@ void OpenGLMesh::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera
     } else if (type == "specular") {
       num = std::to_string(numSpecular++);
     }
-    textures[i]->texUni(shader, (type + num).c_str(), i);
+    textures[i]->texUni(shader, (type + num), i);
     textures[i]->Bind();
   }
-
+  vao.Bind();
     GLCall(shader->SetFloat3("camPos", i_camera->GetProperties().Position));
     i_camera->Matrix(shader, "camMatrix");
 
-    glm::mat4 trans = glm::mat4(1.0f);
+    /*glm::mat4 trans = glm::mat4(1.0f);
     glm::mat4 rot = glm::mat4(1.0f);
     glm::mat4 sca = glm::mat4(1.0f);
 
@@ -54,7 +54,7 @@ void OpenGLMesh::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera
     shader->SetMat4("rotation", rot);
     shader->SetMat4("scale", sca);
     shader->SetMat4("model", matrix);
-
+*/
     // Draw the actual mesh
     GLCall(glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0));
     //vao.Unbind();

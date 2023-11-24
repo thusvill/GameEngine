@@ -28,6 +28,7 @@ void OpenGLModel::Position(Ref<VectorVertex::Shader> shader, glm::vec3 newPositi
 void OpenGLModel::Rotation(Ref<VectorVertex::Shader> shader, glm::vec3 rotation) {
     //shader->SetFloat3("newRot", rotation);
     shader->SetFloat3("newRot", rotation);
+    m_Rotation = rotation;
 }
 void OpenGLModel::Scale(Ref<VectorVertex::Shader> shader, glm::vec3 newScale) {
     //shader->SetFloat3("newScale", newScale);

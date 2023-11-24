@@ -115,11 +115,6 @@ namespace VectorVertex{
 
             GLCall(glAttachShader(program, shader_created));
             shaderIDs.push_back(shader_created);
-
-            GLenum err;
-            if((err = glGetError()) != GL_NO_ERROR) {
-              std::cerr << "Shader Compiling OpenGL Error: " << err << std::endl;
-            }
             //VV_CORE_WARN("TYPE: {0} :: ID {1}",type, shader_created);
         }
 
@@ -130,7 +125,7 @@ namespace VectorVertex{
         glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
         if (isLinked != GL_TRUE)
         {
-            GLint maxLength;
+            int maxLength;
             GLCall(glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength));
 
             std::vector<GLchar> infoLog(maxLength);
@@ -273,7 +268,7 @@ namespace VectorVertex{
       if(location < -1){
         VV_CORE_ERROR("Mat4 Uniform Not found: {}",name);
       }
-      VV_CORE_ASSERT(location > -1, "UniformNotFound!");
+      VV_CORE_ASSERT(location > -1, "UniformNotFound! "+name);
       GLCall(glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix)));
     }
 }

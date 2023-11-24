@@ -67,9 +67,9 @@ OpenGLTexture::OpenGLTexture(VectorVertex::TextureData data):m_Data(data) {
   stbi_image_free(bytes);
   glBindTexture(GL_TEXTURE_2D, 0);
 }
-void OpenGLTexture::texUni(Ref<VectorVertex::Shader> _shader, const char *uniform, unsigned int unit) {
+void OpenGLTexture::texUni(Ref<VectorVertex::Shader> _shader, std::string uniform, unsigned int unit) {
   _shader->Activate();
-  _shader->SetInt(std::to_string(*uniform), unit);
+  _shader->SetInt(uniform, unit);
 }
 void OpenGLTexture::Bind() {
   glActiveTexture(GL_TEXTURE0+m_Data.unit);
