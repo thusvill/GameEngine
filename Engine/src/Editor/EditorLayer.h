@@ -37,7 +37,7 @@ namespace VectorVertex {
     private:
         Ref<Camera> m_EditorCamera;
         CameraProperties m_CameraProps;
-        //Ref<FrameBuffer> m_FrameBuffer;
+        Ref<FrameBuffer> m_FrameBuffer;
     };
 
 } // VectorVertex

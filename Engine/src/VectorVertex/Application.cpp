@@ -53,9 +53,9 @@ namespace VectorVertex{
                 glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
 
-                //m_EditorLayer->BindFrameBuffer();
-                //glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
-                //glClear(GL_COLOR_BUFFER_BIT);
+                m_EditorLayer->BindFrameBuffer();
+                glClearColor(0.26f, 0.26f, 0.26f, 1.0f);
+                glClear(GL_COLOR_BUFFER_BIT);
                 for (Layer *layer: m_LayerStack) {
                   if(!layer){
                     VV_CORE_ERROR("Layer {} is Null or empty!", layer->GetName());
@@ -63,7 +63,7 @@ namespace VectorVertex{
                   layer->OnRender();
                 }
                 m_Window->OnRender();
-          //m_EditorLayer->UnbindFrameBuffer();
+                m_EditorLayer->UnbindFrameBuffer();
 
                 m_ImGuiLayer->Begin();
                 //ShowDockSpace

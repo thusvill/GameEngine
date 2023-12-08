@@ -27,11 +27,11 @@ uniform mat4 camMatrix;
 uniform mat4 model;
 uniform mat4 translation;
 uniform mat4 rotation;
-uniform mat4 scale = mat4(1.0f);
+uniform mat4 scale;
 
 uniform vec3 newPos;
-uniform vec3 newRot = vec3(0.0001f);
-uniform vec3 newScale = vec3(1.0f);
+uniform vec3 newRot;
+uniform vec3 newScale;
 
 void main()
 {

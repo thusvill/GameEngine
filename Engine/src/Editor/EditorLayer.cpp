@@ -22,7 +22,7 @@ namespace VectorVertex {
     void EditorLayer::OnAttach() {
         m_EditorCamera = Camera::Create(m_CameraProps);
       m_EditorCamera->GetProperties().Position = glm::vec3(-1.0f);
-      //m_FrameBuffer = FrameBuffer::Create(800,700);
+      m_FrameBuffer = FrameBuffer::Create(800,700);
 
       //model_shader = Shader::Create("default", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.vert", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.frag", "/home/bios/CLionProjects/GameEngine/GameEngine/Engine/res/Shaders/default.geom");
       //m_ShaderLibrary.Add(model_shader);
@@ -40,11 +40,11 @@ namespace VectorVertex {
     }
 
     void EditorLayer::BindFrameBuffer() {
-        //m_FrameBuffer->Bind();
+        m_FrameBuffer->Bind();
     }
 
     void EditorLayer::UnbindFrameBuffer() {
-        //m_FrameBuffer->Unbind();
+        m_FrameBuffer->Unbind();
     }
 
     void EditorLayer::OnDetach() {
@@ -69,9 +69,9 @@ namespace VectorVertex {
     }
 
     void EditorLayer::OnRender() {
-      //model->Draw(model_shader, m_EditorCamera);
       m_EditorCamera->updateMatrix();
-      ExampleTriangle();
+      model->Draw(model_shader, m_EditorCamera);
+      //ExampleTriangle();
       GLenum err;
       if ((err = glGetError()) != GL_NO_ERROR) {
         std::cerr << "OpenGL Error: " << err << std::endl;
@@ -86,15 +86,15 @@ namespace VectorVertex {
         {
             ImGui::Begin("Viewport");
 
-            //GLuint fboTextureID = m_FrameBuffer->GetRenderTexture();
+            GLuint fboTextureID = m_FrameBuffer->GetRenderTexture();
             ImVec2 panelSize = ImGui::GetContentRegionAvail();
             if (panelSize.x != m_EditorCamera->GetProperties().width || panelSize.y != m_EditorCamera->GetProperties().height) {
-                //m_EditorCamera->Resize(panelSize.x, panelSize.y);
+                m_EditorCamera->Resize(panelSize.x, panelSize.y);
                 glViewport(0, 0, panelSize.x, panelSize.y);
-                //m_FrameBuffer->Resize(panelSize.x, panelSize.y);
+                m_FrameBuffer->Resize(panelSize.x, panelSize.y);
             }
-            //ImGui::Image(reinterpret_cast<void *>(static_cast<uintptr_t>(fboTextureID)),
-             //            ImVec2(panelSize.x, panelSize.y), ImVec2(0, 1), ImVec2(1, 0));
+            ImGui::Image(reinterpret_cast<void *>(static_cast<uintptr_t>(fboTextureID)),
+                        ImVec2(panelSize.x, panelSize.y), ImVec2(0, 1), ImVec2(1, 0));
 
             ImGui::End();
         }
