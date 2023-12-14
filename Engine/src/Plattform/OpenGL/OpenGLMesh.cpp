@@ -6,14 +6,19 @@
 #include "OpenGLCamera.h"
 namespace VectorVertex{
 OpenGLMesh::OpenGLMesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices, std::vector<Ref<Texture>>& i_textures) :vertices(vertices), indices(indices), textures(i_textures){
-  vao.Bind();
 
   VV_CORE_ASSERT(vertices.size() > 0, "Vertices are 0!");
   VV_CORE_ASSERT(indices.size() > 0, "Indices are 0!");
   VV_CORE_ASSERT(textures.size() > 0, "Textures are 0!");
 
+
   OpenGLVBO vbo(vertices);
   OpenGLEBO ebo(indices);
+
+  vao.Bind();
+  vbo.Bind();
+  ebo.Bind();
+
 
   vao.LinkAttrib(vbo, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0);
   vao.LinkAttrib(vbo, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)(3 * sizeof(float)));
@@ -29,6 +34,8 @@ OpenGLMesh::OpenGLMesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indic
 void OpenGLMesh::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera> i_camera, glm::mat4 matrix, glm::vec3 translation, glm::quat rotation, glm::vec3 scale) {
   shader->Activate();
   vao.Bind();
+
+  //Prepearing Textures
   unsigned int numDiffuse = 0;
   unsigned int numSpecular = 0;
 
@@ -43,6 +50,7 @@ void OpenGLMesh::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera
     textures[i]->texUni(shader, (type + num), i);
     textures[i]->Bind();
   }
+  //
     GLCall(shader->SetFloat3("camPos", i_camera->GetProperties().Position));
     i_camera->Matrix(shader, "camMatrix");
 
@@ -56,6 +64,7 @@ void OpenGLMesh::Draw(Ref<VectorVertex::Shader> shader, Ref<VectorVertex::Camera
     shader->SetMat4("model", matrix);
     // Draw the actual mesh
     GLCall(glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0));
+    vao.Unbind();
     GLenum error = glGetError();
     if (error != GL_NO_ERROR) {
       std::cerr << "OpenGL error: " << error << std::endl;

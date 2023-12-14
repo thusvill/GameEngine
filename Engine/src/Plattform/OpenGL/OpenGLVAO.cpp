@@ -7,6 +7,7 @@
 namespace VectorVertex{
     OpenGLVAO::OpenGLVAO() {
         glGenVertexArrays(1, &ID);
+        Bind();
         VV_CORE_INFO("VAO Created!");
     }
 
@@ -15,10 +16,10 @@ namespace VectorVertex{
           glGenVertexArrays(1, &ID);
           VV_CORE_INFO("VAO not exist!, Automatically created one");
         }
-        VBO.Bind();
+        //VBO.Bind();
         GLCall(glVertexAttribPointer(layout, numComponents, type, GL_FALSE, stride, offset));
         GLCall(glEnableVertexAttribArray(layout));
-        VBO.Unbind();
+        //VBO.Unbind();
     }
 
     void OpenGLVAO::Bind()  {

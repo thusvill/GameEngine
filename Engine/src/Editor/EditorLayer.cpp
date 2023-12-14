@@ -48,7 +48,7 @@ namespace VectorVertex {
     }
 
     void EditorLayer::OnDetach() {
-
+        model_shader->Delete();
     }
 
     void EditorLayer::OnUpdate(){
@@ -70,8 +70,9 @@ namespace VectorVertex {
 
     void EditorLayer::OnRender() {
       m_EditorCamera->updateMatrix();
+      ExampleTriangle();
       model->Draw(model_shader, m_EditorCamera);
-      //ExampleTriangle();
+
       GLenum err;
       if ((err = glGetError()) != GL_NO_ERROR) {
         std::cerr << "OpenGL Error: " << err << std::endl;

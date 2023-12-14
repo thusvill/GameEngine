@@ -68,7 +68,9 @@ namespace VectorVertex{
         //const char* geometrySource = geometryCode.c_str();
         m_GLSources[GL_VERTEX_SHADER] = vertexCode;
         m_GLSources[GL_FRAGMENT_SHADER] = fragmentCode;
-        m_GLSources[GL_GEOMETRY_SHADER] = geometryCode;
+        if(!geometryCode.empty()) {
+            m_GLSources[GL_GEOMETRY_SHADER] = geometryCode;
+        }
 
         Compile(m_GLSources);
 
